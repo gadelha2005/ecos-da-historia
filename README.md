@@ -45,3 +45,13 @@ Convenções: arquivos em `snake_case`, classes com `class_name` em `PascalCase`
 ## Documentação do projeto
 
 GDD, Narrativa e Storyboard ficam fora deste repositório, na pasta compartilhada do projeto.
+
+## Convenções de código (GDScript)
+
+- Arquivos, variáveis e funções: `snake_case` (`player.gd`, `velocidade`, `trocar_cena`).
+- Classes (`class_name`) e nós nas cenas: `PascalCase` (`Player`, `MenuInicial`).
+- Constantes: `MAIUSCULO_COM_UNDERLINE`.
+- Sinais no passado: `chave_coletada`, `fase_concluida`.
+- Use tipos sempre que possível (`var vida: int = 3`).
+- Um script por cena, com o mesmo nome (`player.tscn` e `player.gd`).
+- Textos do jogo (falas, nomes) ficam em `data/`, não dentro do código.
