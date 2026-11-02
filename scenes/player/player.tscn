@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://c1uwo5f8cfsh"]
+
+[ext_resource type="Texture2D" uid="uid://2pwi6i1u267v" path="res://assets/sprites/player/catalisador_frente_parado.png" id="1_8afob"]
+[ext_resource type="Script" uid="uid://clgjnyvm7bwlp" path="res://scenes/player/player.gd" id="1_dovo2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tj18j"]
+size = Vector2(10, 3)
+
+[node name="Player" type="CharacterBody2D" unique_id=1563879509]
+script = ExtResource("1_dovo2")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1570245813]
+texture = ExtResource("1_8afob")
+offset = Vector2(0, -16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1339194036]
+position = Vector2(0, -4.5)
+shape = SubResource("RectangleShape2D_tj18j")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=31490258]
+zoom = Vector2(4, 4)
