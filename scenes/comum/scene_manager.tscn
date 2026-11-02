@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cs7ppmjiosfco"]
+
+[ext_resource type="Script" uid="uid://cpurcbk4eru0k" path="res://scripts/autoload/scene_manager.gd" id="1_11jvf"]
+
+[node name="SceneManager" type="CanvasLayer" unique_id=1553879087]
+layer = 100
+script = ExtResource("1_11jvf")
+
+[node name="Fade" type="ColorRect" parent="." unique_id=1399804584]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
