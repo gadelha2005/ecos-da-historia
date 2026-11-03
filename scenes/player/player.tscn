@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://c1uwo5f8cfsh"]
 
 [ext_resource type="Texture2D" uid="uid://2pwi6i1u267v" path="res://assets/sprites/player/catalisador_frente_parado.png" id="1_8afob"]
-[ext_resource type="Script" uid="uid://clgjnyvm7bwlp" path="res://scenes/player/player.gd" id="1_dovo2"]
+[ext_resource type="Script" uid="uid://clgjnyvm7bwlp" path="res://scripts/player/player.gd" id="1_dovo2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tj18j"]
-size = Vector2(10, 3)
+size = Vector2(10, 6)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vwy6q"]
 size = Vector2(8, 8)

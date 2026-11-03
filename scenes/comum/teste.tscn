@@ -1,12 +1,15 @@
 [gd_scene format=3 uid="uid://b3h3axxnnrlds"]
 
 [ext_resource type="PackedScene" uid="uid://c1uwo5f8cfsh" path="res://scenes/player/player.tscn" id="1_4m80d"]
+[ext_resource type="Script" uid="uid://bkqrsj323032i" path="res://scripts/comum/cena_jogavel.gd" id="1_j3dk7"]
 [ext_resource type="PackedScene" uid="uid://dwxjolvrvnx5y" path="res://scenes/comum/objeto_teste.tscn" id="2_bbxnj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tj18j"]
 size = Vector2(56, 25)
 
-[node name="Teste" type="Node2D" unique_id=1681777744]
+[node name="Teste" type="Node2D" unique_id=1681777744 node_paths=PackedStringArray("jogador")]
+script = ExtResource("1_j3dk7")
+jogador = NodePath("Player")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=1024670479]
 
@@ -24,3 +27,11 @@ shape = SubResource("RectangleShape2D_tj18j")
 
 [node name="ObjetoTeste" parent="." unique_id=1701109676 instance=ExtResource("2_bbxnj")]
 position = Vector2(50, -49)
+cena_destino = "uid://cdlgicq80huq4"
+spawn_destino = "Spawn_B"
+
+[node name="Spawn_Inicio" type="Marker2D" parent="." unique_id=162064005 groups=["spawn"]]
+position = Vector2(90, 0)
+
+[node name="Spawn_B" type="Marker2D" parent="." unique_id=1416373968 groups=["spawn"]]
+position = Vector2(80, 0)

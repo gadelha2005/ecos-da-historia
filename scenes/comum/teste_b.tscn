@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://cdlgicq80huq4"]
+
+[ext_resource type="Script" uid="uid://bkqrsj323032i" path="res://scripts/comum/cena_jogavel.gd" id="1_ypic8"]
+[ext_resource type="PackedScene" uid="uid://c1uwo5f8cfsh" path="res://scenes/player/player.tscn" id="2_acip8"]
+[ext_resource type="PackedScene" uid="uid://dwxjolvrvnx5y" path="res://scenes/comum/objeto_teste.tscn" id="3_dvuje"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tj18j"]
+size = Vector2(56, 25)
+
+[node name="Teste" type="Node2D" unique_id=1681777744 node_paths=PackedStringArray("jogador")]
+script = ExtResource("1_ypic8")
+jogador = NodePath("Player")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=1024670479]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1742007863]
+shape = SubResource("RectangleShape2D_tj18j")
+
+[node name="Player" parent="." unique_id=1563879509 instance=ExtResource("2_acip8")]
+position = Vector2(0, -14)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1627918832]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=2045578212]
+position = Vector2(-59, -23.5)
+shape = SubResource("RectangleShape2D_tj18j")
+
+[node name="ObjetoTeste" parent="." unique_id=1701109676 instance=ExtResource("3_dvuje")]
+position = Vector2(50, -49)
+cena_destino = "uid://b3h3axxnnrlds"
+spawn_destino = "Spawn_Inicio"
+
+[node name="Spawn_Inicio" type="Marker2D" parent="." unique_id=162064005 groups=["spawn"]]
+position = Vector2(90, 0)
+
+[node name="Spawn_B" type="Marker2D" parent="." unique_id=1416373968 groups=["spawn"]]
+position = Vector2(-90, 0)
