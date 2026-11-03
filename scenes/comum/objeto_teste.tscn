@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dwxjolvrvnx5y"]
+
+[ext_resource type="Script" uid="uid://bhnnhnuclrnqd" path="res://scripts/comum/objeto_teste.gd" id="1_yawjq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tj18j"]
+size = Vector2(16, 16)
+
+[node name="ObjetoTeste" type="Area2D" unique_id=1701109676 groups=["interagivel"]]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_yawjq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=886003482]
+shape = SubResource("RectangleShape2D_tj18j")

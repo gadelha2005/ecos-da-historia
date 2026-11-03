@@ -2,7 +2,7 @@ class_name Player
 extends CharacterBody2D
 
 @export var velocidade: float = 64.0
-
+@onready var area_interacao: Area2D = $Interacao
 var pode_mover: bool = true
 var direcao_olhando: Vector2 = Vector2.DOWN
 
@@ -25,3 +25,26 @@ func _ler_direcao() -> Vector2:
 		# duas teclas ao mesmo tempo: segue na direção em que já estava indo
 		return Vector2(x, 0.0) if direcao_olhando.x != 0.0 else Vector2(0.0, y)
 	return Vector2(x, y)
+	
+func _process(_delta: float) -> void:
+	# a área de interação fica sempre na frente do jogador
+	area_interacao.position = direcao_olhando * 10.0 + Vector2(0.0, -6.0)
+
+
+func _unhandled_input(event: InputEvent) -> void:
+	if pode_mover and event.is_action_pressed("interagir"):
+		_interagir()
+
+
+func _interagir() -> void:
+	var mais_perto: Area2D = null
+	var menor_distancia := INF
+	for alvo in area_interacao.get_overlapping_areas():
+		if not alvo.is_in_group("interagivel") or not alvo.has_method("interagir"):
+			continue
+		var distancia := global_position.distance_to(alvo.global_position)
+		if distancia < menor_distancia:
+			menor_distancia = distancia
+			mais_perto = alvo
+	if mais_perto:
+		mais_perto.interagir(self)

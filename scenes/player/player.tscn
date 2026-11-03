@@ -6,6 +6,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tj18j"]
 size = Vector2(10, 3)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vwy6q"]
+size = Vector2(8, 8)
+
 [node name="Player" type="CharacterBody2D" unique_id=1563879509]
 script = ExtResource("1_dovo2")
 
@@ -19,3 +22,11 @@ shape = SubResource("RectangleShape2D_tj18j")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=31490258]
 zoom = Vector2(4, 4)
+
+[node name="Interacao" type="Area2D" parent="." unique_id=147983376]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interacao" unique_id=925856533]
+shape = SubResource("RectangleShape2D_vwy6q")
