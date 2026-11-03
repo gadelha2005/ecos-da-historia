@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://igfw78phkavc"]
+
+[ext_resource type="Script" path="res://scripts/comum/cena_jogavel.gd" id="1_nmqve"]
+[ext_resource type="PackedScene" path="res://scenes/comum/portal.tscn" id="2_efakn"]
+[ext_resource type="PackedScene" path="res://scenes/player/player.tscn" id="3_4uroa"]
+
+[node name="TesteD3" type="Node2D" unique_id=1980283421 node_paths=PackedStringArray("jogador")]
+script = ExtResource("1_nmqve")
+jogador = NodePath("Player")
+
+[node name="Portal_Fase0" parent="." unique_id=1200308274 instance=ExtResource("2_efakn")]
+position = Vector2(100, 120)
+cena_destino = "res://scenes/fases/fase_teste.tscn"
+spawn_destino = "Spawn_Inicio"
+
+[node name="Rotulo_Fase0" type="Label" parent="." unique_id=215358181]
+offset_left = 72.5
+offset_top = 96.375
+offset_right = 292.5
+offset_bottom = 141.375
+scale = Vector2(0.25, 0.25)
+theme_override_font_sizes/font_size = 32
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+text = "fase 0"
+horizontal_alignment = 1
+
+[node name="Portal_Fase1" parent="." unique_id=654801531 instance=ExtResource("2_efakn")]
+position = Vector2(160, 120)
+fase = 1
+
+[node name="Rotulo_Fase1" type="Label" parent="." unique_id=1954892228]
+offset_left = 132.5
+offset_top = 96.375
+offset_right = 352.5
+offset_bottom = 141.375
+scale = Vector2(0.25, 0.25)
+theme_override_font_sizes/font_size = 32
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+text = "fase 1 · trancado"
+horizontal_alignment = 1
+
+[node name="Portal_Fase2" parent="." unique_id=665231244 instance=ExtResource("2_efakn")]
+position = Vector2(220, 120)
+fase = 2
+
+[node name="Rotulo_Fase2" type="Label" parent="." unique_id=1967042362]
+offset_left = 192.5
+offset_top = 96.375
+offset_right = 412.5
+offset_bottom = 141.375
+scale = Vector2(0.25, 0.25)
+theme_override_font_sizes/font_size = 32
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+text = "fase 2 · trancado"
+horizontal_alignment = 1
+
+[node name="Spawn_Inicio" type="Marker2D" parent="." unique_id=873488437 groups=["spawn"]]
+position = Vector2(160, 168)
+
+[node name="Player" parent="." unique_id=1563879509 instance=ExtResource("3_4uroa")]
+position = Vector2(160, 168)
