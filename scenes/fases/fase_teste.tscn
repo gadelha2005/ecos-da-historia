@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://byacstqv5fx16"]
+
+[ext_resource type="Script" path="res://scripts/comum/cena_jogavel.gd" id="1_7cmov"]
+[ext_resource type="PackedScene" path="res://scenes/comum/portal.tscn" id="2_mx8py"]
+[ext_resource type="PackedScene" path="res://scenes/player/player.tscn" id="3_n3fpn"]
+
+[node name="FaseTeste" type="Node2D" unique_id=1286761416 node_paths=PackedStringArray("jogador")]
+script = ExtResource("1_7cmov")
+jogador = NodePath("Player")
+
+[node name="Chao" type="ColorRect" parent="." unique_id=1676448873]
+offset_right = 480.0
+offset_bottom = 272.0
+mouse_filter = 2
+color = Color(0.77, 0.67, 0.47, 1)
+
+[node name="Titulo" type="Label" parent="." unique_id=1122166693]
+offset_left = 165.0
+offset_top = 34.375
+offset_right = 765.0
+offset_bottom = 79.375
+scale = Vector2(0.25, 0.25)
+theme_override_font_sizes/font_size = 32
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+text = "Fase de teste"
+horizontal_alignment = 1
+
+[node name="PortalVolta" parent="." unique_id=1200308274 instance=ExtResource("2_mx8py")]
+position = Vector2(80, 136)
+cena_destino = "res://scenes/hub/hub.tscn"
+spawn_destino = "Spawn_Portal1904"
+sempre_aberto = true
+
+[node name="RotuloVolta" type="Label" parent="." unique_id=809419097]
+offset_left = 5.0
+offset_top = 112.375
+offset_right = 605.0
+offset_bottom = 157.375
+scale = Vector2(0.25, 0.25)
+theme_override_font_sizes/font_size = 32
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+text = "Volta ao hub"
+horizontal_alignment = 1
+
+[node name="Spawn_Inicio" type="Marker2D" parent="." unique_id=670296616 groups=["spawn"]]
+position = Vector2(112, 144)
+
+[node name="Player" parent="." unique_id=1563879509 instance=ExtResource("3_n3fpn")]
+position = Vector2(112, 144)
