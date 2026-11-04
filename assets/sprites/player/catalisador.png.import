@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2pwi6i1u267v"
-path="res://.godot/imported/catalisador_frente_parado.png-67da676f6f75beb54f22757ba082c8d4.ctex"
+uid="uid://dlxu22nrvwnn3"
+path="res://.godot/imported/catalisador.png-04c34521a3bec49572ea103a4870b36f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/player/catalisador_frente_parado.png"
-dest_files=["res://.godot/imported/catalisador_frente_parado.png-67da676f6f75beb54f22757ba082c8d4.ctex"]
+source_file="res://assets/sprites/player/catalisador.png"
+dest_files=["res://.godot/imported/catalisador.png-04c34521a3bec49572ea103a4870b36f.ctex"]
 
 [params]
 

@@ -67,3 +67,10 @@ func _atualizar_animacao() -> void:
 	if not sprite.sprite_frames.has_animation(nome):
 		nome = prefixo + "baixo"
 	sprite.play(nome)
+	
+func definir_limites(area: Rect2i) -> void:
+	var camera: Camera2D = $Camera2D
+	camera.limit_left = area.position.x
+	camera.limit_top = area.position.y
+	camera.limit_right = area.end.x
+	camera.limit_bottom = area.end.y
