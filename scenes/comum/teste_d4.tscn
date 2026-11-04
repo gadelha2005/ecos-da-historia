@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://dvgvs88vwdaep"]
+
+[ext_resource type="Script" path="res://scripts/comum/cena_jogavel.gd" id="1_1kq8y"]
+[ext_resource type="PackedScene" path="res://scenes/hub/porta_saida.tscn" id="2_ryon3"]
+[ext_resource type="PackedScene" path="res://scenes/player/player.tscn" id="3_wr5vk"]
+
+[node name="TesteD4" type="Node2D" unique_id=896589467 node_paths=PackedStringArray("jogador")]
+script = ExtResource("1_1kq8y")
+jogador = NodePath("Player")
+
+[node name="PortaSaida" parent="." unique_id=1078571635 instance=ExtResource("2_ryon3")]
+position = Vector2(160, 104)
+
+[node name="Instrucoes" type="Label" parent="." unique_id=114163583]
+offset_left = 35.0
+offset_top = 178.375
+offset_right = 1035.0
+offset_bottom = 223.375
+scale = Vector2(0.25, 0.25)
+theme_override_font_sizes/font_size = 32
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+text = "E: interagir com a porta · F9: dar todas as chaves"
+horizontal_alignment = 1
+
+[node name="Spawn_Inicio" type="Marker2D" parent="." unique_id=1207518521 groups=["spawn"]]
+position = Vector2(160, 152)
+
+[node name="Player" parent="." unique_id=1563879509 instance=ExtResource("3_wr5vk")]
+position = Vector2(160, 152)
