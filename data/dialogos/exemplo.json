@@ -1,0 +1,34 @@
+{
+  "inicio": "n1",
+  "nos": [
+	{
+	  "id": "n1",
+	  "fala": "Doutor, não vou deixar essa agulha chegar perto do meu bebê.",
+	  "opcoes": [
+		{ "texto": "Você quer proteger seu filho. Isso é o mais importante.", "tipo": "empatia", "peso": 3, "tensao": -5, "destino": "n2" },
+		{ "texto": "A varíola é uma doença grave, e a vacina protege.", "tipo": "fato", "peso": 2, "tensao": 5, "destino": "n3" },
+		{ "texto": "É a lei, a vacina é obrigatória.", "tipo": "autoridade", "peso": 0, "tensao": 15, "destino": "n4" }
+	  ]
+	},
+	{
+	  "id": "n2",
+	  "fala": "E se ela passar mal depois?",
+	  "opcoes": [
+		{ "texto": "Pode dar febre leve, e eu fico por aqui para ajudar.", "tipo": "fato", "peso": 3, "tensao": -5, "destino": "n4" },
+		{ "texto": "Veja o relato de quem já foi vacinado.", "tipo": "provas", "peso": 4, "tensao": -10, "exige_prova": "relato_curado", "destino": "n4" }
+	  ]
+	},
+	{
+	  "id": "n3",
+	  "fala": "Mas eu tenho medo. Ouvi cada história...",
+	  "opcoes": [
+		{ "texto": "É normal ter medo. Eu escuto o que você ouviu.", "tipo": "empatia", "peso": 2, "tensao": -5, "destino": "n4" }
+	  ]
+	},
+	{
+	  "id": "n4",
+	  "fala": "Está bem. Vou pensar. Procure a Dona Maria das Dores.",
+	  "final": true
+	}
+  ]
+}
