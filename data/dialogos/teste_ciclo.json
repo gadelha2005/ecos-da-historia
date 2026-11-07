@@ -1,0 +1,11 @@
+{
+  "inicio": "n1",
+  "nos": [
+    { "id": "n1", "fala": "Início.", "opcoes": [
+      { "texto": "Ir.", "tipo": "fato", "peso": 1, "tensao": 0, "destino": "n2" } ] },
+    { "id": "n2", "fala": "Meio.", "opcoes": [
+      { "texto": "Voltar.", "tipo": "fato", "peso": 1, "tensao": 0, "destino": "n1" },
+      { "texto": "Sair.", "tipo": "fato", "peso": 2, "tensao": 0, "destino": "n3" } ] },
+    { "id": "n3", "fala": "Fim.", "final": true }
+  ]
+}

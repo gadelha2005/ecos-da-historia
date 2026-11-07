@@ -1,0 +1,9 @@
+{
+  "inicio": "n1",
+  "nos": [
+    { "id": "n1", "fala": "Início.", "opcoes": [
+      { "texto": "Seguir.", "tipo": "empatia", "peso": 2, "tensao": 0, "destino": "n2" } ] },
+    { "id": "n2", "fala": "Fim.", "final": true },
+    { "id": "n3", "fala": "Ninguém chega aqui.", "final": true }
+  ]
+}
