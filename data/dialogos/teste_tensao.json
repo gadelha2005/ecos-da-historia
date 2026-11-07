@@ -1,0 +1,10 @@
+{
+  "inicio": "n1",
+  "nos": [
+    { "id": "n1", "fala": "Eu não aceito isso!", "opcoes": [
+      { "texto": "Obrigue ele.", "tipo": "autoridade", "peso": 0, "tensao": 60, "destino": "n2" } ] },
+    { "id": "n2", "fala": "Sai da minha casa!", "opcoes": [
+      { "texto": "Insistir.", "tipo": "autoridade", "peso": 0, "tensao": 60, "destino": "n3" } ] },
+    { "id": "n3", "fala": "Fim.", "final": true }
+  ]
+}
