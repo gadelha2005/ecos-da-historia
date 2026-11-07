@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://ckmhihb1syxwt"]
+
+[ext_resource type="Script" path="res://scripts/comum/teste_i5.gd" id="1_34k1p"]
+[ext_resource type="Script" path="res://scripts/fases/agenda_eventos.gd" id="2_tovin"]
+[ext_resource type="Script" path="res://scripts/fases/boato_capital.gd" id="3_oeen5"]
+[ext_resource type="PackedScene" path="res://scenes/player/player.tscn" id="4_ftl3g"]
+
+[node name="TesteI5" type="Node2D" unique_id=634932322 node_paths=PackedStringArray("agenda", "boato", "painel", "vinheta", "jogador")]
+script = ExtResource("1_34k1p")
+agenda = NodePath("AgendaEventos")
+boato = NodePath("BoatoCapital")
+painel = NodePath("UI/Painel")
+vinheta = NodePath("UI/Vinheta")
+jogador = NodePath("Player")
+
+[node name="Chao" type="ColorRect" parent="." unique_id=998609822]
+offset_left = -240.0
+offset_top = -136.0
+offset_right = 720.0
+offset_bottom = 408.0
+mouse_filter = 2
+color = Color(0.77, 0.67, 0.47, 1)
+
+[node name="AgendaEventos" type="Node" parent="." unique_id=862742259]
+script = ExtResource("2_tovin")
+
+[node name="BoatoCapital" type="Node" parent="." unique_id=1182095138 node_paths=PackedStringArray("agenda")]
+script = ExtResource("3_oeen5")
+agenda = NodePath("../AgendaEventos")
+duracao_dia = 16.0
+tensao_extra = 25.0
+
+[node name="Spawn_Inicio" type="Marker2D" parent="." unique_id=1824630233 groups=["spawn"]]
+position = Vector2(240, 160)
+
+[node name="Player" parent="." unique_id=1563879509 instance=ExtResource("4_ftl3g")]
+position = Vector2(240, 160)
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1741628247]
+
+[node name="Vinheta" type="ColorRect" parent="UI" unique_id=1805114502]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[node name="Painel" type="Label" parent="UI" unique_id=1482564910]
+offset_left = 32.0
+offset_top = 24.0
+offset_right = 32.0
+offset_bottom = 24.0
+theme_override_font_sizes/font_size = 32
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8

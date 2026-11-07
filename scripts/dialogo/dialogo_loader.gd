@@ -27,6 +27,7 @@ static func carregar(caminho: String) -> Dialogo:
 
 	var dialogo := Dialogo.new()
 	dialogo.inicio = str(dados.get("inicio", ""))
+	dialogo.dica = str(dados.get("dica", ""))
 	for item in dados.get("nos", []):
 		var no := _criar_no(item)
 		dialogo.nos[no.id] = no
