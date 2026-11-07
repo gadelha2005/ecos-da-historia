@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bm0pn8br38smm"]
+
+[ext_resource type="Script" uid="uid://csq0msjjx00yt" path="res://scripts/comum/teste_h_4.gd" id="1_81sgj"]
+[ext_resource type="PackedScene" uid="uid://bkunskqffjmv8" path="res://scenes/ui/hud_dialogo.tscn" id="2_5dmfc"]
+
+[node name="TesteH4" type="Node" unique_id=530147183]
+script = ExtResource("1_81sgj")
+
+[node name="Fundo" type="ColorRect" parent="." unique_id=1712348422]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.8, 0.8, 0.8, 1)
+
+[node name="HudDialogo" parent="." unique_id=980027385 instance=ExtResource("2_5dmfc")]

@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://bkunskqffjmv8"]
+
+[ext_resource type="Shader" uid="uid://c0ep4e1i4gjvj" path="res://shaders/vinheta_tensao.gdshader" id="1_3jks7"]
+[ext_resource type="Script" uid="uid://bsw7gy66qfgpa" path="res://scripts/ui/hud_dialogo.gd" id="1_k475w"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tj18j"]
+shader = ExtResource("1_3jks7")
+shader_parameter/intensidade = 0.0
+
+[node name="HudDialogo" type="CanvasLayer" unique_id=980027385]
+layer = 70
+script = ExtResource("1_k475w")
+
+[node name="Vinheta" type="ColorRect" parent="." unique_id=1922931413]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_tj18j")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Barras" type="VBoxContainer" parent="." unique_id=1181381234]
+offset_left = 40.0
+offset_top = 30.0
+offset_right = 80.0
+offset_bottom = 70.0
+theme_override_constants/separation = 8
+
+[node name="LinhaTensao" type="HBoxContainer" parent="Barras" unique_id=1019350004]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Barras/LinhaTensao" unique_id=1444853733]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+text = "Tensão"
+
+[node name="BarraTensao" type="ProgressBar" parent="Barras/LinhaTensao" unique_id=319379428]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(360, 28)
+layout_mode = 2
+
+[node name="LinhaConfianca" type="HBoxContainer" parent="Barras" unique_id=325010025]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Barras/LinhaConfianca" unique_id=941302702]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+text = "Confiança"
+
+[node name="BarraConfianca" type="ProgressBar" parent="Barras/LinhaConfianca" unique_id=781244156]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(360, 28)
+layout_mode = 2
