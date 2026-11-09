@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://dbhja3i5xhs2l"]
+
+[ext_resource type="Script" path="res://scripts/npcs/morador.gd" id="1_e0yni"]
+[ext_resource type="Texture2D" path="res://assets/sprites/player/catalisador.png" id="2_ejyo2"]
+[ext_resource type="Script" path="res://scripts/npcs/interacao_morador.gd" id="3_2w5on"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w254p"]
+size = Vector2(12, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rm5r2"]
+atlas = ExtResource("2_ejyo2")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ct11l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rm5r2")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wrha8"]
+size = Vector2(24, 24)
+
+[node name="Morador" type="StaticBody2D" unique_id=1459714492]
+collision_mask = 0
+script = ExtResource("1_e0yni")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=147444662]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_w254p")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=779517414]
+sprite_frames = SubResource("SpriteFrames_ct11l")
+animation = &"idle"
+autoplay = "idle"
+offset = Vector2(0, -16)
+
+[node name="Interacao" type="Area2D" parent="." unique_id=1312509817 groups=["interagivel"]]
+collision_layer = 2
+collision_mask = 0
+monitoring = false
+script = ExtResource("3_2w5on")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interacao" unique_id=349654933]
+position = Vector2(0, -10)
+shape = SubResource("RectangleShape2D_wrha8")
+
+[node name="Indicador" type="Label" parent="." unique_id=505013610]
+offset_left = -50.0
+offset_top = -56.0
+offset_right = 350.0
+offset_bottom = -11.0
+scale = Vector2(0.25, 0.25)
+theme_override_font_sizes/font_size = 44
+theme_override_colors/font_color = Color(1, 0.85, 0.2, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+text = "!"
+horizontal_alignment = 1
+
+[node name="Nome" type="Label" parent="." unique_id=1886240574]
+offset_left = -50.0
+offset_top = -43.0
+offset_right = 350.0
+offset_bottom = 2.0
+scale = Vector2(0.25, 0.25)
+theme_override_font_sizes/font_size = 28
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+text = "Morador"
+horizontal_alignment = 1

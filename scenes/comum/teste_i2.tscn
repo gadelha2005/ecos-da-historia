@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://dcu7uxhefvxdy"]
+
+[ext_resource type="Script" path="res://scripts/comum/teste_i2.gd" id="1_t4b4x"]
+[ext_resource type="PackedScene" path="res://scenes/npcs/morador.tscn" id="2_vbml5"]
+[ext_resource type="PackedScene" path="res://scenes/player/player.tscn" id="3_tlett"]
+
+[node name="TesteI2" type="Node2D" unique_id=15082514 node_paths=PackedStringArray("info", "jogador")]
+y_sort_enabled = true
+script = ExtResource("1_t4b4x")
+info = NodePath("UI/Info")
+jogador = NodePath("Player")
+
+[node name="Chao" type="ColorRect" parent="." unique_id=496475205]
+offset_left = -240.0
+offset_top = -136.0
+offset_right = 800.0
+offset_bottom = 408.0
+mouse_filter = 2
+color = Color(0.76, 0.66, 0.46, 1)
+
+[node name="Moradores" type="Node2D" parent="." unique_id=1796244993]
+y_sort_enabled = true
+
+[node name="Morador_inacia" parent="Moradores" unique_id=1459714492 instance=ExtResource("2_vbml5")]
+position = Vector2(60, 110)
+dialogo = "res://data/dialogos/teste_i2.json"
+mostrar_nome = true
+cor_placeholder = Color(1, 0.75, 0.75, 1)
+
+[node name="Morador_dona_maria" parent="Moradores" unique_id=474473141 instance=ExtResource("2_vbml5")]
+position = Vector2(132, 110)
+morador_id = "dona_maria"
+dialogo = "res://data/dialogos/teste_i2.json"
+mostrar_nome = true
+cor_placeholder = Color(0.8, 0.8, 1, 1)
+
+[node name="Morador_ze_tonico" parent="Moradores" unique_id=329746664 instance=ExtResource("2_vbml5")]
+position = Vector2(204, 110)
+morador_id = "ze_tonico"
+dialogo = "res://data/dialogos/teste_i2.json"
+mostrar_nome = true
+cor_placeholder = Color(0.75, 1, 0.75, 1)
+
+[node name="Morador_seu_anselmo" parent="Moradores" unique_id=36854824 instance=ExtResource("2_vbml5")]
+position = Vector2(276, 110)
+morador_id = "seu_anselmo"
+dialogo = "res://data/dialogos/teste_i2.json"
+mostrar_nome = true
+cor_placeholder = Color(1, 1, 0.7, 1)
+
+[node name="Morador_seu_quintino" parent="Moradores" unique_id=181918464 instance=ExtResource("2_vbml5")]
+position = Vector2(348, 110)
+morador_id = "seu_quintino"
+dialogo = "res://data/dialogos/teste_i2.json"
+mostrar_nome = true
+cor_placeholder = Color(0.85, 0.75, 1, 1)
+
+[node name="Morador_dona_cotinha" parent="Moradores" unique_id=725161201 instance=ExtResource("2_vbml5")]
+position = Vector2(420, 110)
+morador_id = "dona_cotinha"
+dialogo = "res://data/dialogos/teste_i2.json"
+mostrar_nome = true
+cor_placeholder = Color(1, 0.85, 0.65, 1)
+
+[node name="Spawn_Inicio" type="Marker2D" parent="." unique_id=862078720 groups=["spawn"]]
+position = Vector2(220, 170)
+
+[node name="Player" parent="." unique_id=1563879509 instance=ExtResource("3_tlett")]
+position = Vector2(220, 170)
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=123463287]
+layer = 70
+
+[node name="Info" type="Label" parent="UI" unique_id=2080652810]
+offset_left = 32.0
+offset_top = 24.0
+offset_right = 32.0
+offset_bottom = 24.0
+theme_override_font_sizes/font_size = 30
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
