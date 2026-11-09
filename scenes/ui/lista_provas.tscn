@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://jmppxj1fady6"]
+
+[ext_resource type="Script" path="res://scripts/ui/lista_provas.gd" id="1_yucus"]
+[ext_resource type="Theme" path="res://scenes/ui/tema_ui.tres" id="2_0tbi2"]
+
+[node name="ListaProvas" type="CanvasLayer" unique_id=1603826702]
+layer = 75
+script = ExtResource("1_yucus")
+
+[node name="Painel" type="PanelContainer" parent="." unique_id=1268991965]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -420.0
+offset_top = 24.0
+offset_right = -24.0
+grow_horizontal = 0
+mouse_filter = 2
+theme = ExtResource("2_0tbi2")
+
+[node name="Caixa" type="VBoxContainer" parent="Painel" unique_id=413264464]
+layout_mode = 2
+
+[node name="Titulo" type="Label" parent="Painel/Caixa" unique_id=1274978935]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Provas (0/4)"
+
+[node name="Itens" type="Label" parent="Painel/Caixa" unique_id=827010350]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
