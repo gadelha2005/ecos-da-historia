@@ -1,0 +1,93 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/configuracoes.gd" id="1_script"]
+[ext_resource type="Theme" path="res://scenes/ui/tema_ui.tres" id="2_tema"]
+
+[node name="Configuracoes" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_tema")
+script = ExtResource("1_script")
+
+[node name="Escurecer" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.7)
+
+[node name="Centro" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Painel" type="PanelContainer" parent="Centro"]
+layout_mode = 2
+
+[node name="Coluna" type="VBoxContainer" parent="Centro/Painel"]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="Titulo" type="Label" parent="Centro/Painel/Coluna"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.75, 0.3, 1)
+theme_override_font_sizes/font_size = 64
+text = "Configurações"
+horizontal_alignment = 1
+
+[node name="LinhaVolume" type="HBoxContainer" parent="Centro/Painel/Coluna"]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="Rotulo" type="Label" parent="Centro/Painel/Coluna/LinhaVolume"]
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+text = "Volume"
+
+[node name="SliderVolume" type="HSlider" parent="Centro/Painel/Coluna/LinhaVolume"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(480, 48)
+layout_mode = 2
+size_flags_vertical = 4
+step = 5.0
+value = 80.0
+
+[node name="ValorVolume" type="Label" parent="Centro/Painel/Coluna/LinhaVolume"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+text = "80%"
+horizontal_alignment = 2
+
+[node name="LinhaTelaCheia" type="HBoxContainer" parent="Centro/Painel/Coluna"]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="Rotulo" type="Label" parent="Centro/Painel/Coluna/LinhaTelaCheia"]
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+text = "Tela cheia"
+
+[node name="BotaoTelaCheia" type="Button" parent="Centro/Painel/Coluna/LinhaTelaCheia"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(260, 72)
+layout_mode = 2
+toggle_mode = true
+text = "Desligada"
+
+[node name="BotaoVoltar" type="Button" parent="Centro/Painel/Coluna"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(360, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Voltar"

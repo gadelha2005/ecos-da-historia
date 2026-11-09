@@ -1,0 +1,9 @@
+{
+  "titulo": "Quem é o Catalisador?",
+  "texto": "Unifor, 2026. Uma falha no laboratório de Computação abriu portais para momentos decisivos da história do Brasil. Alguém precisa atravessá-los, ouvir quem viveu aquela época e recuperar as chaves antes que os ecos do passado se percam. Essa pessoa é você: o Catalisador.",
+  "pergunta_nome": "Como você se chama?",
+  "placeholder_nome": "Digite seu nome",
+  "pergunta_aparencia": "Escolha sua aparência",
+  "aparencias": ["Original", "Âmbar", "Oceano"],
+  "botao_confirmar": "Começar"
+}

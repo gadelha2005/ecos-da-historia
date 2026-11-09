@@ -1,0 +1,98 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/menu_inicial.gd" id="1_menu"]
+[ext_resource type="Theme" path="res://scenes/ui/tema_ui.tres" id="2_tema"]
+
+[node name="MenuInicial" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_tema")
+script = ExtResource("1_menu")
+
+[node name="Fundo" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.05, 0.06, 0.09, 1)
+
+[node name="Centro" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Coluna" type="VBoxContainer" parent="Centro"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Titulo" type="Label" parent="Centro/Coluna"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.75, 0.3, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 6
+theme_override_constants/shadow_offset_y = 6
+theme_override_font_sizes/font_size = 120
+text = "Ecos da História"
+horizontal_alignment = 1
+
+[node name="Subtitulo" type="Label" parent="Centro/Coluna"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6, 0.64, 0.74, 1)
+theme_override_font_sizes/font_size = 32
+text = "Uma aventura pela história do Brasil"
+horizontal_alignment = 1
+
+[node name="Espaco" type="Control" parent="Centro/Coluna"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[node name="Botoes" type="VBoxContainer" parent="Centro/Coluna"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 20
+
+[node name="BotaoJogar" type="Button" parent="Centro/Coluna/Botoes"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(480, 80)
+layout_mode = 2
+text = "Jogar"
+
+[node name="BotaoConfiguracoes" type="Button" parent="Centro/Coluna/Botoes"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(480, 80)
+layout_mode = 2
+text = "Configurações"
+
+[node name="BotaoSair" type="Button" parent="Centro/Coluna/Botoes"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(480, 80)
+layout_mode = 2
+text = "Sair"
+
+[node name="Rodape" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -400.0
+offset_top = -70.0
+offset_right = 400.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.4, 0.43, 0.52, 1)
+theme_override_font_sizes/font_size = 24
+text = "Unifor · Computação Gráfica"
+horizontal_alignment = 1

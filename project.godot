@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="ecos-da-historia"
-run/main_scene="uid://b3h3axxnnrlds"
+run/main_scene="res://scenes/ui/menu_inicial.tscn"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -20,6 +20,9 @@ config/icon="res://icon.svg"
 GameState="*uid://sobacn3mhkea"
 SceneManager="*uid://cs7ppmjiosfco"
 DialogoManager="*uid://ctgwlgwh1jjr7"
+Config="*res://scripts/autoload/config.gd"
+Mensagem="*res://scenes/ui/mensagem.tscn"
+MenuPausa="*res://scenes/ui/menu_pausa.tscn"
 
 [display]
 

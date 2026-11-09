@@ -1,0 +1,54 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/mensagem.gd" id="1_script"]
+[ext_resource type="Theme" path="res://scenes/ui/tema_ui.tres" id="2_tema"]
+
+[node name="Mensagem" type="CanvasLayer"]
+layer = 80
+script = ExtResource("1_script")
+
+[node name="Caixa" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 120.0
+offset_top = -290.0
+offset_right = -120.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme = ExtResource("2_tema")
+
+[node name="Coluna" type="VBoxContainer" parent="Caixa"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 10
+
+[node name="NomeFalante" type="Label" parent="Caixa/Coluna"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.75, 0.3, 1)
+theme_override_font_sizes/font_size = 32
+text = "ECO"
+
+[node name="Texto" type="Label" parent="Caixa/Coluna"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 38
+text = "..."
+autowrap_mode = 3
+visible_characters_behavior = 1
+
+[node name="Dica" type="Label" parent="Caixa/Coluna"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6, 0.64, 0.74, 1)
+theme_override_font_sizes/font_size = 24
+text = "[E] continuar"
+horizontal_alignment = 2
