@@ -1,0 +1,11 @@
+{
+  "inicio": "n1",
+  "dica": "Diálogo de teste do card I2.",
+  "nos": [
+	{
+	  "id": "n1",
+	  "fala": "(diálogo de teste) Obrigado por conversar comigo. Pode procurar o próximo.",
+	  "final": true
+	}
+  ]
+}
