@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://sypclbhwcog"]
+
+[ext_resource type="Script" path="res://scripts/objetos/prova.gd" id="1_8inhl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cq350"]
+size = Vector2(14, 14)
+
+[node name="Prova" type="Area2D" unique_id=1954913621 groups=["interagivel"]]
+collision_layer = 2
+collision_mask = 0
+monitoring = false
+script = ExtResource("1_8inhl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1113595647]
+shape = SubResource("RectangleShape2D_cq350")
+
+[node name="Visual" type="Node2D" parent="." unique_id=1846881154]
+
+[node name="Papel" type="ColorRect" parent="Visual" unique_id=1933151344]
+offset_left = -5.0
+offset_top = -7.0
+offset_right = 5.0
+offset_bottom = 5.0
+mouse_filter = 2
+color = Color(0.93, 0.89, 0.76, 1)
+
+[node name="Linha1" type="ColorRect" parent="Visual" unique_id=1223463671]
+offset_left = -3.0
+offset_top = -4.0
+offset_right = 3.0
+offset_bottom = -3.0
+mouse_filter = 2
+color = Color(0.35, 0.3, 0.25, 1)
+
+[node name="Linha2" type="ColorRect" parent="Visual" unique_id=1969258519]
+offset_left = -3.0
+offset_top = -1.0
+offset_right = 3.0
+mouse_filter = 2
+color = Color(0.35, 0.3, 0.25, 1)
+
+[node name="Linha3" type="ColorRect" parent="Visual" unique_id=53588875]
+offset_left = -3.0
+offset_top = 2.0
+offset_right = 1.0
+offset_bottom = 3.0
+mouse_filter = 2
+color = Color(0.35, 0.3, 0.25, 1)

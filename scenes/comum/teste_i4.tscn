@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://bvf53q357wuo7"]
+
+[ext_resource type="Script" path="res://scripts/comum/teste_i4.gd" id="1_0iqtw"]
+[ext_resource type="PackedScene" path="res://scenes/objetos/prova.tscn" id="2_c18gd"]
+[ext_resource type="PackedScene" path="res://scenes/player/player.tscn" id="3_jkuai"]
+[ext_resource type="PackedScene" path="res://scenes/ui/lista_provas.tscn" id="4_fprfc"]
+
+[node name="TesteI4" type="Node2D" unique_id=1579020052 node_paths=PackedStringArray("jogador")]
+script = ExtResource("1_0iqtw")
+jogador = NodePath("Player")
+
+[node name="Chao" type="ColorRect" parent="." unique_id=1904945316]
+offset_left = -240.0
+offset_top = -136.0
+offset_right = 800.0
+offset_bottom = 408.0
+mouse_filter = 2
+color = Color(0.45, 0.62, 0.35, 1)
+
+[node name="Trilha" type="ColorRect" parent="." unique_id=752618893]
+offset_left = -240.0
+offset_top = 128.0
+offset_right = 800.0
+offset_bottom = 160.0
+mouse_filter = 2
+color = Color(0.72, 0.55, 0.35, 1)
+
+[node name="Prova_relato_curado" parent="." unique_id=1954913621 instance=ExtResource("2_c18gd")]
+position = Vector2(200, 140)
+
+[node name="Prova_noticia_jornal" parent="." unique_id=236752680 instance=ExtResource("2_c18gd")]
+position = Vector2(296, 140)
+prova_id = "noticia_jornal"
+
+[node name="Prova_folheto_campanha" parent="." unique_id=835211126 instance=ExtResource("2_c18gd")]
+position = Vector2(392, 140)
+prova_id = "folheto_campanha"
+
+[node name="Prova_depoimento_medico" parent="." unique_id=1128801874 instance=ExtResource("2_c18gd")]
+position = Vector2(488, 140)
+prova_id = "depoimento_medico"
+
+[node name="Spawn_Inicio" type="Marker2D" parent="." unique_id=1441988072 groups=["spawn"]]
+position = Vector2(140, 148)
+
+[node name="Player" parent="." unique_id=1563879509 instance=ExtResource("3_jkuai")]
+position = Vector2(140, 148)
+
+[node name="ListaProvas" parent="." unique_id=1603826702 instance=ExtResource("4_fprfc")]
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=2134579744]
+layer = 70
+
+[node name="Instrucoes" type="Label" parent="UI" unique_id=1478942299]
+offset_left = 32.0
+offset_top = 24.0
+offset_right = 32.0
+offset_bottom = 24.0
+theme_override_font_sizes/font_size = 30
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+text = "E: pegar a prova   ·   R: reiniciar a fase (as provas ficam)   ·   Z: zerar tudo"
