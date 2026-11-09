@@ -62,7 +62,7 @@ func iniciar(caminho: String) -> Dictionary:
 func _montar_opcoes(no: NoDialogo) -> Array[Dictionary]:
 	var lista: Array[Dictionary] = []
 	for op in no.opcoes:
-		var libera := op.exige_prova == "" or GameState.tem_prova(op.exige_prova)
+		var libera: bool = op.exige_prova == "" or GameState.tem_prova(op.exige_prova)
 		lista.append({
 			"texto": op.texto,
 			"tipo": String(OpcaoDialogo.Tipo.keys()[op.tipo]).to_lower(),
