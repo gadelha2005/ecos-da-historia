@@ -1,0 +1,133 @@
+{
+	"inicio": "n1",
+	"dica": "A Inácia só quer proteger o bebê. Comece ouvindo o medo dela antes de falar de lei, e traga o relato de quem já foi curado.",
+	"nos": [
+		{
+			"id": "n1",
+			"fala": "Doutor, não vou deixar essa agulha chegar perto do meu bebê.",
+			"opcoes": [
+				{
+					"texto": "Você quer proteger seu filho. Isso é o mais importante.",
+					"tipo": "empatia",
+					"peso": 3,
+					"tensao": -5,
+					"destino": "n2"
+				},
+				{
+					"texto": "A varíola é uma doença grave, e a vacina protege.",
+					"tipo": "fato",
+					"peso": 2,
+					"tensao": 5,
+					"destino": "n3"
+				},
+				{
+					"texto": "É a lei, a vacina é obrigatória.",
+					"tipo": "autoridade",
+					"peso": 0,
+					"tensao": 20,
+					"destino": "n4"
+				}
+			]
+		},
+		{
+			"id": "n2",
+			"fala": "E se ela passar mal depois? Já vi criança ficar de cama por causa de remédio.",
+			"opcoes": [
+				{
+					"texto": "Pode dar febre leve, e eu fico por aqui para ajudar.",
+					"tipo": "fato",
+					"peso": 3,
+					"tensao": -5,
+					"destino": "n5"
+				},
+				{
+					"texto": "Veja o relato de quem já foi vacinado e ficou bem.",
+					"tipo": "provas",
+					"peso": 4,
+					"tensao": -10,
+					"destino": "n5",
+					"exige_prova": "relato_curado"
+				},
+				{
+					"texto": "A ordem é vacinar todo mundo.",
+					"tipo": "autoridade",
+					"peso": 0,
+					"tensao": 15,
+					"destino": "n4"
+				}
+			]
+		},
+		{
+			"id": "n3",
+			"fala": "Mas eu tenho medo. Ouvi cada história...",
+			"opcoes": [
+				{
+					"texto": "É normal ter medo. Eu escuto o que você ouviu.",
+					"tipo": "empatia",
+					"peso": 2,
+					"tensao": -5,
+					"destino": "n5"
+				},
+				{
+					"texto": "Quem manda aqui é o governo, e a vacina é obrigatória.",
+					"tipo": "autoridade",
+					"peso": 0,
+					"tensao": 15,
+					"destino": "n4"
+				}
+			]
+		},
+		{
+			"id": "n4",
+			"fala": "Ordem? Ninguém manda no meu filho. O senhor nem me conhece.",
+			"opcoes": [
+				{
+					"texto": "Desculpe. Me conte o que a preocupa.",
+					"tipo": "empatia",
+					"peso": 1,
+					"tensao": -10,
+					"destino": "n5"
+				},
+				{
+					"texto": "Na cidade, a vacina já protegeu muita gente.",
+					"tipo": "fato",
+					"peso": 1,
+					"tensao": 5,
+					"destino": "n5"
+				}
+			]
+		},
+		{
+			"id": "n5",
+			"fala": "E o senhor fica aqui enquanto o remédio faz efeito?",
+			"opcoes": [
+				{
+					"texto": "Fico. Não vou deixar você sozinha com o bebê.",
+					"tipo": "empatia",
+					"peso": 3,
+					"tensao": -10,
+					"destino": "n6"
+				},
+				{
+					"texto": "Fico um tempo, o suficiente para ver que está tudo bem.",
+					"tipo": "fato",
+					"peso": 2,
+					"tensao": 0,
+					"destino": "n6"
+				},
+				{
+					"texto": "Tenho outras casas para visitar.",
+					"tipo": "autoridade",
+					"peso": 0,
+					"tensao": 15,
+					"destino": "n6"
+				}
+			]
+		},
+		{
+			"id": "n6",
+			"fala": "Está bem, doutor. Pode vacinar o meu bebê. Mas fale com a Dona Maria das Dores, ela está com muito medo da agulha.",
+			"final": true
+		}
+	]
+}

@@ -1,0 +1,140 @@
+{
+	"inicio": "m1",
+	"dica": "A Dona Maria teme a agulha, não a vacina. Explique como é a picada, deixe ela falar do medo e leve o depoimento do médico.",
+	"nos": [
+		{
+			"id": "m1",
+			"fala": "Eu não confio nessa agulha. Dizem que entra veneno no sangue.",
+			"opcoes": [
+				{
+					"texto": "Entendo o seu medo. Ninguém gosta de agulha.",
+					"tipo": "empatia",
+					"peso": 3,
+					"tensao": -5,
+					"destino": "m2"
+				},
+				{
+					"texto": "A vacina é feita com um pouco do próprio vírus enfraquecido.",
+					"tipo": "fato",
+					"peso": 2,
+					"tensao": 5,
+					"destino": "m3"
+				},
+				{
+					"texto": "Isso é boato. A vacina é obrigatória.",
+					"tipo": "autoridade",
+					"peso": 0,
+					"tensao": 30,
+					"destino": "m4"
+				}
+			]
+		},
+		{
+			"id": "m2",
+			"fala": "Mas e a dor? Já ouvi gente gritar na capital.",
+			"opcoes": [
+				{
+					"texto": "É uma picada rápida no braço, e passa logo.",
+					"tipo": "fato",
+					"peso": 3,
+					"tensao": -5,
+					"destino": "m5"
+				},
+				{
+					"texto": "O médico da brigada explica tudo no depoimento dele.",
+					"tipo": "provas",
+					"peso": 4,
+					"tensao": -10,
+					"destino": "m5",
+					"exige_prova": "depoimento_medico"
+				},
+				{
+					"texto": "Se a senhora tiver coragem, é rápido.",
+					"tipo": "empatia",
+					"peso": 1,
+					"tensao": 5,
+					"destino": "m5"
+				}
+			]
+		},
+		{
+			"id": "m3",
+			"fala": "Veneno ou não, ninguém me explicou nada direito.",
+			"opcoes": [
+				{
+					"texto": "Tem razão, devíamos ter explicado. Posso mostrar como é.",
+					"tipo": "empatia",
+					"peso": 2,
+					"tensao": -5,
+					"destino": "m2"
+				},
+				{
+					"texto": "A senhora vai entender depois de vacinada.",
+					"tipo": "fato",
+					"peso": 0,
+					"tensao": 10,
+					"destino": "m5"
+				},
+				{
+					"texto": "É ordem do governo.",
+					"tipo": "autoridade",
+					"peso": 0,
+					"tensao": 15,
+					"destino": "m4"
+				}
+			]
+		},
+		{
+			"id": "m4",
+			"fala": "Então é ordem? Pois eu não obedeço o que não entendo.",
+			"opcoes": [
+				{
+					"texto": "A senhora tem razão em perguntar. Vamos conversar.",
+					"tipo": "empatia",
+					"peso": 1,
+					"tensao": -10,
+					"destino": "m5"
+				},
+				{
+					"texto": "Posso responder as suas dúvidas, uma por uma.",
+					"tipo": "fato",
+					"peso": 1,
+					"tensao": 5,
+					"destino": "m5"
+				}
+			]
+		},
+		{
+			"id": "m5",
+			"fala": "E o que eu digo aos vizinhos, que andam falando coisa pior?",
+			"opcoes": [
+				{
+					"texto": "Diga o que viu aqui: foi rápido e o médico ficou por perto.",
+					"tipo": "fato",
+					"peso": 3,
+					"tensao": -5,
+					"destino": "m6"
+				},
+				{
+					"texto": "Diga que a senhora tinha medo e foi ouvida.",
+					"tipo": "empatia",
+					"peso": 2,
+					"tensao": -5,
+					"destino": "m6"
+				},
+				{
+					"texto": "Diga que quem não vacinar será multado.",
+					"tipo": "autoridade",
+					"peso": 0,
+					"tensao": 30,
+					"destino": "m6"
+				}
+			]
+		},
+		{
+			"id": "m6",
+			"fala": "Está bem, doutor. Vou me vacinar. Mas fale com o Zé Tonico: foi ele quem espalhou essa história de veneno.",
+			"final": true
+		}
+	]
+}
