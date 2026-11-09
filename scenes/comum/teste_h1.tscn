@@ -1,0 +1,18 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/comum/teste_h1.gd" id="1_script"]
+[ext_resource type="PackedScene" path="res://scenes/ui/menu_escolhas.tscn" id="2_menu"]
+
+[node name="TesteH1" type="Node"]
+script = ExtResource("1_script")
+
+[node name="Fundo" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.15, 0.15, 0.17, 1)
+
+[node name="MenuEscolhas" parent="." instance=ExtResource("2_menu")]
