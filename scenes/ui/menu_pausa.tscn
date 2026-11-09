@@ -1,0 +1,72 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/menu_pausa.gd" id="1_script"]
+[ext_resource type="Theme" path="res://scenes/ui/tema_ui.tres" id="2_tema"]
+
+[node name="MenuPausa" type="CanvasLayer"]
+process_mode = 3
+layer = 90
+script = ExtResource("1_script")
+
+[node name="Tela" type="Control" parent="."]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_tema")
+
+[node name="Escurecer" type="ColorRect" parent="Tela"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.6)
+
+[node name="Centro" type="CenterContainer" parent="Tela"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Painel" type="PanelContainer" parent="Tela/Centro"]
+layout_mode = 2
+
+[node name="Coluna" type="VBoxContainer" parent="Tela/Centro/Painel"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Titulo" type="Label" parent="Tela/Centro/Painel/Coluna"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.75, 0.3, 1)
+theme_override_font_sizes/font_size = 72
+text = "Pausado"
+horizontal_alignment = 1
+
+[node name="Espaco" type="Control" parent="Tela/Centro/Painel/Coluna"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="BotaoContinuar" type="Button" parent="Tela/Centro/Painel/Coluna"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(480, 80)
+layout_mode = 2
+text = "Continuar"
+
+[node name="BotaoConfiguracoes" type="Button" parent="Tela/Centro/Painel/Coluna"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(480, 80)
+layout_mode = 2
+text = "Configurações"
+
+[node name="BotaoMenu" type="Button" parent="Tela/Centro/Painel/Coluna"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(480, 80)
+layout_mode = 2
+text = "Voltar ao menu inicial"
