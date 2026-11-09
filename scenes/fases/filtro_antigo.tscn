@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://remoodtqb3r6"]
+
+[ext_resource type="Script" path="res://scripts/fases/filtro_antigo.gd" id="1_81h6q"]
+[ext_resource type="Shader" path="res://shaders/sepia_grao.gdshader" id="2_ikmfb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_71sjk"]
+shader = ExtResource("2_ikmfb")
+
+[node name="FiltroAntigo" type="CanvasLayer" unique_id=47403097]
+layer = 50
+script = ExtResource("1_81h6q")
+
+[node name="Efeito" type="ColorRect" parent="." unique_id=308633240]
+material = SubResource("ShaderMaterial_71sjk")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
