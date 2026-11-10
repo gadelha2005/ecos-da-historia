@@ -1,4 +1,5 @@
 extends Node
+signal chave_recebida(fase: int)
 
 const TOTAL_FASES: int = 4
 const FASE_1904: int = 0
@@ -16,6 +17,8 @@ var aparencia: int = 0
 var chaves: Array[bool] = [false, false, false, false]  # 1904, 1973, 1979, 1982
 var tentativas: Array[int] = [0, 0, 0, 0]
 var pontuacao: Array[float] = [0.0, 0.0, 0.0, 0.0]
+var chaves_encaixadas: Array[bool] = [false, false, false, false]  # chave já colocada na porta (animação feita)
+var intro_vista: bool = false  # a intro do ECO no hub já foi mostrada
 
 # Fase 1904
 var moradores_concluidos: int = 0  # quantos já foram concluídos, sempre em ordem
@@ -28,7 +31,10 @@ func tem_chave(fase: int) -> bool:
 
 
 func dar_chave(fase: int) -> void:
+	var nova := not chaves[fase]
 	chaves[fase] = true
+	if nova:
+		chave_recebida.emit(fase)
 
 
 func total_chaves() -> int:
@@ -38,6 +44,21 @@ func total_chaves() -> int:
 func portal_liberado(fase: int) -> bool:
 	return fase == 0 or chaves[fase - 1]  # o portal só abre com a chave anterior
 
+# Primeira fase com chave já pega e ainda não encaixada na porta, ou -1.
+func chave_pendente() -> int:
+	for i in TOTAL_FASES:
+		if chaves[i] and not chaves_encaixadas[i]:
+			return i
+	return -1
+
+
+func encaixar_chave(fase: int) -> void:
+	chaves_encaixadas[fase] = true
+
+
+# 0.0 = zona cinza, 1.0 = zona colorida (usada pelo shader do K1 e pelo HUD do K4).
+func cor_zona(fase: int) -> float:
+	return 1.0 if chaves_encaixadas[fase] else 0.0
 
 func morador_liberado(id: String) -> bool:
 	var i := MORADORES.find(id)
@@ -74,7 +95,9 @@ func reiniciar() -> void:
 	moradores_concluidos = 0
 	provas.clear()
 	dicas.clear()
+	intro_vista = false
 	for i in TOTAL_FASES:
 		chaves[i] = false
+		chaves_encaixadas[i] = false
 		tentativas[i] = 0
 		pontuacao[i] = 0.0
