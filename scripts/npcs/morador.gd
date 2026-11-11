@@ -42,6 +42,7 @@ func _ready() -> void:
 	rotulo_nome.text = nome_de(morador_id)
 	rotulo_nome.visible = mostrar_nome
 	sprite.modulate = cor_placeholder
+	_carregar_arte()
 	atualizar_indicador()
 
 
@@ -49,6 +50,16 @@ func _process(delta: float) -> void:
 	if indicador.visible:
 		_tempo += delta
 		indicador.position.y = -56.0 + round(sin(_tempo * 4.0) * 1.5)
+
+
+## [J1] Usa a arte do morador (assets/sprites/fase1904/morador_<id>.tres) quando ela existe.
+func _carregar_arte() -> void:
+	var caminho := "res://assets/sprites/fase1904/morador_%s.tres" % morador_id
+	if not ResourceLoader.exists(caminho):
+		return  # continua com o sprite provisório
+	sprite.sprite_frames = load(caminho)
+	sprite.modulate = Color.WHITE
+	sprite.play("idle_baixo")
 
 
 ## A vez deste morador: liberado e ainda não concluído.
