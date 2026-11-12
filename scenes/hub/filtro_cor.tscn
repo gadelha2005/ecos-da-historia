@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cm422xdm1icbs"]
+
+[ext_resource type="Script" path="res://scripts/hub/filtro_cor.gd" id="1_e41jx"]
+[ext_resource type="Shader" path="res://shaders/cor_zona.gdshader" id="2_m1py3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qfj6b"]
+shader = ExtResource("2_m1py3")
+
+[node name="FiltroCor" type="CanvasLayer" unique_id=1894361362]
+layer = 50
+script = ExtResource("1_e41jx")
+
+[node name="Efeito" type="ColorRect" parent="." unique_id=1234295673]
+material = SubResource("ShaderMaterial_qfj6b")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
