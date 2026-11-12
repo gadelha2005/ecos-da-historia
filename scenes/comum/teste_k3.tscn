@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://bnyrhxm1c4xrw"]
+
+[ext_resource type="Script" path="res://scripts/comum/teste_k3.gd" id="1_1bxc8"]
+[ext_resource type="PackedScene" path="res://scenes/hub/porta_saida.tscn" id="2_374dy"]
+[ext_resource type="PackedScene" path="res://scenes/player/player.tscn" id="3_aybbv"]
+
+[node name="TesteK3" type="Node2D" unique_id=750672561 node_paths=PackedStringArray("porta", "jogador")]
+script = ExtResource("1_1bxc8")
+porta = NodePath("PortaSaida")
+jogador = NodePath("Player")
+
+[node name="Chao" type="ColorRect" parent="." unique_id=16364624]
+offset_left = -160.0
+offset_top = -60.0
+offset_right = 480.0
+offset_bottom = 300.0
+mouse_filter = 2
+color = Color(0.78, 0.78, 0.78, 1)
+
+[node name="PortaSaida" parent="." unique_id=1078571635 instance=ExtResource("2_374dy")]
+position = Vector2(160, 104)
+
+[node name="Spawn_Inicio" type="Marker2D" parent="." unique_id=447767311 groups=["spawn"]]
+position = Vector2(160, 152)
+
+[node name="Player" parent="." unique_id=1563879509 instance=ExtResource("3_aybbv")]
+position = Vector2(160, 152)
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=169687611]
+layer = 70
+
+[node name="Instrucoes" type="Label" parent="UI" unique_id=1489066835]
+offset_left = 32.0
+offset_top = 24.0
+offset_right = 32.0
+offset_bottom = 24.0
+theme_override_font_sizes/font_size = 28
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+text = "1-4: encaixar a chave da época   ·   E: interagir com a porta   ·   R: recarregar   ·   Z: zerar   ·   F9: dar as chaves"
