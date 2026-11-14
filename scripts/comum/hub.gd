@@ -1,7 +1,7 @@
 extends CenaJogavel
 ## Hub: laboratório de Computação da Unifor em 2026 (blockout do D2).
 
-const LIMITES_MAPA: Rect2i = Rect2i(0, 0, 640, 384)  # 40 x 24 tiles de 16 px
+const LIMITES_MAPA: Rect2i = Rect2i(0, 0, 480, 288)  # 30 x 18 tiles de 16 px
 
 
 func _ready() -> void:
