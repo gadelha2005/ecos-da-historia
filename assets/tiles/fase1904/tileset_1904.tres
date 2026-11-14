@@ -1,6 +1,6 @@
 [gd_resource type="TileSet" format=3]
 
-[ext_resource type="Texture2D" path="res://assets/tiles/fase1904/placeholder_tiles_1904.png" id="1_mygoq"]
+[ext_resource type="Texture2D" path="res://assets/tiles/fase1904/tiles_1904.png" id="1_mygoq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x3c42"]
 texture = ExtResource("1_mygoq")
@@ -15,6 +15,25 @@ texture = ExtResource("1_mygoq")
 5:0/0 = 0
 5:0/0/y_sort_origin = 8
 5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:0/0 = 0
+7:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+6:2/0/y_sort_origin = 8
+6:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [resource]
 physics_layer_0/collision_layer = 1

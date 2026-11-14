@@ -1,6 +1,6 @@
 [gd_scene format=3]
 
-[ext_resource type="Texture2D" path="res://assets/sprites/fase1904/cajueiro_placeholder.png" id="1_mfiqr"]
+[ext_resource type="Texture2D" path="res://assets/sprites/fase1904/objetos/cajueiro_grande.png" id="1_mfiqr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1pinn"]
 size = Vector2(10, 6)

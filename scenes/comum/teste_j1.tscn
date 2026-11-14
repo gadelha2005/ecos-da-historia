@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/comum/teste_j1.gd" id="1_teste"]
+[ext_resource type="TileSet" path="res://assets/tiles/fase1904/tileset_1904.tres" id="2_tiles"]
+[ext_resource type="PackedScene" path="res://scenes/player/player.tscn" id="3_player"]
+
+[node name="TesteJ1" type="Node2D" node_paths=PackedStringArray("chao", "jogador")]
+y_sort_enabled = true
+script = ExtResource("1_teste")
+chao = NodePath("Chao")
+jogador = NodePath("Player")
+
+[node name="Chao" type="TileMapLayer" parent="."]
+tile_set = ExtResource("2_tiles")
+
+[node name="Spawn_Inicio" type="Marker2D" parent="." groups=["spawn"]]
+position = Vector2(240, 210)
+
+[node name="Player" parent="." instance=ExtResource("3_player")]
+position = Vector2(240, 210)
