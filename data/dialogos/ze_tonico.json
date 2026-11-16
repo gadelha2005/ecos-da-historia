@@ -1,0 +1,140 @@
+{
+	"inicio": "z1",
+	"dica": "O Zé Tonico só repete o que ouviu. Pergunte de onde veio a história em vez de chamar de mentira, e mostre a notícia de jornal sobre o que aconteceu na capital.",
+	"nos": [
+		{
+			"id": "z1",
+			"fala": "Doutor, o senhor não soube do Rio? Disseram que quem toma essa vacina fica com cara de bezerro.",
+			"opcoes": [
+				{
+					"texto": "Essa história assusta mesmo. Onde o senhor ouviu?",
+					"tipo": "empatia",
+					"peso": 3,
+					"tensao": -5,
+					"destino": "z2"
+				},
+				{
+					"texto": "A vacina vem da varíola da vaca, mas não muda o corpo de ninguém.",
+					"tipo": "fato",
+					"peso": 2,
+					"tensao": 5,
+					"destino": "z3"
+				},
+				{
+					"texto": "Pare de espalhar boato. Isso dá problema com a lei.",
+					"tipo": "autoridade",
+					"peso": 0,
+					"tensao": 25,
+					"destino": "z4"
+				}
+			]
+		},
+		{
+			"id": "z2",
+			"fala": "Foi um tropeiro que passou aqui semana passada. Jurou que viu com os próprios olhos.",
+			"opcoes": [
+				{
+					"texto": "Quem conta um conto aumenta um ponto. Ele viu, ou ouviu dizer?",
+					"tipo": "fato",
+					"peso": 3,
+					"tensao": -5,
+					"destino": "z5"
+				},
+				{
+					"texto": "Olhe esta notícia de jornal: conta o que de fato aconteceu na capital.",
+					"tipo": "provas",
+					"peso": 4,
+					"tensao": -10,
+					"destino": "z5",
+					"exige_prova": "noticia_jornal"
+				},
+				{
+					"texto": "Tropeiro não é médico. Quem sabe disso é o governo.",
+					"tipo": "autoridade",
+					"peso": 0,
+					"tensao": 15,
+					"destino": "z4"
+				}
+			]
+		},
+		{
+			"id": "z3",
+			"fala": "Da vaca? Então é verdade que tem coisa de bicho nessa agulha!",
+			"opcoes": [
+				{
+					"texto": "Entendo que soe estranho. Deixe eu explicar com calma.",
+					"tipo": "empatia",
+					"peso": 2,
+					"tensao": -5,
+					"destino": "z5"
+				},
+				{
+					"texto": "É um pouco da doença da vaca, bem fraca. Ela protege da varíola de gente.",
+					"tipo": "fato",
+					"peso": 2,
+					"tensao": 0,
+					"destino": "z5"
+				},
+				{
+					"texto": "O senhor não precisa entender, só precisa tomar.",
+					"tipo": "autoridade",
+					"peso": 0,
+					"tensao": 20,
+					"destino": "z4"
+				}
+			]
+		},
+		{
+			"id": "z4",
+			"fala": "Está vendo? Vocês chegam mandando e ninguém explica nada. Por isso o povo fala.",
+			"opcoes": [
+				{
+					"texto": "O senhor tem razão. Me conte o que o povo anda dizendo.",
+					"tipo": "empatia",
+					"peso": 1,
+					"tensao": -10,
+					"destino": "z5"
+				},
+				{
+					"texto": "Eu explico: a brigada só quer impedir que a varíola chegue aqui.",
+					"tipo": "fato",
+					"peso": 1,
+					"tensao": 5,
+					"destino": "z5"
+				}
+			]
+		},
+		{
+			"id": "z5",
+			"fala": "E se eu estiver errado, o que eu digo para quem eu já contei a história?",
+			"opcoes": [
+				{
+					"texto": "Diga que o senhor também teve medo e foi atrás da verdade.",
+					"tipo": "empatia",
+					"peso": 3,
+					"tensao": -10,
+					"destino": "z6"
+				},
+				{
+					"texto": "Conte o que viu hoje: quem tomou a vacina continua igualzinho.",
+					"tipo": "fato",
+					"peso": 2,
+					"tensao": -5,
+					"destino": "z6"
+				},
+				{
+					"texto": "Diga que espalhar mentira dá cadeia.",
+					"tipo": "autoridade",
+					"peso": 0,
+					"tensao": 25,
+					"destino": "z6"
+				}
+			]
+		},
+		{
+			"id": "z6",
+			"fala": "Está certo, doutor. Vou tomar a vacina e desdizer o que falei. Mas o Seu Anselmo nem vai querer ouvir: ele não confia em nada que vem do governo.",
+			"final": true
+		}
+	]
+}

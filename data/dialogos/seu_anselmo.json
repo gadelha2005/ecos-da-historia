@@ -1,0 +1,140 @@
+{
+	"inicio": "a1",
+	"dica": "O Seu Anselmo perdeu terra para quem mandava. Reconheça essa perda, deixe claro que a brigada não quer nada dele e mostre o folheto: a vacina é de graça e não pede nada em troca.",
+	"nos": [
+		{
+			"id": "a1",
+			"fala": "Governo? Da última vez que gente do governo pisou aqui, eu perdi o meu roçado.",
+			"opcoes": [
+				{
+					"texto": "Sinto muito pelo que o senhor perdeu. Isso não se esquece.",
+					"tipo": "empatia",
+					"peso": 3,
+					"tensao": -5,
+					"destino": "a2"
+				},
+				{
+					"texto": "Esta brigada não veio medir terra. Veio só vacinar.",
+					"tipo": "fato",
+					"peso": 2,
+					"tensao": 5,
+					"destino": "a3"
+				},
+				{
+					"texto": "Isso é outro assunto. A vacina é lei.",
+					"tipo": "autoridade",
+					"peso": 0,
+					"tensao": 25,
+					"destino": "a4"
+				}
+			]
+		},
+		{
+			"id": "a2",
+			"fala": "Disseram que era só uma medição. No fim, a cerca andou e a terra virou de outro.",
+			"opcoes": [
+				{
+					"texto": "Aqui ninguém vai assinar papel nem medir nada. É só a vacina.",
+					"tipo": "fato",
+					"peso": 3,
+					"tensao": -5,
+					"destino": "a5"
+				},
+				{
+					"texto": "Veja o folheto da campanha: a vacina é de graça e não pede nada em troca.",
+					"tipo": "provas",
+					"peso": 4,
+					"tensao": -10,
+					"destino": "a5",
+					"exige_prova": "folheto_campanha"
+				},
+				{
+					"texto": "O que passou, passou. A ordem agora é vacinar.",
+					"tipo": "autoridade",
+					"peso": 0,
+					"tensao": 15,
+					"destino": "a4"
+				}
+			]
+		},
+		{
+			"id": "a3",
+			"fala": "Todo mundo que vem de fora diz que veio só para uma coisa.",
+			"opcoes": [
+				{
+					"texto": "O senhor tem motivo para desconfiar. Pode perguntar o que quiser.",
+					"tipo": "empatia",
+					"peso": 2,
+					"tensao": -5,
+					"destino": "a5"
+				},
+				{
+					"texto": "Não tomamos nada de ninguém. A vacina só protege a sua família da varíola.",
+					"tipo": "fato",
+					"peso": 2,
+					"tensao": 0,
+					"destino": "a5"
+				},
+				{
+					"texto": "Se não vacinar, o senhor vai se ver com os fiscais da saúde.",
+					"tipo": "autoridade",
+					"peso": 0,
+					"tensao": 20,
+					"destino": "a4"
+				}
+			]
+		},
+		{
+			"id": "a4",
+			"fala": "Pronto, é sempre assim: primeiro a ameaça, depois o prejuízo.",
+			"opcoes": [
+				{
+					"texto": "Eu não quero que o senhor perca mais nada. Me deixe explicar.",
+					"tipo": "empatia",
+					"peso": 1,
+					"tensao": -10,
+					"destino": "a5"
+				},
+				{
+					"texto": "A vacina não custa nada e não mexe no que é seu.",
+					"tipo": "fato",
+					"peso": 1,
+					"tensao": 5,
+					"destino": "a5"
+				}
+			]
+		},
+		{
+			"id": "a5",
+			"fala": "E quem me garante que não vão voltar depois cobrando alguma coisa?",
+			"opcoes": [
+				{
+					"texto": "Pode cobrar de mim. Eu fico por perto até a brigada ir embora.",
+					"tipo": "empatia",
+					"peso": 3,
+					"tensao": -10,
+					"destino": "a6"
+				},
+				{
+					"texto": "A vacina é de graça para todos. Ninguém vai cobrar nada.",
+					"tipo": "fato",
+					"peso": 2,
+					"tensao": -5,
+					"destino": "a6"
+				},
+				{
+					"texto": "O governo não precisa dar garantia a ninguém.",
+					"tipo": "autoridade",
+					"peso": 0,
+					"tensao": 25,
+					"destino": "a6"
+				}
+			]
+		},
+		{
+			"id": "a6",
+			"fala": "Vou acreditar no senhor, não no governo. Pode vacinar. Agora, o Seu Quintino... esse jurou que na casa dele ninguém entra.",
+			"final": true
+		}
+	]
+}

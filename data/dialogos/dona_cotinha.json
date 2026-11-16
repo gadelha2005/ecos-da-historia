@@ -1,0 +1,140 @@
+{
+	"inicio": "c1",
+	"dica": "A Dona Cotinha cuida do povoado há anos. Não despreze as ervas: mostre que elas e a vacina não brigam, e leve o relato de quem já passou pela varíola.",
+	"nos": [
+		{
+			"id": "c1",
+			"fala": "Doutor, eu curo este povoado com chá de ervas desde antes de o senhor nascer.",
+			"opcoes": [
+				{
+					"texto": "A senhora cuida de todo mundo aqui. Isso merece respeito.",
+					"tipo": "empatia",
+					"peso": 3,
+					"tensao": -5,
+					"destino": "c2"
+				},
+				{
+					"texto": "O chá ajuda em muita coisa, mas não impede a varíola.",
+					"tipo": "fato",
+					"peso": 2,
+					"tensao": 5,
+					"destino": "c3"
+				},
+				{
+					"texto": "Chá não é remédio. A vacina é obrigatória.",
+					"tipo": "autoridade",
+					"peso": 0,
+					"tensao": 25,
+					"destino": "c4"
+				}
+			]
+		},
+		{
+			"id": "c2",
+			"fala": "Pois então. Por que agora eu vou confiar numa agulha de quem nunca vi?",
+			"opcoes": [
+				{
+					"texto": "As suas ervas tratam muita doença. A vacina faz outra coisa: evita que a varíola pegue.",
+					"tipo": "fato",
+					"peso": 3,
+					"tensao": -5,
+					"destino": "c5"
+				},
+				{
+					"texto": "Leia o relato de quem pegou varíola e se curou: ele pede que todos se vacinem.",
+					"tipo": "provas",
+					"peso": 4,
+					"tensao": -10,
+					"destino": "c5",
+					"exige_prova": "relato_curado"
+				},
+				{
+					"texto": "Porque o médico estudou, e a senhora não.",
+					"tipo": "autoridade",
+					"peso": 0,
+					"tensao": 25,
+					"destino": "c4"
+				}
+			]
+		},
+		{
+			"id": "c3",
+			"fala": "Não impede? Já vi muita febre baixar com o meu chá de cidreira.",
+			"opcoes": [
+				{
+					"texto": "Não duvido. E a senhora pode continuar com o chá depois da vacina.",
+					"tipo": "empatia",
+					"peso": 2,
+					"tensao": -5,
+					"destino": "c5"
+				},
+				{
+					"texto": "A febre baixa, mas a varíola é mais forte. A vacina protege antes de a doença chegar.",
+					"tipo": "fato",
+					"peso": 2,
+					"tensao": 0,
+					"destino": "c5"
+				},
+				{
+					"texto": "Isso é crendice.",
+					"tipo": "autoridade",
+					"peso": 0,
+					"tensao": 25,
+					"destino": "c4"
+				}
+			]
+		},
+		{
+			"id": "c4",
+			"fala": "Quando nenhum doutor aparecia por aqui, quem cuidava do povo era eu.",
+			"opcoes": [
+				{
+					"texto": "A senhora tem razão. Me desculpe, quero aprender com a senhora também.",
+					"tipo": "empatia",
+					"peso": 1,
+					"tensao": -10,
+					"destino": "c5"
+				},
+				{
+					"texto": "A senhora cuidou, e a vacina pode ajudar a senhora a cuidar ainda mais.",
+					"tipo": "fato",
+					"peso": 1,
+					"tensao": 5,
+					"destino": "c5"
+				}
+			]
+		},
+		{
+			"id": "c5",
+			"fala": "E o povo? Se eu tomar, vão achar que as minhas ervas não prestam mais.",
+			"opcoes": [
+				{
+					"texto": "Vão ver que a senhora quer o melhor para eles, como sempre quis.",
+					"tipo": "empatia",
+					"peso": 3,
+					"tensao": -10,
+					"destino": "c6"
+				},
+				{
+					"texto": "As ervas e a vacina não brigam: uma cuida, a outra previne.",
+					"tipo": "fato",
+					"peso": 2,
+					"tensao": -5,
+					"destino": "c6"
+				},
+				{
+					"texto": "Depois da vacina, ninguém vai precisar mais de chá.",
+					"tipo": "autoridade",
+					"peso": 0,
+					"tensao": 25,
+					"destino": "c6"
+				}
+			]
+		},
+		{
+			"id": "c6",
+			"fala": "Está bem, doutor. Eu tomo, e ainda levo o povo comigo. Mas o chá de cidreira continua, viu?",
+			"final": true
+		}
+	]
+}

@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cxccehvlgn3k2"]
+
+[ext_resource type="Script" path="res://scripts/comum/teste_i3a.gd" id="1_script"]
+[ext_resource type="PackedScene" uid="uid://bkunskqffjmv8" path="res://scenes/ui/hud_dialogo.tscn" id="2_hud"]
+
+[node name="TesteI3a" type="Node" unique_id=1087875233]
+script = ExtResource("1_script")
+
+[node name="Fundo" type="ColorRect" parent="." unique_id=718673244]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.15, 0.15, 0.17, 1)
+
+[node name="HudDialogo" parent="." unique_id=374566894 instance=ExtResource("2_hud")]
