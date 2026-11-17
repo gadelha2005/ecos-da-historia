@@ -9,17 +9,22 @@ signal chave_encaixada(fase: int)
 signal porta_aberta
 
 const CENA_FINAL := "res://scenes/final/final.tscn"
-## Cores provisórias das fechaduras/chaves (até a arte do K9).
-const CORES: Array[Color] = [
-	Color(0.85, 0.15, 0.15),  # 1904 Saúde
-	Color(0.85, 0.2, 0.7),    # 1973 Cultura
-	Color(0.2, 0.7, 0.25),    # 1979 Meio ambiente
-	Color(0.9, 0.7, 0.15),    # 1982 Educação
+## Arte do K9 (Leo): fechaduras 8x8 e chaves 16x16, na ordem das épocas.
+const FECHADURA_VAZIA: Texture2D = preload("res://assets/sprites/hub/chaves/fechadura_vazia.png")
+const FECHADURAS: Array[Texture2D] = [
+	preload("res://assets/sprites/hub/chaves/fechadura_saude.png"),     # 1904 Saúde
+	preload("res://assets/sprites/hub/chaves/fechadura_cultura.png"),   # 1973 Cultura
+	preload("res://assets/sprites/hub/chaves/fechadura_ambiente.png"),  # 1979 Meio ambiente
+	preload("res://assets/sprites/hub/chaves/fechadura_educacao.png"),  # 1982 Educação
 ]
-const COR_VAZIA := Color(0.16, 0.16, 0.19)
-
-## Arte da chave (K9). Vazio = retângulo na cor da época.
-@export var textura_chave: Texture2D
+const CHAVES: Array[Texture2D] = [
+	preload("res://assets/sprites/hub/chaves/chave_saude.png"),
+	preload("res://assets/sprites/hub/chaves/chave_cultura.png"),
+	preload("res://assets/sprites/hub/chaves/chave_ambiente.png"),
+	preload("res://assets/sprites/hub/chaves/chave_educacao.png"),
+]
+## Escala da chave durante a animação (a arte tem 16x16; a porta tem 32 de largura).
+const ESCALA_CHAVE := Vector2(0.75, 0.75)
 
 var _ocupada: bool = false
 
@@ -47,12 +52,9 @@ func encaixar(fase: int) -> void:
 	_ocupada = true
 	var fechadura := fechaduras[fase]
 	var chave := Sprite2D.new()
-	if textura_chave:
-		chave.texture = textura_chave
-	else:
-		chave.texture = fechadura.texture
-		chave.scale = Vector2(0.5, 1.5)
-		chave.modulate = CORES[fase].lightened(0.25)
+	chave.texture = CHAVES[fase]
+	chave.scale = ESCALA_CHAVE
+	chave.z_index = 1
 	chave.position = fechadura.position + Vector2(0, 30)
 	chave.modulate.a = 0.0
 	add_child(chave)
@@ -63,7 +65,7 @@ func encaixar(fase: int) -> void:
 	tw.tween_callback(som.play)
 	tw.tween_property(chave, "rotation", PI / 2.0, 0.25).set_trans(Tween.TRANS_BACK)
 	tw.tween_callback(_pintar.bind(fase, true))
-	tw.tween_property(fechadura, "scale", Vector2(1.6, 1.6), 0.1)
+	tw.tween_property(fechadura, "scale", Vector2(1.5, 1.5), 0.1)
 	tw.parallel().tween_property(chave, "modulate:a", 0.0, 0.15)
 	tw.tween_property(fechadura, "scale", Vector2.ONE, 0.15)
 	await tw.finished
@@ -112,7 +114,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _pintar(fase: int, cheia: bool) -> void:
-	fechaduras[fase].modulate = CORES[fase] if cheia else COR_VAZIA
+	fechaduras[fase].texture = FECHADURAS[fase] if cheia else FECHADURA_VAZIA
 
 
 func _ir_para(caminho: String, spawn: String = "") -> bool:

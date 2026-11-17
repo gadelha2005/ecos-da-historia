@@ -1,17 +1,11 @@
 [gd_scene format=3 uid="uid://c0i4pe146sa02"]
 
 [ext_resource type="Script" path="res://scripts/comum/porta_saida.gd" id="1_2ng7k"]
+[ext_resource type="Texture2D" uid="uid://b6rd3u8ppmqwh" path="res://assets/sprites/hub/chaves/fechadura_vazia.png" id="2_vazia"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_brq8s"]
 size = Vector2(32, 16)
 
-[sub_resource type="Gradient" id="Gradient_branco"]
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_fechadura"]
-gradient = SubResource("Gradient_branco")
-width = 6
-height = 6
 
 [node name="PortaSaida" type="Area2D" unique_id=1078571635 groups=["interagivel"]]
 collision_layer = 2
@@ -42,18 +36,18 @@ position = Vector2(0, -20)
 
 [node name="Fechadura0" type="Sprite2D" parent="Fechaduras"]
 position = Vector2(-12, 0)
-texture = SubResource("GradientTexture2D_fechadura")
+texture = ExtResource("2_vazia")
 
 [node name="Fechadura1" type="Sprite2D" parent="Fechaduras"]
 position = Vector2(-4, 0)
-texture = SubResource("GradientTexture2D_fechadura")
+texture = ExtResource("2_vazia")
 
 [node name="Fechadura2" type="Sprite2D" parent="Fechaduras"]
 position = Vector2(4, 0)
-texture = SubResource("GradientTexture2D_fechadura")
+texture = ExtResource("2_vazia")
 
 [node name="Fechadura3" type="Sprite2D" parent="Fechaduras"]
 position = Vector2(12, 0)
-texture = SubResource("GradientTexture2D_fechadura")
+texture = ExtResource("2_vazia")
 
 [node name="Som" type="AudioStreamPlayer2D" parent="."]
