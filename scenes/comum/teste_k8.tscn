@@ -1,0 +1,15 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/comum/teste_k8.gd" id="1_k8"]
+
+[node name="TesteK8" type="Node"]
+script = ExtResource("1_k8")
+
+[node name="Interface" type="CanvasLayer" parent="."]
+layer = 5
+
+[node name="Rotulo" type="Label" parent="Interface"]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 900.0
+offset_bottom = 80.0

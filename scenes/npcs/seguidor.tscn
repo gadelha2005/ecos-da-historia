@@ -1,0 +1,128 @@
+[gd_scene load_steps=13 format=3]
+
+[ext_resource type="Script" path="res://scripts/npcs/seguidor.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/sprites/player/catalisador.png" id="2_folha"]
+
+[sub_resource type="RectangleShape2D" id="Forma_pes"]
+size = Vector2(10, 6)
+
+[sub_resource type="AtlasTexture" id="q_0_0"]
+atlas = ExtResource("2_folha")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="q_0_1"]
+atlas = ExtResource("2_folha")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="q_0_2"]
+atlas = ExtResource("2_folha")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="q_1_0"]
+atlas = ExtResource("2_folha")
+region = Rect2(0, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="q_1_1"]
+atlas = ExtResource("2_folha")
+region = Rect2(16, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="q_1_2"]
+atlas = ExtResource("2_folha")
+region = Rect2(32, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="q_2_0"]
+atlas = ExtResource("2_folha")
+region = Rect2(0, 64, 16, 32)
+
+[sub_resource type="AtlasTexture" id="q_2_1"]
+atlas = ExtResource("2_folha")
+region = Rect2(16, 64, 16, 32)
+
+[sub_resource type="AtlasTexture" id="q_2_2"]
+atlas = ExtResource("2_folha")
+region = Rect2(32, 64, 16, 32)
+
+[sub_resource type="SpriteFrames" id="Frames_provisorio"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("q_0_0")
+}, {
+"duration": 1.0,
+"texture": SubResource("q_0_1")
+}, {
+"duration": 1.0,
+"texture": SubResource("q_0_2")
+}],
+"loop": true,
+"name": &"andar_baixo",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("q_0_0")
+}],
+"loop": true,
+"name": &"idle_baixo",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("q_1_0")
+}, {
+"duration": 1.0,
+"texture": SubResource("q_1_1")
+}, {
+"duration": 1.0,
+"texture": SubResource("q_1_2")
+}],
+"loop": true,
+"name": &"andar_cima",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("q_1_0")
+}],
+"loop": true,
+"name": &"idle_cima",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("q_2_0")
+}, {
+"duration": 1.0,
+"texture": SubResource("q_2_1")
+}, {
+"duration": 1.0,
+"texture": SubResource("q_2_2")
+}],
+"loop": true,
+"name": &"andar_lado",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("q_2_0")
+}],
+"loop": true,
+"name": &"idle_lado",
+"speed": 5.0
+}]
+
+[node name="Seguidor" type="CharacterBody2D"]
+collision_layer = 4
+motion_mode = 1
+script = ExtResource("1_script")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3)
+shape = SubResource("Forma_pes")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(0.75, 0.9, 1.15, 1)
+sprite_frames = SubResource("Frames_provisorio")
+animation = &"idle_baixo"
+autoplay = "idle_baixo"
+offset = Vector2(0, -16)

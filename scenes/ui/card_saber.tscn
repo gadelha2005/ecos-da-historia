@@ -1,0 +1,87 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/card_saber.gd" id="1_script"]
+[ext_resource type="Theme" path="res://scenes/ui/tema_ui.tres" id="2_tema"]
+
+[node name="CardSaber" type="CanvasLayer"]
+layer = 85
+script = ExtResource("1_script")
+
+[node name="Fundo" type="ColorRect" parent="."]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.75)
+
+[node name="Centro" type="CenterContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("2_tema")
+
+[node name="Painel" type="PanelContainer" parent="Centro"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(1100, 0)
+layout_mode = 2
+
+[node name="Coluna" type="VBoxContainer" parent="Centro/Painel"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Icone" type="TextureRect" parent="Centro/Painel/Coluna"]
+unique_name_in_owner = true
+texture_filter = 1
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_horizontal = 4
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RotuloChave" type="Label" parent="Centro/Painel/Coluna"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.55, 0.85, 0.55, 1)
+theme_override_font_sizes/font_size = 32
+text = "Você recebeu a Chave da Saúde!"
+horizontal_alignment = 1
+
+[node name="Separador" type="ColorRect" parent="Centro/Painel/Coluna"]
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 2
+color = Color(0.33, 0.38, 0.5, 1)
+
+[node name="Titulo" type="Label" parent="Centro/Painel/Coluna"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.75, 0.3, 1)
+theme_override_font_sizes/font_size = 64
+text = "Você sabia?"
+horizontal_alignment = 1
+
+[node name="Subtitulo" type="Label" parent="Centro/Painel/Coluna"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6, 0.64, 0.74, 1)
+theme_override_font_sizes/font_size = 30
+text = "Rio de Janeiro, 1904"
+horizontal_alignment = 1
+
+[node name="Texto" type="Label" parent="Centro/Painel/Coluna"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "..."
+autowrap_mode = 3
+
+[node name="BotaoContinuar" type="Button" parent="Centro/Painel/Coluna"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(360, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Continuar"

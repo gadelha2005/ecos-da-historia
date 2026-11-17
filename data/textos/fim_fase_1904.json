@@ -1,0 +1,13 @@
+{
+  "fechamento": [
+    { "falante": "ECO", "texto": "{nome}, você conseguiu! Os seis moradores aceitaram ouvir a brigada." },
+    { "falante": "Inácia", "texto": "Ninguém aqui é contra se cuidar. A gente só queria ser ouvido antes." },
+    { "falante": "ECO", "texto": "O povoado vai se vacinar. O eco de 1904 está seguro." }
+  ],
+  "chave": "Você recebeu a Chave da Saúde!",
+  "saber": {
+    "titulo": "Você sabia?",
+    "subtitulo": "Rio de Janeiro, 1904",
+    "texto": "Em 31 de outubro de 1904, a Lei nº 1.261 tornou obrigatória a vacinação contra a varíola. A campanha era comandada pelo médico sanitarista Oswaldo Cruz, mas as brigadas entravam nas casas à força e quase nada era explicado à população. Entre 10 e 16 de novembro estourou a Revolta da Vacina, e o governo suspendeu a obrigatoriedade. Anos depois, durante a epidemia de varíola de 1908, a própria população procurou a vacina."
+  }
+}
