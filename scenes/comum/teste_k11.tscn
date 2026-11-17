@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://bwc1vfy2dqild"]
+
+[ext_resource type="Script" path="res://scripts/comum/teste_k11.gd" id="1_k11"]
+[ext_resource type="Theme" path="res://scenes/ui/tema_ui.tres" id="2_tema"]
+
+[node name="TesteK11" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_tema")
+script = ExtResource("1_k11")
+
+[node name="Fundo" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.08, 0.08, 0.11, 1)
+
+[node name="Caixa" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -520.0
+offset_top = -380.0
+offset_right = 520.0
+offset_bottom = 380.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 22
+
+[node name="Titulo" type="Label" parent="Caixa"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 52
+text = "Teste K11 · Salvar e carregar"
+horizontal_alignment = 1
+
+[node name="Estado" type="Label" parent="Caixa"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+
+[node name="PegarChave" type="Button" parent="Caixa"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 34
+text = "1. Pegar e encaixar a próxima chave (salva sozinho)"
+
+[node name="Zerar" type="Button" parent="Caixa"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 34
+text = "2. \"Fechar o jogo\" (zera o GameState na memória)"
+
+[node name="Continuar" type="Button" parent="Caixa"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 34
+text = "3. Continuar (carrega o save e vai ao hub)"
+
+[node name="Apagar" type="Button" parent="Caixa"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 34
+text = "Apagar o save"
