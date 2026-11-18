@@ -1,0 +1,48 @@
+{
+	"inicio": "pergunta",
+	"nos": [
+		{
+			"id": "pergunta",
+			"fala": "[Holograma de teste] Olá, Catalisador. Eu sou um morador de treino. Chegou uma novidade no bairro e eu estou desconfiado. Como você fala comigo?",
+			"opcoes": [
+				{ "texto": "Entendo a sua desconfiança. Me conta o que te preocupa?", "tipo": "empatia", "peso": 3, "tensao": -5, "destino": "explica_empatia" },
+				{ "texto": "Posso te explicar como a novidade funciona, passo a passo.", "tipo": "fato", "peso": 2, "tensao": 0, "destino": "explica_fato" },
+				{ "texto": "As regras mandam aceitar, e pronto.", "tipo": "autoridade", "peso": 0, "tensao": 15, "destino": "explica_autoridade" },
+				{ "texto": "Olha este documento de treino que comprova o que eu digo.", "tipo": "provas", "peso": 4, "tensao": -10, "exige_prova": "prova_treino", "destino": "explica_provas" }
+			]
+		},
+		{
+			"id": "explica_empatia",
+			"fala": "[Empatia] Ouvir primeiro baixa a tensão e faz a pessoa confiar em você. É o melhor jeito de começar quando alguém está com medo.",
+			"opcoes": [
+				{ "texto": "Entendi.", "tipo": "empatia", "peso": 0, "tensao": 0, "destino": "fim" }
+			]
+		},
+		{
+			"id": "explica_fato",
+			"fala": "[Fato] Explicar com calma e com informação certa convence quem tem dúvida. Mas fato sem escuta pode soar frio.",
+			"opcoes": [
+				{ "texto": "Entendi.", "tipo": "fato", "peso": 0, "tensao": 0, "destino": "fim" }
+			]
+		},
+		{
+			"id": "explica_autoridade",
+			"fala": "[Autoridade] Mandar quase sempre aumenta a tensão. Viu a barra subir? Use só quando não houver outro caminho.",
+			"opcoes": [
+				{ "texto": "Entendi.", "tipo": "autoridade", "peso": 0, "tensao": 0, "destino": "fim" }
+			]
+		},
+		{
+			"id": "explica_provas",
+			"fala": "[Provas] Uma prova encontrada pelo mapa é o argumento mais forte. Ela pesa mais que palavras.",
+			"opcoes": [
+				{ "texto": "Entendi.", "tipo": "provas", "peso": 0, "tensao": 0, "destino": "fim" }
+			]
+		},
+		{
+			"id": "fim",
+			"fala": "Fim do treino. O botão Provas só acende quando você tem a prova certa: procure provas pelo mapa em cada época. Pode treinar aqui quantas vezes quiser.",
+			"final": true
+		}
+	]
+}
