@@ -1,0 +1,64 @@
+{
+	"intro": [
+		"...{nome}? Está me ouvindo? Levante devagar.",
+		"Você está no laboratório de Computação da Unifor, em 2026. Olhe em volta: tudo perdeu a cor.",
+		"Eu sou o ECO, a voz da máquina do tempo. Vou te chamar de Catalisador: quem dá a faísca para as coisas acontecerem.",
+		"A máquina travou. Trancou o laboratório e abriu quatro portais para a Unifor do passado.",
+		"A porta de saída tem quatro fechaduras, e cada época guarda uma chave.",
+		"Mas a chave só vem para quem alcança o resultado esperado da fase.",
+		"Se a conversa der errado, a fase recomeça. Você pode tentar de novo até acertar.",
+		"Quando as quatro chaves estiverem na porta, a cor volta."
+	],
+	"hub": [
+		"Quatro portais giram em volta da máquina. Por enquanto, só o de 1904 está ativo.",
+		"Cada zona do laboratório é ligada a um tema: saúde, cultura, natureza e educação. Todas esperam a cor voltar.",
+		"Antes de viajar, teste o terminal perto da porta. Ele mostra como funciona o menu de escolhas.",
+		"Quando estiver pronto, entre no portal vermelho de 1904."
+	],
+	"volta": {
+		"0": [
+			"A chave da cruz encaixou na primeira fechadura.",
+			"Olhe a zona da saúde: a maca, o armário de remédios e a cruz na parede ganharam cor.",
+			"O portal de 1973 se abriu. Lá, a universidade está acabando de nascer."
+		],
+		"1": [
+			"A chave do pincel e da máscara encaixou na segunda fechadura.",
+			"Os quadros e o mural da zona da cultura ganharam cor.",
+			"O portal verde se abriu. Ele leva à mata ao lado do campus."
+		],
+		"2": [
+			"A chave da folha encaixou na terceira fechadura.",
+			"Os vasos de plantas da zona da natureza ficaram verdes de novo.",
+			"O portal dourado se abriu. É o último."
+		],
+		"3": [
+			"A última chave encaixou.",
+			"A estante e os livros da zona da educação ganharam cor.",
+			"A porta de saída está livre, {nome}. Quando quiser, é só abrir."
+		]
+	},
+	"portal_trancado": {
+		"0": [
+			"O portal de 1904 está aberto. Não precisa de chave para entrar."
+		],
+		"1": [
+			"Este portal ainda está trancado. Falta a chave da Saúde, que está em 1904."
+		],
+		"2": [
+			"Este portal ainda está trancado. Falta a chave da Cultura, da primeira Mostra de 1973."
+		],
+		"3": [
+			"Este portal ainda está trancado. Falta a chave do Meio ambiente, da mata ao lado do campus."
+		]
+	},
+	"porta": {
+		"faltam": [
+			"A porta ainda não abre. Faltam {n} de 4 chaves."
+		],
+		"abrindo": [
+			"As quatro chaves estão girando juntas.",
+			"A porta se abriu, {nome}. A luz lá de fora já está entrando.",
+			"Vamos ver o que cada época deixou no campus."
+		]
+	}
+}
