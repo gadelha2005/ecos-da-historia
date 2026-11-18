@@ -1,0 +1,140 @@
+{
+	"inicio": "q1",
+	"dica": "O Seu Quintino não aceita ser obrigado nem que entrem na casa dele. Respeite o terreiro, deixe a decisão com ele e use o depoimento do médico: a vacina pode ser dada ali fora mesmo.",
+	"nos": [
+		{
+			"id": "q1",
+			"fala": "Pode parar aí no terreiro. Na minha casa ninguém entra, nem doutor, nem soldado.",
+			"opcoes": [
+				{
+					"texto": "Está bem, eu fico aqui fora. A casa é sua.",
+					"tipo": "empatia",
+					"peso": 3,
+					"tensao": -10,
+					"destino": "q2"
+				},
+				{
+					"texto": "Não precisa entrar. A vacina é aplicada aqui mesmo, no braço.",
+					"tipo": "fato",
+					"peso": 2,
+					"tensao": 0,
+					"destino": "q3"
+				},
+				{
+					"texto": "A lei permite entrar nas casas para vacinar.",
+					"tipo": "autoridade",
+					"peso": 0,
+					"tensao": 35,
+					"destino": "q4"
+				}
+			]
+		},
+		{
+			"id": "q2",
+			"fala": "No Rio, dizem que arrombaram porta para vacinar à força. É isso que vão fazer aqui?",
+			"opcoes": [
+				{
+					"texto": "Aqui ninguém arromba porta. A gente conversa até o senhor decidir.",
+					"tipo": "fato",
+					"peso": 3,
+					"tensao": -5,
+					"destino": "q5"
+				},
+				{
+					"texto": "O médico da brigada explica no depoimento dele: a vacina pode ser dada aqui fora.",
+					"tipo": "provas",
+					"peso": 4,
+					"tensao": -10,
+					"destino": "q5",
+					"exige_prova": "depoimento_medico"
+				},
+				{
+					"texto": "Se o senhor resistir, pode acontecer.",
+					"tipo": "autoridade",
+					"peso": 0,
+					"tensao": 30,
+					"destino": "q4"
+				}
+			]
+		},
+		{
+			"id": "q3",
+			"fala": "No braço ou não, é obrigado, não é? Pois eu não aceito ser obrigado a nada.",
+			"opcoes": [
+				{
+					"texto": "Ninguém gosta de ser mandado. Eu prefiro que o senhor escolha.",
+					"tipo": "empatia",
+					"peso": 2,
+					"tensao": -5,
+					"destino": "q5"
+				},
+				{
+					"texto": "A obrigação existe porque a varíola passa de casa em casa.",
+					"tipo": "fato",
+					"peso": 2,
+					"tensao": 5,
+					"destino": "q5"
+				},
+				{
+					"texto": "Não é questão de aceitar. É a lei e pronto.",
+					"tipo": "autoridade",
+					"peso": 0,
+					"tensao": 30,
+					"destino": "q4"
+				}
+			]
+		},
+		{
+			"id": "q4",
+			"fala": "Então pode ir embora. Daqui ninguém me arranca.",
+			"opcoes": [
+				{
+					"texto": "Desculpe, falei mal. Eu não vim brigar com o senhor.",
+					"tipo": "empatia",
+					"peso": 1,
+					"tensao": -15,
+					"destino": "q5"
+				},
+				{
+					"texto": "Só quero explicar por que a vacina importa para a sua família.",
+					"tipo": "fato",
+					"peso": 1,
+					"tensao": 0,
+					"destino": "q5"
+				}
+			]
+		},
+		{
+			"id": "q5",
+			"fala": "E se eu tomar, vão dizer que o Quintino abaixou a cabeça para o governo.",
+			"opcoes": [
+				{
+					"texto": "Vão dizer que o senhor protegeu a sua família, por escolha sua.",
+					"tipo": "empatia",
+					"peso": 3,
+					"tensao": -10,
+					"destino": "q6"
+				},
+				{
+					"texto": "A varíola não respeita teimosia. Tomar a vacina é se defender.",
+					"tipo": "fato",
+					"peso": 2,
+					"tensao": 0,
+					"destino": "q6"
+				},
+				{
+					"texto": "Quem não tomar vai ser multado, e aí sim vai abaixar a cabeça.",
+					"tipo": "autoridade",
+					"peso": 0,
+					"tensao": 30,
+					"destino": "q6"
+				}
+			]
+		},
+		{
+			"id": "q6",
+			"fala": "Está bem. Pode vacinar aqui no terreiro mesmo, e porque eu quis. Mas ainda falta a Dona Cotinha: ela cura tudo com chá e não confia em médico.",
+			"final": true
+		}
+	]
+}
