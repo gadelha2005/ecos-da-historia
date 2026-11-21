@@ -5,8 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://c1uwo5f8cfsh" path="res://scenes/player/player.tscn" id="3_ursuo"]
 [ext_resource type="Script" uid="uid://dl78nsgclahk7" path="res://scripts/comum/hub_eventos.gd" id="9_eventos"]
 [ext_resource type="Texture2D" uid="uid://k3bmo7ygxc8" path="res://assets/sprites/hub/lab/piso_hub.png" id="chao_hex"]
-[ext_resource type="Texture2D" path="res://assets/sprites/hub/lab/maquina_corpo.png" id="tex_0"]
-[ext_resource type="Texture2D" path="res://assets/sprites/hub/lab/maquina_discos.png" id="tex_discos"]
+[ext_resource type="Texture2D" uid="uid://80xr47d4v5dd" path="res://assets/sprites/hub/lab/maquina_corpo.png" id="tex_0"]
 [ext_resource type="Texture2D" uid="uid://uba3j4f14fjt" path="res://assets/sprites/hub/lab/servidor.png" id="tex_1"]
 [ext_resource type="Texture2D" uid="uid://d18ywp6q7f6p6" path="res://assets/sprites/hub/lab/dispensador.png" id="tex_2"]
 [ext_resource type="Texture2D" uid="uid://8ppuhgxnwvdo" path="res://assets/sprites/hub/zonas/saude_armario_remedios.png" id="tex_3"]
@@ -26,6 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://lbydferahva2" path="res://assets/sprites/hub/zonas/cultura_mural.png" id="tex_17"]
 [ext_resource type="Texture2D" uid="uid://c7dtw38vkqknp" path="res://assets/sprites/hub/zonas/cultura_quadro_retrato.png" id="tex_18"]
 [ext_resource type="Texture2D" uid="uid://brqeha0v6g8wy" path="res://assets/sprites/hub/zonas/cultura_quadro_abstrato.png" id="tex_19"]
+[ext_resource type="Texture2D" uid="uid://cwl3slenqjtys" path="res://assets/sprites/hub/lab/maquina_discos.png" id="tex_discos"]
 
 [sub_resource type="RectangleShape2D" id="forma_48x36"]
 size = Vector2(48, 36)
@@ -69,9 +69,9 @@ jogador = NodePath("Player")
 texture = ExtResource("chao_hex")
 centered = false
 
-[node name="Piso" type="Node2D" parent="."]
+[node name="Piso" type="Node2D" parent="." unique_id=789163210]
 
-[node name="Discos" type="Sprite2D" parent="Piso"]
+[node name="Discos" type="Sprite2D" parent="Piso" unique_id=1276551857]
 position = Vector2(192, 96)
 texture = ExtResource("tex_discos")
 centered = false
