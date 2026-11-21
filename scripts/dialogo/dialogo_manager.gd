@@ -10,6 +10,8 @@ const CAMINHO_MENU: String = "res://scenes/ui/menu_escolhas.tscn"
 var tensao: int = 0
 var confianca: int = 50
 var pontos: int = 0
+## Tensão com que cada conversa começa (o boato da capital, I5, sobe este valor).
+var tensao_inicial: int = 0
 
 # Apresentação trocável: func(texto: String) -> void  e  func(pergunta: String, opcoes: Array[Dictionary]) -> int
 var mostrar_fala: Callable
@@ -30,7 +32,7 @@ func iniciar(caminho: String) -> Dictionary:
 		return {"pontos": 0, "falhou": true, "tensao": tensao}
 
 	pontos = 0
-	_definir_tensao(0)
+	_definir_tensao(tensao_inicial)
 	_definir_confianca(50)
 
 	var falhou := false
