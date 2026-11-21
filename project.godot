@@ -23,6 +23,7 @@ DialogoManager="*uid://ctgwlgwh1jjr7"
 Config="*res://scripts/autoload/config.gd"
 Mensagem="*res://scenes/ui/mensagem.tscn"
 MenuPausa="*res://scenes/ui/menu_pausa.tscn"
+Save="*res://scripts/autoload/save.gd"
 
 [display]
 

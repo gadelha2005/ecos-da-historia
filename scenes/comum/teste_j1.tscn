@@ -1,20 +1,20 @@
-[gd_scene load_steps=4 format=3]
+[gd_scene format=3 uid="uid://cwr1n7pp8e35f"]
 
-[ext_resource type="Script" path="res://scripts/comum/teste_j1.gd" id="1_teste"]
-[ext_resource type="TileSet" path="res://assets/tiles/fase1904/tileset_1904.tres" id="2_tiles"]
-[ext_resource type="PackedScene" path="res://scenes/player/player.tscn" id="3_player"]
+[ext_resource type="Script" uid="uid://ed6knrwkjkdb" path="res://scripts/comum/teste_j1.gd" id="1_teste"]
+[ext_resource type="TileSet" uid="uid://thn34p2wrrit" path="res://assets/tiles/fase1904/tileset_1904.tres" id="2_tiles"]
+[ext_resource type="PackedScene" uid="uid://c1uwo5f8cfsh" path="res://scenes/player/player.tscn" id="3_player"]
 
-[node name="TesteJ1" type="Node2D" node_paths=PackedStringArray("chao", "jogador")]
+[node name="TesteJ1" type="Node2D" unique_id=472328832 node_paths=PackedStringArray("chao", "jogador")]
 y_sort_enabled = true
 script = ExtResource("1_teste")
 chao = NodePath("Chao")
 jogador = NodePath("Player")
 
-[node name="Chao" type="TileMapLayer" parent="."]
+[node name="Chao" type="TileMapLayer" parent="." unique_id=1782552604]
 tile_set = ExtResource("2_tiles")
 
-[node name="Spawn_Inicio" type="Marker2D" parent="." groups=["spawn"]]
+[node name="Spawn_Inicio" type="Marker2D" parent="." unique_id=819496913 groups=["spawn"]]
 position = Vector2(240, 210)
 
-[node name="Player" parent="." instance=ExtResource("3_player")]
+[node name="Player" parent="." unique_id=789196279 instance=ExtResource("3_player")]
 position = Vector2(240, 210)

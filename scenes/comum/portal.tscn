@@ -1,9 +1,25 @@
 [gd_scene format=3 uid="uid://u1gkaqbp7x05"]
 
-[ext_resource type="Script" path="res://scripts/comum/portal.gd" id="1_x1htw"]
+[ext_resource type="Script" uid="uid://blu3xg5c6w2se" path="res://scripts/comum/portal.gd" id="1_x1htw"]
+[ext_resource type="Shader" uid="uid://bmmcgcrsu2ob1" path="res://shaders/portal_distorcao.gdshader" id="2_dist"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mng4g"]
 size = Vector2(16, 16)
+
+[sub_resource type="Gradient" id="Gradient_anel"]
+offsets = PackedFloat32Array(0, 0.28, 0.42, 0.6, 0.78, 0.92, 1)
+colors = PackedColorArray(1, 1, 1, 0.85, 0.75, 0.75, 0.75, 0.35, 1, 1, 1, 1, 0.55, 0.55, 0.55, 0.9, 1, 1, 1, 1, 0.7, 0.7, 0.7, 0.6, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_anel"]
+gradient = SubResource("Gradient_anel")
+width = 32
+height = 32
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_portal"]
+shader = ExtResource("2_dist")
 
 [node name="Portal" type="Area2D" unique_id=1200308274 groups=["interagivel"]]
 collision_layer = 2
@@ -13,10 +29,6 @@ script = ExtResource("1_x1htw")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=569302575]
 shape = SubResource("RectangleShape2D_mng4g")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1582973160]
-offset_left = -8.0
-offset_top = -8.0
-offset_right = 8.0
-offset_bottom = 8.0
-mouse_filter = 2
-color = Color(0.85, 0.1, 0.1, 1)
+[node name="Sprite" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_portal")
+texture = SubResource("GradientTexture2D_anel")

@@ -1,0 +1,108 @@
+[gd_scene format=3 uid="uid://dls23ugoms3o2"]
+
+[ext_resource type="Script" path="res://scripts/comum/teste_k2.gd" id="1_k4vjl"]
+[ext_resource type="PackedScene" path="res://scenes/comum/portal.tscn" id="2_8f5jx"]
+[ext_resource type="PackedScene" path="res://scenes/player/player.tscn" id="3_nyk6d"]
+
+[node name="TesteK2" type="Node2D" unique_id=1992186601 node_paths=PackedStringArray("portais", "jogador")]
+script = ExtResource("1_k4vjl")
+portais = [NodePath("Portal1904"), NodePath("Portal1973"), NodePath("Portal1979"), NodePath("Portal1982")]
+jogador = NodePath("Player")
+
+[node name="Chao" type="ColorRect" parent="." unique_id=143244067]
+offset_left = -160.0
+offset_top = -60.0
+offset_right = 480.0
+offset_bottom = 300.0
+mouse_filter = 2
+color = Color(0.3, 0.3, 0.34, 1)
+
+[node name="Portal1904" parent="." unique_id=1200308274 instance=ExtResource("2_8f5jx")]
+position = Vector2(70, 100)
+cena_destino = "res://scenes/fases/fase_teste.tscn"
+spawn_destino = "Spawn_Inicio"
+
+[node name="@Label@2" type="Label" parent="." unique_id=1302994692]
+offset_left = 20.0
+offset_top = 70.4
+offset_right = 420.0
+offset_bottom = 115.4
+scale = Vector2(0.25, 0.25)
+theme_override_font_sizes/font_size = 32
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+text = "1904"
+horizontal_alignment = 1
+
+[node name="Portal1973" parent="." unique_id=1051403267 instance=ExtResource("2_8f5jx")]
+position = Vector2(130, 100)
+fase = 1
+cena_destino = "res://scenes/fases/fase_teste.tscn"
+spawn_destino = "Spawn_Inicio"
+
+[node name="@Label@3" type="Label" parent="." unique_id=684823127]
+offset_left = 80.0
+offset_top = 70.4
+offset_right = 480.0
+offset_bottom = 115.4
+scale = Vector2(0.25, 0.25)
+theme_override_font_sizes/font_size = 32
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+text = "1973"
+horizontal_alignment = 1
+
+[node name="Portal1979" parent="." unique_id=2089231068 instance=ExtResource("2_8f5jx")]
+position = Vector2(190, 100)
+fase = 2
+cena_destino = "res://scenes/fases/fase_teste.tscn"
+spawn_destino = "Spawn_Inicio"
+
+[node name="@Label@4" type="Label" parent="." unique_id=583590382]
+offset_left = 140.0
+offset_top = 70.4
+offset_right = 540.0
+offset_bottom = 115.4
+scale = Vector2(0.25, 0.25)
+theme_override_font_sizes/font_size = 32
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+text = "1979"
+horizontal_alignment = 1
+
+[node name="Portal1982" parent="." unique_id=1196979333 instance=ExtResource("2_8f5jx")]
+position = Vector2(250, 100)
+fase = 3
+cena_destino = "res://scenes/fases/fase_teste.tscn"
+spawn_destino = "Spawn_Inicio"
+
+[node name="@Label@5" type="Label" parent="." unique_id=76077025]
+offset_left = 200.0
+offset_top = 70.4
+offset_right = 600.0
+offset_bottom = 115.4
+scale = Vector2(0.25, 0.25)
+theme_override_font_sizes/font_size = 32
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+text = "1982"
+horizontal_alignment = 1
+
+[node name="Spawn_Inicio" type="Marker2D" parent="." unique_id=1404468205 groups=["spawn"]]
+position = Vector2(160, 160)
+
+[node name="Player" parent="." unique_id=1563879509 instance=ExtResource("3_nyk6d")]
+position = Vector2(160, 160)
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1755677418]
+layer = 70
+
+[node name="Instrucoes" type="Label" parent="UI" unique_id=1216489572]
+offset_left = 32.0
+offset_top = 24.0
+offset_right = 32.0
+offset_bottom = 24.0
+theme_override_font_sizes/font_size = 28
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+text = "1-4: pegar e encaixar a chave da época (o portal seguinte acende)   ·   E: interagir   ·   R: recarregar   ·   Z: zerar"
