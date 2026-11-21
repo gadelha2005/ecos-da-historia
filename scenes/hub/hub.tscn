@@ -27,6 +27,12 @@
 [ext_resource type="Texture2D" uid="uid://brqeha0v6g8wy" path="res://assets/sprites/hub/zonas/cultura_quadro_abstrato.png" id="tex_19"]
 [ext_resource type="Texture2D" uid="uid://cwl3slenqjtys" path="res://assets/sprites/hub/lab/maquina_discos.png" id="tex_discos"]
 
+[ext_resource type="PackedScene" path="res://scenes/comum/portal.tscn" id="k12_portal"]
+[ext_resource type="PackedScene" path="res://scenes/hub/porta_saida.tscn" id="k12_porta"]
+[ext_resource type="PackedScene" path="res://scenes/hub/filtro_cor.tscn" id="k12_filtro"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud_chaves.tscn" id="k12_hud"]
+[ext_resource type="PackedScene" path="res://scenes/objetos/terminal_tutorial.tscn" id="k12_terminal"]
+
 [sub_resource type="RectangleShape2D" id="forma_48x36"]
 size = Vector2(48, 36)
 
@@ -60,10 +66,11 @@ size = Vector2(48, 14)
 [sub_resource type="RectangleShape2D" id="forma_64x16"]
 size = Vector2(64, 16)
 
-[node name="Hub" type="Node2D" unique_id=445248876 node_paths=PackedStringArray("jogador")]
+[node name="Hub" type="Node2D" unique_id=445248876 node_paths=PackedStringArray("jogador", "filtro_cor")]
 y_sort_enabled = true
 script = ExtResource("1_koree")
 jogador = NodePath("Player")
+filtro_cor = NodePath("FiltroCor")
 
 [node name="Chao" type="Sprite2D" parent="." unique_id=1701583329]
 texture = ExtResource("chao_hex")
@@ -431,10 +438,57 @@ position = Vector2(330, 32)
 position = Vector2(0, -8)
 shape = SubResource("forma_64x16")
 
+[node name="Portais" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Portal1904" parent="Portais" instance=ExtResource("k12_portal")]
+position = Vector2(207, 106)
+fase = 0
+cena_destino = "res://scenes/fases/fase_1904.tscn"
+spawn_destino = "Spawn_Inicio"
+
+[node name="Portal1973" parent="Portais" instance=ExtResource("k12_portal")]
+position = Vector2(273, 106)
+fase = 1
+cena_destino = "res://scenes/fases/fase_teste.tscn"
+spawn_destino = "Spawn_Inicio"
+
+[node name="Portal1979" parent="Portais" instance=ExtResource("k12_portal")]
+position = Vector2(207, 150)
+fase = 2
+cena_destino = "res://scenes/fases/fase_teste.tscn"
+spawn_destino = "Spawn_Inicio"
+
+[node name="Portal1982" parent="Portais" instance=ExtResource("k12_portal")]
+position = Vector2(273, 150)
+fase = 3
+cena_destino = "res://scenes/fases/fase_teste.tscn"
+spawn_destino = "Spawn_Inicio"
+
+[node name="Porta" parent="." instance=ExtResource("k12_porta")]
+position = Vector2(240, 38)
+
+[node name="Passagem" parent="Porta"]
+visible = false
+
+[node name="ColorRect" parent="Porta"]
+color = Color(0.45, 0.45, 0.45, 0)
+
+[node name="TerminalTutorial" parent="." instance=ExtResource("k12_terminal")]
+position = Vector2(384, 112)
+
+[node name="FiltroCor" parent="." instance=ExtResource("k12_filtro")]
+
+[node name="HudChaves" parent="." instance=ExtResource("k12_hud")]
+
 [node name="Player" parent="." unique_id=1563879509 instance=ExtResource("3_ursuo")]
 position = Vector2(320, 264)
 
-[node name="HubEventos" type="Node" parent="." unique_id=1762819280 node_paths=PackedStringArray("jogador", "posicao_porta")]
+[node name="HubEventos" type="Node" parent="." unique_id=1762819280 node_paths=PackedStringArray("jogador", "posicao_porta", "porta", "filtro_cor", "hud", "portais")]
 script = ExtResource("9_eventos")
 jogador = NodePath("../Player")
 posicao_porta = NodePath("../Posicoes/Posicao_PortaSaida")
+porta = NodePath("../Porta")
+filtro_cor = NodePath("../FiltroCor")
+hud = NodePath("../HudChaves")
+portais = [NodePath("../Portais/Portal1904"), NodePath("../Portais/Portal1973"), NodePath("../Portais/Portal1979"), NodePath("../Portais/Portal1982")]
