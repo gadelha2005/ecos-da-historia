@@ -6,7 +6,8 @@ extends CenaJogavel
 const LIMITES_MAPA: Rect2i = Rect2i(0, 0, 960, 640)  # 60 x 40 tiles de 16 px
 
 const FALA_INTRO: Array[String] = [
-	"Bahia, 1904. O povoado tem medo da vacina.",
+	"Este é o lugar onde um dia vai existir a Unifor. Em 1904, é só mato: cajueiros, areia e uma trilha.",
+	"Ali adiante fica um povoado. A brigada de vacinação chegou, e o povo está desconfiado.",
 	"Converse com os moradores na ordem. O (!) mostra quem quer falar com você.",
 	"Pegue as provas pela trilha: elas liberam respostas novas nas conversas.",
 ]
