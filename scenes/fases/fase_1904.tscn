@@ -16,6 +16,11 @@
 [ext_resource type="PackedScene" path="res://scenes/fases/filtro_antigo.tscn" id="14_filtro"]
 [ext_resource type="PackedScene" path="res://scenes/ui/hud_dialogo.tscn" id="15_hud"]
 [ext_resource type="PackedScene" path="res://scenes/ui/lista_provas.tscn" id="16_lista"]
+[ext_resource type="Texture2D" path="res://assets/sprites/fase1904/casa_taipa_palha.png" id="17_casa_palha"]
+[ext_resource type="Texture2D" path="res://assets/sprites/fase1904/casa_taipa_telha.png" id="18_casa_telha"]
+
+[sub_resource type="RectangleShape2D" id="Shape_casa"]
+size = Vector2(58, 14)
 
 [node name="Fase1904" type="Node2D" unique_id=124039657 node_paths=PackedStringArray("jogador", "hud", "boato", "medico", "enfermeiro")]
 y_sort_enabled = true
@@ -32,8 +37,85 @@ tile_set = ExtResource("1_8jrw2")
 
 [node name="Objetos" type="TileMapLayer" parent="." unique_id=942883682]
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAAkAAgAAAAFAAAAAAAlAAgAAAAFAAAAAAAmAAgAAAAFAAAAAAAnAAgAAAAFAAAAAAAkAAkAAAAFAAAAAAAlAAkAAAAFAAAAAAAmAAkAAAAFAAAAAAAnAAkAAAAFAAAAAAAkAAoAAAAEAAAAAAAlAAoAAAAEAAAAAAAmAAoAAAAEAAAAAAAnAAoAAAAEAAAAAAAxAAgAAAAFAAAAAAAyAAgAAAAFAAAAAAAzAAgAAAAFAAAAAAA0AAgAAAAFAAAAAAAxAAkAAAAFAAAAAAAyAAkAAAAFAAAAAAAzAAkAAAAFAAAAAAA0AAkAAAAFAAAAAAAxAAoAAAAEAAAAAAAyAAoAAAAEAAAAAAAzAAoAAAAEAAAAAAA0AAoAAAAEAAAAAAAkAA8AAAAFAAAAAAAlAA8AAAAFAAAAAAAmAA8AAAAFAAAAAAAnAA8AAAAFAAAAAAAkABAAAAAFAAAAAAAlABAAAAAFAAAAAAAmABAAAAAFAAAAAAAnABAAAAAFAAAAAAAkABEAAAAEAAAAAAAlABEAAAAEAAAAAAAmABEAAAAEAAAAAAAnABEAAAAEAAAAAAAxAA8AAAAFAAAAAAAyAA8AAAAFAAAAAAAzAA8AAAAFAAAAAAA0AA8AAAAFAAAAAAAxABAAAAAFAAAAAAAyABAAAAAFAAAAAAAzABAAAAAFAAAAAAA0ABAAAAAFAAAAAAAxABEAAAAEAAAAAAAyABEAAAAEAAAAAAAzABEAAAAEAAAAAAA0ABEAAAAEAAAAAAAkABcAAAAFAAAAAAAlABcAAAAFAAAAAAAmABcAAAAFAAAAAAAnABcAAAAFAAAAAAAkABgAAAAFAAAAAAAlABgAAAAFAAAAAAAmABgAAAAFAAAAAAAnABgAAAAFAAAAAAAkABkAAAAEAAAAAAAlABkAAAAEAAAAAAAmABkAAAAEAAAAAAAnABkAAAAEAAAAAAAxABcAAAAFAAAAAAAyABcAAAAFAAAAAAAzABcAAAAFAAAAAAA0ABcAAAAFAAAAAAAxABgAAAAFAAAAAAAyABgAAAAFAAAAAAAzABgAAAAFAAAAAAA0ABgAAAAFAAAAAAAxABkAAAAEAAAAAAAyABkAAAAEAAAAAAAzABkAAAAEAAAAAAA0ABkAAAAEAAAAAAA=")
 tile_set = ExtResource("1_8jrw2")
+
+[node name="Casas" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Casa1" type="StaticBody2D" parent="Casas"]
+position = Vector2(608, 176)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Casas/Casa1"]
+position = Vector2(0, -7)
+shape = SubResource("Shape_casa")
+
+[node name="Sprite2D" type="Sprite2D" parent="Casas/Casa1"]
+texture = ExtResource("17_casa_palha")
+centered = false
+offset = Vector2(-32, -56)
+
+[node name="Casa2" type="StaticBody2D" parent="Casas"]
+position = Vector2(816, 176)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Casas/Casa2"]
+position = Vector2(0, -7)
+shape = SubResource("Shape_casa")
+
+[node name="Sprite2D" type="Sprite2D" parent="Casas/Casa2"]
+texture = ExtResource("17_casa_palha")
+centered = false
+offset = Vector2(-32, -56)
+flip_h = true
+
+[node name="Casa3" type="StaticBody2D" parent="Casas"]
+position = Vector2(608, 288)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Casas/Casa3"]
+position = Vector2(0, -7)
+shape = SubResource("Shape_casa")
+
+[node name="Sprite2D" type="Sprite2D" parent="Casas/Casa3"]
+texture = ExtResource("18_casa_telha")
+centered = false
+offset = Vector2(-32, -56)
+
+[node name="Casa4" type="StaticBody2D" parent="Casas"]
+position = Vector2(816, 288)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Casas/Casa4"]
+position = Vector2(0, -7)
+shape = SubResource("Shape_casa")
+
+[node name="Sprite2D" type="Sprite2D" parent="Casas/Casa4"]
+texture = ExtResource("17_casa_palha")
+centered = false
+offset = Vector2(-32, -56)
+flip_h = true
+
+[node name="Casa5" type="StaticBody2D" parent="Casas"]
+position = Vector2(608, 416)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Casas/Casa5"]
+position = Vector2(0, -7)
+shape = SubResource("Shape_casa")
+
+[node name="Sprite2D" type="Sprite2D" parent="Casas/Casa5"]
+texture = ExtResource("17_casa_palha")
+centered = false
+offset = Vector2(-32, -56)
+
+[node name="Casa6" type="StaticBody2D" parent="Casas"]
+position = Vector2(816, 416)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Casas/Casa6"]
+position = Vector2(0, -7)
+shape = SubResource("Shape_casa")
+
+[node name="Sprite2D" type="Sprite2D" parent="Casas/Casa6"]
+texture = ExtResource("18_casa_telha")
+centered = false
+offset = Vector2(-32, -56)
+flip_h = true
 
 [node name="Cajueiros" type="Node2D" parent="." unique_id=851988065]
 y_sort_enabled = true
