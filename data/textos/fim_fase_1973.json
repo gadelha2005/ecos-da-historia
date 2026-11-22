@@ -1,0 +1,13 @@
+{
+	"fechamento": [
+		{ "falante": "Comissão da Mostra", "texto": "A planta está aprovada! Renda, cordel, teatro, pintura e até o patrocinador: todo mundo tem o seu lugar." },
+		{ "falante": "Dona Socorro, rendeira", "texto": "Nunca pensei que ia fazer renda dentro de uma universidade. E com gente parando para ver." },
+		{ "falante": "ECO", "texto": "{nome}, a Mostra abriu cheia de vozes diferentes. O eco de 1973 está seguro." }
+	],
+	"chave": "Você recebeu a Chave da Cultura!",
+	"saber": {
+		"titulo": "Você sabia?",
+		"subtitulo": "Unifor, anos 1970",
+		"texto": "Cultura vai muito além da música: inclui artes visuais, literatura, teatro e saberes populares, como a renda de bilro e o cordel. A Unifor é mantida pela Fundação Edson Queiroz. A Mostra deste capítulo é um episódio fictício, inspirado na vida cultural de uma universidade que acabava de nascer."
+	}
+}

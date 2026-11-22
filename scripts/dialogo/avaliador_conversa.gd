@@ -10,7 +10,8 @@ static var ao_reiniciar: Callable = Callable()
 
 # resultado = o Dictionary que o DialogoManager.iniciar() devolve.
 # Devolve true se a conversa foi aprovada.
-static func avaliar(morador_id: String, caminho: String, resultado: Dictionary) -> bool:
+# fase: em qual fase está a conversa (0 = 1904), para concluir/reiniciar a fase certa.
+static func avaliar(morador_id: String, caminho: String, resultado: Dictionary, fase: int = 0) -> bool:
 	var dialogo := DialogoLoader.carregar(caminho)
 	if dialogo == null:
 		return false
@@ -26,12 +27,13 @@ static func avaliar(morador_id: String, caminho: String, resultado: Dictionary) 
 		morador_id, resultado["pontos"], nota, resultado["falhou"], "APROVADO" if aprovado else "REPROVADO"])
 
 	if aprovado:
-		GameState.concluir_morador(morador_id)
+		GameState.concluir_npc(fase, morador_id)
+		GameState.somar_satisfacao(resultado.get("satisfacao", {}))
 		return true
 
 	var dica := dialogo.dica if dialogo.dica != "" else DICA_PADRAO
 	GameState.guardar_dica(morador_id, dica)
-	GameState.reiniciar_fase_1904()
+	GameState.reiniciar_fase(fase)
 	_reiniciar_cena()
 	return false
 

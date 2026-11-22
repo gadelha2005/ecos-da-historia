@@ -1,8 +1,9 @@
 class_name Morador
 extends StaticBody2D
-## [I2] Morador da fase 1904. Só conversa na sua vez (GameState.morador_liberado).
-## A ordem é GameState.MORADORES: Inácia → Dona Maria das Dores → Zé Tonico →
-## Seu Anselmo → Seu Quintino → Dona Cotinha.
+## [I2] Morador de uma fase. Só conversa na sua vez (GameState.npc_liberado).
+## A ordem vem de GameState.SEQUENCIA[fase]. 1904: Inácia → Dona Maria das Dores →
+## Zé Tonico → Seu Anselmo → Seu Quintino → Dona Cotinha. [L0] 1973: rendeira →
+## cordelista → diretor de teatro → pintor → patrocinador.
 ## O corpo (StaticBody2D, camada 1) bloqueia o jogador; a área filha "Interacao"
 ## (camada 2, grupo interagivel) é o que o Player detecta (C4 procura Area2D).
 
@@ -15,9 +16,21 @@ const NOMES: Dictionary = {
 	"seu_anselmo": "Seu Anselmo",
 	"seu_quintino": "Seu Quintino",
 	"dona_cotinha": "Dona Cotinha",
+	"comissao": "Comissão da Mostra",
+	"rendeira": "Dona Socorro, rendeira",
+	"cordelista": "Seu Firmino, cordelista",
+	"diretor_teatro": "Lúcia, diretora de teatro",
+	"pintor": "Professor Aurélio, pintor",
+	"patrocinador": "Dr. Valdemar, patrocinador",
 }
 
-@export_enum("inacia", "dona_maria", "ze_tonico", "seu_anselmo", "seu_quintino", "dona_cotinha") var morador_id: String = "inacia"
+## Pasta da arte de cada fase (assets/sprites/<pasta>/morador_<id>.tres).
+const PASTA_ARTE: Array[String] = ["fase1904", "fase1973", "fase1979", "fase1982"]
+
+## Fase deste morador (0 = 1904, 1 = 1973...). Define a ordem das conversas.
+@export_enum("1904", "1973", "1979", "1982") var fase: int = 0
+## Id do morador (precisa estar em GameState.SEQUENCIA[fase]).
+@export var morador_id: String = "inacia"
 ## Caminho do JSON do diálogo deste morador (data/dialogos/<id>.json).
 @export_file("*.json") var dialogo: String = ""
 ## Mostra o nome acima da cabeça (útil em testes).
@@ -54,7 +67,7 @@ func _process(delta: float) -> void:
 
 ## [J1] Usa a arte do morador (assets/sprites/fase1904/morador_<id>.tres) quando ela existe.
 func _carregar_arte() -> void:
-	var caminho := "res://assets/sprites/fase1904/morador_%s.tres" % morador_id
+	var caminho := "res://assets/sprites/%s/morador_%s.tres" % [PASTA_ARTE[fase], morador_id]
 	if not ResourceLoader.exists(caminho):
 		return  # continua com o sprite provisório
 	sprite.sprite_frames = load(caminho)
@@ -64,11 +77,11 @@ func _carregar_arte() -> void:
 
 ## A vez deste morador: liberado e ainda não concluído.
 func e_a_vez() -> bool:
-	return GameState.morador_liberado(morador_id) and not ja_concluido()
+	return GameState.npc_liberado(fase, morador_id) and not ja_concluido()
 
 
 func ja_concluido() -> bool:
-	return GameState.MORADORES.find(morador_id) < GameState.moradores_concluidos
+	return GameState.npc_concluido(fase, morador_id)
 
 
 func atualizar_indicador() -> void:
@@ -83,7 +96,7 @@ func interagir(jogador: Player) -> void:
 
 	if ja_concluido():
 		await _mostrar(["Obrigado pela conversa. Já decidi."], nome_de(morador_id))
-	elif not GameState.morador_liberado(morador_id):
+	elif not GameState.npc_liberado(fase, morador_id):
 		await _mostrar(["Ainda não é a minha vez."], nome_de(morador_id))
 		await _eco(["Procure %s primeiro." % nome_de(_proximo_da_fila())])
 	else:
@@ -99,14 +112,15 @@ func _conversar() -> void:
 		print("Ainda não existe: ", dialogo)
 		return
 	var resultado: Dictionary = await DialogoManager.iniciar(dialogo)
-	var aprovado := AvaliadorConversa.avaliar(morador_id, dialogo, resultado)
+	var aprovado := AvaliadorConversa.avaliar(morador_id, dialogo, resultado, fase)
 	get_tree().call_group("moradores", "atualizar_indicador")
 	conversa_terminou.emit(morador_id, aprovado)
 
 
 func _proximo_da_fila() -> String:
-	var i := clampi(GameState.moradores_concluidos, 0, GameState.MORADORES.size() - 1)
-	return GameState.MORADORES[i]
+	var fila: Array = GameState.SEQUENCIA[fase]
+	var i := clampi(GameState.npcs_concluidos[fase], 0, fila.size() - 1)
+	return fila[i]
 
 
 func _mostrar(linhas: Array[String], falante: String = "") -> void:

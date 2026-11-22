@@ -1,0 +1,166 @@
+{
+	"inicio": "n1",
+	"dica": "O Professor Aurélio acha que só a arte acadêmica merece a Mostra. Respeite a formação dele, mostre a tela que está no campus e convide-o a dividir o espaço.",
+	"nos": [
+		{
+			"id": "n1",
+			"fala": "Uma Mostra de verdade precisa de sala inteira para os quadros. Arte exige silêncio e espaço.",
+			"opcoes": [
+				{
+					"texto": "O senhor estudou anos para chegar aqui. Seu trabalho merece cuidado.",
+					"tipo": "empatia",
+					"peso": 3,
+					"tensao": -5,
+					"destino": "n2",
+					"satisfacao": {
+						"pintura": 10
+					}
+				},
+				{
+					"texto": "Os quadros terão espaço. Mas a Mostra quer mostrar várias formas de cultura.",
+					"tipo": "fato",
+					"peso": 2,
+					"tensao": 5,
+					"destino": "n3",
+					"satisfacao": {
+						"pintura": 5
+					}
+				},
+				{
+					"texto": "A comissão não vai dar a sala inteira. É isso e acabou.",
+					"tipo": "autoridade",
+					"peso": 0,
+					"tensao": 20,
+					"destino": "n4",
+					"satisfacao": {
+						"pintura": -15
+					}
+				}
+			]
+		},
+		{
+			"id": "n2",
+			"fala": "Fico feliz que alguém entenda. Mas renda e cordel do lado das minhas telas?",
+			"opcoes": [
+				{
+					"texto": "Uma tela ao lado de um folheto mostra que tudo conversa. Os alunos vão gostar.",
+					"tipo": "fato",
+					"peso": 3,
+					"tensao": -5,
+					"destino": "n5",
+					"satisfacao": {
+						"pintura": 5
+					}
+				},
+				{
+					"texto": "Olhe esta tela: ela se destaca justamente por estar perto de outras artes.",
+					"tipo": "provas",
+					"peso": 4,
+					"tensao": -10,
+					"destino": "n5",
+					"exige_prova": "1973_tela",
+					"satisfacao": {
+						"pintura": 10
+					}
+				},
+				{
+					"texto": "Vai ficar do lado, sim. O senhor não manda na Mostra.",
+					"tipo": "autoridade",
+					"peso": 0,
+					"tensao": 15,
+					"destino": "n4",
+					"satisfacao": {
+						"pintura": -10
+					}
+				}
+			]
+		},
+		{
+			"id": "n3",
+			"fala": "Várias formas? Então a pintura vai ficar espremida num canto.",
+			"opcoes": [
+				{
+					"texto": "Não. A pintura terá lugar digno, só não vai ocupar tudo.",
+					"tipo": "empatia",
+					"peso": 2,
+					"tensao": -5,
+					"destino": "n5",
+					"satisfacao": {
+						"pintura": 5
+					}
+				},
+				{
+					"texto": "Se ficar espremida, paciência. Todo mundo vai ceder.",
+					"tipo": "autoridade",
+					"peso": 0,
+					"tensao": 15,
+					"destino": "n4",
+					"satisfacao": {
+						"pintura": -10
+					}
+				}
+			]
+		},
+		{
+			"id": "n4",
+			"fala": "Com esse tom, prefiro não expor nada.",
+			"opcoes": [
+				{
+					"texto": "Desculpe. Quero que suas telas estejam na Mostra.",
+					"tipo": "empatia",
+					"peso": 1,
+					"tensao": -10,
+					"destino": "n5"
+				},
+				{
+					"texto": "A pintura tem espaço garantido. Só não pode ser exclusivo.",
+					"tipo": "fato",
+					"peso": 1,
+					"tensao": 5,
+					"destino": "n5"
+				}
+			]
+		},
+		{
+			"id": "n5",
+			"fala": "E se eu aceitar dividir? O patrocinador quer o salão de entrada para propaganda.",
+			"opcoes": [
+				{
+					"texto": "Por isso sua ajuda importa: uma Mostra bonita convence até o patrocinador.",
+					"tipo": "empatia",
+					"peso": 3,
+					"tensao": -10,
+					"destino": "n6",
+					"satisfacao": {
+						"pintura": 10
+					}
+				},
+				{
+					"texto": "A entrada pode ter um pouco de tudo, inclusive as suas telas.",
+					"tipo": "fato",
+					"peso": 2,
+					"tensao": 0,
+					"destino": "n6",
+					"satisfacao": {
+						"pintura": 5
+					}
+				},
+				{
+					"texto": "O patrocinador paga. Se ele quiser a entrada, fica com ela.",
+					"tipo": "autoridade",
+					"peso": 0,
+					"tensao": 15,
+					"destino": "n6",
+					"satisfacao": {
+						"pintura": -10
+					}
+				}
+			]
+		},
+		{
+			"id": "n6",
+			"fala": "Está bem, aceito dividir. Agora vá falar com o Dr. Valdemar, do patrocinador. Ele está na entrada do campus.",
+			"final": true
+		}
+	]
+}

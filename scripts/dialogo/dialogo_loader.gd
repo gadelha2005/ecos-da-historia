@@ -51,6 +51,9 @@ static func _criar_no(item: Dictionary) -> NoDialogo:
 		op.tensao_delta = int(o.get("tensao", 0))
 		op.destino = str(o.get("destino", ""))
 		op.exige_prova = str(o.get("exige_prova", ""))
+		var sat: Variant = o.get("satisfacao", {})
+		if sat is Dictionary:
+			op.satisfacao = sat
 		no.opcoes.append(op)
 	return no
 

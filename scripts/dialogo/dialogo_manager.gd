@@ -25,17 +25,19 @@ func _ready() -> void:
 	escolher = _escolher_padrao
 
 
-# Roda uma conversa inteira. Devolve {"pontos", "falhou", "tensao"}.
+# Roda uma conversa inteira. Devolve {"pontos", "falhou", "tensao", "satisfacao"}.
+# "satisfacao" soma o campo satisfacao das opções escolhidas (fase 1973), ex.: {"renda": 25}.
 func iniciar(caminho: String) -> Dictionary:
 	var dialogo := DialogoLoader.carregar(caminho)
 	if dialogo == null:
-		return {"pontos": 0, "falhou": true, "tensao": tensao}
+		return {"pontos": 0, "falhou": true, "tensao": tensao, "satisfacao": {}}
 
 	pontos = 0
 	_definir_tensao(tensao_inicial)
 	_definir_confianca(50)
 
 	var falhou := false
+	var satisfacao := {}
 	var atual: String = dialogo.inicio
 	while atual != "" and dialogo.nos.has(atual):
 		var no: NoDialogo = dialogo.nos[atual]
@@ -52,12 +54,14 @@ func iniciar(caminho: String) -> Dictionary:
 		pontos += op.peso
 		_definir_confianca(confianca + op.peso * 5)
 		_definir_tensao(tensao + op.tensao_delta)
+		for grupo in op.satisfacao:
+			satisfacao[grupo] = int(satisfacao.get(grupo, 0)) + int(op.satisfacao[grupo])
 		if tensao >= LIMITE_TENSAO:
 			falhou = true
 			break
 		atual = op.destino
 
-	return {"pontos": pontos, "falhou": falhou, "tensao": tensao}
+	return {"pontos": pontos, "falhou": falhou, "tensao": tensao, "satisfacao": satisfacao}
 
 
 # Lista de {"texto", "tipo", "habilitada"} para o menu (contrato do H1).

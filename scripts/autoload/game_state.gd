@@ -12,6 +12,22 @@ const MORADORES: Array[String] = [
 	"inacia", "dona_maria", "ze_tonico", "seu_anselmo", "seu_quintino", "dona_cotinha"
 ]
 
+## [L0] Ordem das conversas de cada fase (a 1982 é livre, por isso fica vazia).
+const SEQUENCIA: Dictionary = {
+	FASE_1904: MORADORES,
+	FASE_1973: ["rendeira", "cordelista", "diretor_teatro", "pintor", "patrocinador"],
+	FASE_1979: ["dona_rita", "engenheiro", "seu_raimundo", "investidor", "jovem", "operario"],
+	FASE_1982: [],
+}
+
+## [L0] 1973: grupo da Mostra que cada defensor representa.
+const GRUPO_1973: Dictionary = {
+	"rendeira": "renda", "cordelista": "cordel", "diretor_teatro": "teatro",
+	"pintor": "pintura", "patrocinador": "patrocinador",
+}
+const SATISFACAO_INICIAL: int = 50
+const TEMPO_1982: int = 24
+
 var nome_jogador: String = ""
 var aparencia: int = 0
 var chaves: Array[bool] = [false, false, false, false]  # 1904, 1973, 1979, 1982
@@ -20,10 +36,34 @@ var pontuacao: Array[float] = [0.0, 0.0, 0.0, 0.0]
 var chaves_encaixadas: Array[bool] = [false, false, false, false]  # chave já colocada na porta (animação feita)
 var intro_vista: bool = false  # a intro do ECO no hub já foi mostrada
 
-# Fase 1904
-var moradores_concluidos: int = 0  # quantos já foram concluídos, sempre em ordem
-var provas: Array[String] = []     # ids das provas coletadas
-var dicas: Dictionary = {}         # morador_id -> dica do ECO (String)
+## [L0] Quantas conversas de cada fase já foram concluídas (sempre na ordem de SEQUENCIA).
+var npcs_concluidos: Array[int] = [0, 0, 0, 0]
+
+# Fase 1904 (atalho para npcs_concluidos[FASE_1904], usado desde o I2)
+var moradores_concluidos: int:
+	get:
+		return npcs_concluidos[FASE_1904]
+	set(valor):
+		npcs_concluidos[FASE_1904] = valor
+var provas: Array[String] = []     # ids das provas coletadas (1904 sem prefixo; demais com "1973_", "1979_"...)
+var dicas: Dictionary = {}         # npc_id -> dica do ECO (String)
+
+# Fase 1973: espaço (0 a 10 pontos) e satisfação (0 a 100) de cada grupo da Mostra
+var espaco_grupos: Dictionary = {}
+var satisfacao_grupos: Dictionary = {}
+
+# Fase 1979: confiança de cada lado e tensão da fase
+var confianca_lado: Dictionary = {"comunidade": 50, "empreendimento": 50}
+var tensao_fase: int = 0
+
+# Fase 1982: relógio e itens
+var tempo_restante: int = TEMPO_1982
+var itens_escola: Array[String] = []
+var itens_troca: Array[String] = []
+
+
+func _init() -> void:
+	_zerar_1973()
 
 
 func tem_chave(fase: int) -> bool:
@@ -61,13 +101,11 @@ func cor_zona(fase: int) -> float:
 	return 1.0 if chaves_encaixadas[fase] else 0.0
 
 func morador_liberado(id: String) -> bool:
-	var i := MORADORES.find(id)
-	return i != -1 and i <= moradores_concluidos
+	return npc_liberado(FASE_1904, id)
 
 
 func concluir_morador(id: String) -> void:
-	if MORADORES.find(id) == moradores_concluidos:
-		moradores_concluidos += 1
+	concluir_npc(FASE_1904, id)
 
 
 func tem_prova(id: String) -> bool:
@@ -85,14 +123,66 @@ func guardar_dica(morador_id: String, texto: String) -> void:
 
 # Reinício da fase 1904: zera as conversas, mantém provas e dicas.
 func reiniciar_fase_1904() -> void:
-	moradores_concluidos = 0
-	tentativas[FASE_1904] += 1
+	reiniciar_fase(FASE_1904)
+
+
+# --- [L0] Base compartilhada das fases ---
+
+func npc_liberado(fase: int, id: String) -> bool:
+	var i: int = SEQUENCIA[fase].find(id)
+	return i != -1 and i <= npcs_concluidos[fase]
+
+
+func npc_concluido(fase: int, id: String) -> bool:
+	var i: int = SEQUENCIA[fase].find(id)
+	return i != -1 and i < npcs_concluidos[fase]
+
+
+func concluir_npc(fase: int, id: String) -> void:
+	if SEQUENCIA[fase].find(id) == npcs_concluidos[fase]:
+		npcs_concluidos[fase] += 1
+
+
+func todos_concluidos(fase: int) -> bool:
+	return npcs_concluidos[fase] >= SEQUENCIA[fase].size()
+
+
+## Volta a fase ao começo: zera as conversas e o estado próprio dela. Provas e dicas ficam.
+func reiniciar_fase(fase: int) -> void:
+	npcs_concluidos[fase] = 0
+	tentativas[fase] += 1
+	match fase:
+		FASE_1973:
+			_zerar_1973()
+		FASE_1979:
+			confianca_lado = {"comunidade": 50, "empreendimento": 50}
+			tensao_fase = 0
+		FASE_1982:
+			tempo_restante = TEMPO_1982
+			itens_escola.clear()
+			itens_troca.clear()
+
+
+## 1973: soma o que uma conversa mudou na satisfação dos grupos (ex.: {"renda": 20}).
+func somar_satisfacao(mudancas: Dictionary) -> void:
+	for grupo in mudancas:
+		var atual: int = satisfacao_grupos.get(grupo, SATISFACAO_INICIAL)
+		satisfacao_grupos[grupo] = clampi(atual + int(mudancas[grupo]), 0, 100)
+
+
+func _zerar_1973() -> void:
+	espaco_grupos.clear()
+	satisfacao_grupos.clear()
+	for grupo in GRUPO_1973.values():
+		espaco_grupos[grupo] = 0
+		satisfacao_grupos[grupo] = SATISFACAO_INICIAL
 
 
 func reiniciar() -> void:
 	nome_jogador = ""
 	aparencia = 0
-	moradores_concluidos = 0
+	for i in TOTAL_FASES:
+		reiniciar_fase(i)
 	provas.clear()
 	dicas.clear()
 	intro_vista = false

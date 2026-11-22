@@ -450,7 +450,7 @@ spawn_destino = "Spawn_Inicio"
 [node name="Portal1973" parent="Portais" instance=ExtResource("k12_portal")]
 position = Vector2(273, 106)
 fase = 1
-cena_destino = "res://scenes/fases/fase_teste.tscn"
+cena_destino = "res://scenes/fases/fase_1973.tscn"
 spawn_destino = "Spawn_Inicio"
 
 [node name="Portal1979" parent="Portais" instance=ExtResource("k12_portal")]

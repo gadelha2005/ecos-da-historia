@@ -1,0 +1,501 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/fases/fase_1973.gd" id="1_fase"]
+[ext_resource type="PackedScene" path="res://scenes/player/player.tscn" id="2_player"]
+[ext_resource type="PackedScene" path="res://scenes/comum/portal.tscn" id="3_portal"]
+[ext_resource type="PackedScene" path="res://scenes/npcs/morador.tscn" id="4_morador"]
+[ext_resource type="Script" path="res://scripts/npcs/comissao.gd" id="5_comissao"]
+[ext_resource type="PackedScene" path="res://scenes/objetos/prova.tscn" id="6_prova"]
+[ext_resource type="Script" path="res://scripts/fases/fim_fase_1973.gd" id="7_fim"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud_dialogo.tscn" id="8_hud"]
+[ext_resource type="PackedScene" path="res://scenes/ui/lista_provas.tscn" id="9_lista"]
+
+[sub_resource type="RectangleShape2D" id="Shape_Biblioteca"]
+size = Vector2(160, 80)
+
+[sub_resource type="RectangleShape2D" id="Shape_BlocoNovo"]
+size = Vector2(160, 80)
+
+[sub_resource type="RectangleShape2D" id="Shape_Cantina"]
+size = Vector2(140, 90)
+
+[sub_resource type="RectangleShape2D" id="Shape_Auditorio"]
+size = Vector2(160, 90)
+
+[sub_resource type="RectangleShape2D" id="Shape_Cartaz"]
+size = Vector2(64, 8)
+
+[sub_resource type="RectangleShape2D" id="Shape_Borda"]
+size = Vector2(640, 16)
+
+[sub_resource type="RectangleShape2D" id="Shape_BordaV"]
+size = Vector2(16, 400)
+
+[node name="Fase1973" type="Node2D" node_paths=PackedStringArray("jogador", "hud", "comissao", "fim")]
+y_sort_enabled = true
+script = ExtResource("1_fase")
+jogador = NodePath("Player")
+hud = NodePath("HudDialogo")
+comissao = NodePath("Moradores/Comissao")
+fim = NodePath("FimFase1973")
+
+[node name="Chao" type="Node2D" parent="."]
+z_index = -10
+
+[node name="Areia" type="ColorRect" parent="Chao"]
+offset_right = 640.0
+offset_bottom = 400.0
+mouse_filter = 2
+color = Color(0.87, 0.8, 0.64, 1)
+
+[node name="Patio" type="ColorRect" parent="Chao"]
+offset_left = 220.0
+offset_top = 130.0
+offset_right = 420.0
+offset_bottom = 270.0
+mouse_filter = 2
+color = Color(0.78, 0.76, 0.72, 1)
+
+[node name="CaminhoH" type="ColorRect" parent="Chao"]
+offset_left = 20.0
+offset_top = 188.0
+offset_right = 620.0
+offset_bottom = 212.0
+mouse_filter = 2
+color = Color(0.74, 0.72, 0.68, 1)
+
+[node name="CaminhoV" type="ColorRect" parent="Chao"]
+offset_left = 308.0
+offset_top = 20.0
+offset_right = 332.0
+offset_bottom = 400.0
+mouse_filter = 2
+color = Color(0.74, 0.72, 0.68, 1)
+
+[node name="Entrada" type="Label" parent="Chao"]
+offset_left = 268.0
+offset_top = 380.0
+offset_right = 828.0
+offset_bottom = 425.0
+scale = Vector2(0.25, 0.25)
+theme_override_font_sizes/font_size = 36
+theme_override_colors/font_color = Color(0.3, 0.25, 0.2, 1)
+text = "ENTRADA DO CAMPUS"
+
+[node name="Predios" type="Node2D" parent="."]
+
+[node name="Biblioteca" type="StaticBody2D" parent="Predios"]
+position = Vector2(120.0, 70.0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Predios/Biblioteca"]
+shape = SubResource("Shape_Biblioteca")
+
+[node name="Parede" type="ColorRect" parent="Predios/Biblioteca"]
+z_index = -5
+offset_left = -80.0
+offset_top = -40.0
+offset_right = 80.0
+offset_bottom = 40.0
+mouse_filter = 2
+color = Color(0.55, 0.6, 0.68, 1)
+
+[node name="Telhado" type="ColorRect" parent="Predios/Biblioteca"]
+z_index = -5
+offset_left = -84.0
+offset_top = -46.0
+offset_right = 84.0
+offset_bottom = -34.0
+mouse_filter = 2
+color = Color(0.45, 0.42, 0.4, 1)
+
+[node name="Porta" type="ColorRect" parent="Predios/Biblioteca"]
+z_index = -5
+offset_left = -8.0
+offset_top = 20.0
+offset_right = 8.0
+offset_bottom = 40.0
+mouse_filter = 2
+color = Color(0.3, 0.22, 0.16, 1)
+
+[node name="Nome" type="Label" parent="Predios/Biblioteca"]
+z_index = -4
+offset_left = -80.0
+offset_top = -32.0
+offset_right = 560.0
+offset_bottom = 13.0
+scale = Vector2(0.25, 0.25)
+theme_override_font_sizes/font_size = 36
+theme_override_colors/font_color = Color(0.15, 0.15, 0.18, 1)
+text = "BIBLIOTECA"
+horizontal_alignment = 1
+
+[node name="BlocoNovo" type="StaticBody2D" parent="Predios"]
+position = Vector2(520.0, 70.0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Predios/BlocoNovo"]
+shape = SubResource("Shape_BlocoNovo")
+
+[node name="Parede" type="ColorRect" parent="Predios/BlocoNovo"]
+z_index = -5
+offset_left = -80.0
+offset_top = -40.0
+offset_right = 80.0
+offset_bottom = 40.0
+mouse_filter = 2
+color = Color(0.7, 0.68, 0.62, 1)
+
+[node name="Telhado" type="ColorRect" parent="Predios/BlocoNovo"]
+z_index = -5
+offset_left = -84.0
+offset_top = -46.0
+offset_right = 84.0
+offset_bottom = -34.0
+mouse_filter = 2
+color = Color(0.45, 0.42, 0.4, 1)
+
+[node name="Porta" type="ColorRect" parent="Predios/BlocoNovo"]
+z_index = -5
+offset_left = -8.0
+offset_top = 20.0
+offset_right = 8.0
+offset_bottom = 40.0
+mouse_filter = 2
+color = Color(0.3, 0.22, 0.16, 1)
+
+[node name="Nome" type="Label" parent="Predios/BlocoNovo"]
+z_index = -4
+offset_left = -80.0
+offset_top = -32.0
+offset_right = 560.0
+offset_bottom = 13.0
+scale = Vector2(0.25, 0.25)
+theme_override_font_sizes/font_size = 36
+theme_override_colors/font_color = Color(0.15, 0.15, 0.18, 1)
+text = "ATELIÊ · BLOCO NOVO"
+horizontal_alignment = 1
+
+[node name="Cantina" type="StaticBody2D" parent="Predios"]
+position = Vector2(110.0, 325.0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Predios/Cantina"]
+shape = SubResource("Shape_Cantina")
+
+[node name="Parede" type="ColorRect" parent="Predios/Cantina"]
+z_index = -5
+offset_left = -70.0
+offset_top = -45.0
+offset_right = 70.0
+offset_bottom = 45.0
+mouse_filter = 2
+color = Color(0.72, 0.6, 0.5, 1)
+
+[node name="Telhado" type="ColorRect" parent="Predios/Cantina"]
+z_index = -5
+offset_left = -74.0
+offset_top = -51.0
+offset_right = 74.0
+offset_bottom = -39.0
+mouse_filter = 2
+color = Color(0.45, 0.42, 0.4, 1)
+
+[node name="Porta" type="ColorRect" parent="Predios/Cantina"]
+z_index = -5
+offset_left = -8.0
+offset_top = 25.0
+offset_right = 8.0
+offset_bottom = 45.0
+mouse_filter = 2
+color = Color(0.3, 0.22, 0.16, 1)
+
+[node name="Nome" type="Label" parent="Predios/Cantina"]
+z_index = -4
+offset_left = -70.0
+offset_top = -37.0
+offset_right = 490.0
+offset_bottom = 8.0
+scale = Vector2(0.25, 0.25)
+theme_override_font_sizes/font_size = 36
+theme_override_colors/font_color = Color(0.15, 0.15, 0.18, 1)
+text = "CANTINA"
+horizontal_alignment = 1
+
+[node name="Auditorio" type="StaticBody2D" parent="Predios"]
+position = Vector2(520.0, 325.0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Predios/Auditorio"]
+shape = SubResource("Shape_Auditorio")
+
+[node name="Parede" type="ColorRect" parent="Predios/Auditorio"]
+z_index = -5
+offset_left = -80.0
+offset_top = -45.0
+offset_right = 80.0
+offset_bottom = 45.0
+mouse_filter = 2
+color = Color(0.5, 0.52, 0.6, 1)
+
+[node name="Telhado" type="ColorRect" parent="Predios/Auditorio"]
+z_index = -5
+offset_left = -84.0
+offset_top = -51.0
+offset_right = 84.0
+offset_bottom = -39.0
+mouse_filter = 2
+color = Color(0.45, 0.42, 0.4, 1)
+
+[node name="Porta" type="ColorRect" parent="Predios/Auditorio"]
+z_index = -5
+offset_left = -8.0
+offset_top = 25.0
+offset_right = 8.0
+offset_bottom = 45.0
+mouse_filter = 2
+color = Color(0.3, 0.22, 0.16, 1)
+
+[node name="Nome" type="Label" parent="Predios/Auditorio"]
+z_index = -4
+offset_left = -80.0
+offset_top = -37.0
+offset_right = 560.0
+offset_bottom = 8.0
+scale = Vector2(0.25, 0.25)
+theme_override_font_sizes/font_size = 36
+theme_override_colors/font_color = Color(0.15, 0.15, 0.18, 1)
+text = "AUDITÓRIO"
+horizontal_alignment = 1
+
+[node name="Obra" type="Node2D" parent="."]
+z_index = -4
+
+[node name="Poste0" type="ColorRect" parent="Obra"]
+offset_left = 604.0
+offset_top = 40.0
+offset_right = 606.0
+offset_bottom = 110.0
+mouse_filter = 2
+color = Color(0.55, 0.38, 0.2, 1)
+
+[node name="Poste1" type="ColorRect" parent="Obra"]
+offset_left = 612.0
+offset_top = 40.0
+offset_right = 614.0
+offset_bottom = 110.0
+mouse_filter = 2
+color = Color(0.55, 0.38, 0.2, 1)
+
+[node name="Poste2" type="ColorRect" parent="Obra"]
+offset_left = 620.0
+offset_top = 40.0
+offset_right = 622.0
+offset_bottom = 110.0
+mouse_filter = 2
+color = Color(0.55, 0.38, 0.2, 1)
+
+[node name="Poste3" type="ColorRect" parent="Obra"]
+offset_left = 204.0
+offset_top = 40.0
+offset_right = 206.0
+offset_bottom = 110.0
+mouse_filter = 2
+color = Color(0.55, 0.38, 0.2, 1)
+
+[node name="Poste4" type="ColorRect" parent="Obra"]
+offset_left = 212.0
+offset_top = 40.0
+offset_right = 214.0
+offset_bottom = 110.0
+mouse_filter = 2
+color = Color(0.55, 0.38, 0.2, 1)
+
+[node name="Tabua0" type="ColorRect" parent="Obra"]
+offset_left = 602.0
+offset_top = 55.0
+offset_right = 624.0
+offset_bottom = 58.0
+mouse_filter = 2
+color = Color(0.65, 0.48, 0.28, 1)
+
+[node name="Tabua1" type="ColorRect" parent="Obra"]
+offset_left = 602.0
+offset_top = 80.0
+offset_right = 624.0
+offset_bottom = 83.0
+mouse_filter = 2
+color = Color(0.65, 0.48, 0.28, 1)
+
+[node name="Tabua2" type="ColorRect" parent="Obra"]
+offset_left = 202.0
+offset_top = 55.0
+offset_right = 216.0
+offset_bottom = 58.0
+mouse_filter = 2
+color = Color(0.65, 0.48, 0.28, 1)
+
+[node name="Tabua3" type="ColorRect" parent="Obra"]
+offset_left = 202.0
+offset_top = 80.0
+offset_right = 216.0
+offset_bottom = 83.0
+mouse_filter = 2
+color = Color(0.65, 0.48, 0.28, 1)
+
+[node name="Cartaz" type="StaticBody2D" parent="."]
+position = Vector2(352, 166)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cartaz"]
+shape = SubResource("Shape_Cartaz")
+
+[node name="Papel" type="ColorRect" parent="Cartaz"]
+offset_left = -32.0
+offset_top = -36.0
+offset_right = 32.0
+offset_bottom = 0.0
+mouse_filter = 2
+color = Color(0.95, 0.9, 0.78, 1)
+
+[node name="Magenta" type="ColorRect" parent="Cartaz"]
+offset_left = -28.0
+offset_top = -32.0
+offset_right = 4.0
+offset_bottom = -20.0
+mouse_filter = 2
+color = Color(0.9, 0.1, 0.55, 0.9)
+
+[node name="Ciano" type="ColorRect" parent="Cartaz"]
+offset_left = -8.0
+offset_top = -26.0
+offset_right = 28.0
+offset_bottom = -14.0
+mouse_filter = 2
+color = Color(0.1, 0.7, 0.9, 0.85)
+
+[node name="Amarelo" type="ColorRect" parent="Cartaz"]
+offset_left = -20.0
+offset_top = -14.0
+offset_right = 14.0
+offset_bottom = -4.0
+mouse_filter = 2
+color = Color(1, 0.85, 0.1, 0.85)
+
+[node name="Texto" type="Label" parent="Cartaz"]
+offset_left = -32.0
+offset_top = -48.0
+offset_right = 224.0
+offset_bottom = -3.0
+scale = Vector2(0.25, 0.25)
+theme_override_font_sizes/font_size = 28
+theme_override_colors/font_color = Color(0.8, 0.1, 0.45, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 6
+text = "1ª MOSTRA DE CULTURA"
+horizontal_alignment = 1
+
+[node name="Bordas" type="StaticBody2D" parent="."]
+
+[node name="Cima" type="CollisionShape2D" parent="Bordas"]
+position = Vector2(320, -8)
+shape = SubResource("Shape_Borda")
+
+[node name="Baixo" type="CollisionShape2D" parent="Bordas"]
+position = Vector2(320, 408)
+shape = SubResource("Shape_Borda")
+
+[node name="Esquerda" type="CollisionShape2D" parent="Bordas"]
+position = Vector2(-8, 200)
+shape = SubResource("Shape_BordaV")
+
+[node name="Direita" type="CollisionShape2D" parent="Bordas"]
+position = Vector2(648, 200)
+shape = SubResource("Shape_BordaV")
+
+[node name="Spawns" type="Node2D" parent="."]
+
+[node name="Spawn_Inicio" type="Marker2D" parent="Spawns" groups=["spawn"]]
+position = Vector2(320, 340)
+
+[node name="Moradores" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Comissao" parent="Moradores" instance=ExtResource("4_morador")]
+position = Vector2(300, 176)
+script = ExtResource("5_comissao")
+fase = 1
+morador_id = "comissao"
+dialogo = "res://data/dialogos/1973/comissao.json"
+mostrar_nome = true
+cor_placeholder = Color(0.9, 0.3, 0.6, 1)
+
+[node name="Morador_rendeira" parent="Moradores" instance=ExtResource("4_morador")]
+position = Vector2(200, 330)
+fase = 1
+morador_id = "rendeira"
+dialogo = "res://data/dialogos/1973/rendeira.json"
+mostrar_nome = true
+cor_placeholder = Color(1, 0.85, 0.6, 1)
+
+[node name="Morador_cordelista" parent="Moradores" instance=ExtResource("4_morador")]
+position = Vector2(120, 136)
+fase = 1
+morador_id = "cordelista"
+dialogo = "res://data/dialogos/1973/cordelista.json"
+mostrar_nome = true
+cor_placeholder = Color(0.9, 0.75, 0.4, 1)
+
+[node name="Morador_diretor_teatro" parent="Moradores" instance=ExtResource("4_morador")]
+position = Vector2(420, 320)
+fase = 1
+morador_id = "diretor_teatro"
+dialogo = "res://data/dialogos/1973/diretor_teatro.json"
+mostrar_nome = true
+cor_placeholder = Color(0.7, 0.5, 0.9, 1)
+
+[node name="Morador_pintor" parent="Moradores" instance=ExtResource("4_morador")]
+position = Vector2(520, 136)
+fase = 1
+morador_id = "pintor"
+dialogo = "res://data/dialogos/1973/pintor.json"
+mostrar_nome = true
+cor_placeholder = Color(0.5, 0.8, 0.9, 1)
+
+[node name="Morador_patrocinador" parent="Moradores" instance=ExtResource("4_morador")]
+position = Vector2(380, 372)
+fase = 1
+morador_id = "patrocinador"
+dialogo = "res://data/dialogos/1973/patrocinador.json"
+mostrar_nome = true
+cor_placeholder = Color(0.6, 0.6, 0.6, 1)
+
+[node name="Amostras" type="Node2D" parent="."]
+
+[node name="Prova_1973_renda" parent="Amostras" instance=ExtResource("6_prova")]
+position = Vector2(96, 232)
+prova_id = "1973_renda"
+
+[node name="Prova_1973_cordel" parent="Amostras" instance=ExtResource("6_prova")]
+position = Vector2(256, 64)
+prova_id = "1973_cordel"
+
+[node name="Prova_1973_mascara" parent="Amostras" instance=ExtResource("6_prova")]
+position = Vector2(608, 250)
+prova_id = "1973_mascara"
+
+[node name="Prova_1973_tela" parent="Amostras" instance=ExtResource("6_prova")]
+position = Vector2(560, 170)
+prova_id = "1973_tela"
+
+[node name="FimFase1973" type="Node" parent="."]
+script = ExtResource("7_fim")
+
+[node name="HudDialogo" parent="." instance=ExtResource("8_hud")]
+
+[node name="ListaProvas" parent="." instance=ExtResource("9_lista")]
+fase = 1
+
+[node name="PortalVolta" parent="." instance=ExtResource("3_portal")]
+position = Vector2(40, 200)
+cena_destino = "res://scenes/hub/hub.tscn"
+spawn_destino = "Spawn_Portal1973"
+sempre_aberto = true
+
+[node name="Player" parent="." instance=ExtResource("2_player")]
+position = Vector2(320, 340)

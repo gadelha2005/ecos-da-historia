@@ -1,0 +1,21 @@
+{
+	"pontos_total": 10,
+	"grupos": ["renda", "cordel", "teatro", "pintura", "patrocinador"],
+	"nomes": {
+		"renda": "Renda de bilro",
+		"cordel": "Cordel",
+		"teatro": "Teatro amador",
+		"pintura": "Pintura",
+		"patrocinador": "Patrocinador"
+	},
+	"bonus_por_espaco": [-30, -10, 0, 5, 8, 10, 11, 12, 12, 12, 12],
+	"min_grupos_com_espaco": 4,
+	"satisfacao_minima": 40,
+	"c_minimo": 70,
+	"dicas": {
+		"concentrada": "A Mostra ficou concentrada em poucos grupos. Tente dar espaço a pelo menos quatro deles.",
+		"insatisfeito": "Um grupo ficou muito insatisfeito com o espaço que recebeu. Ninguém precisa ganhar tudo, mas ninguém pode ficar quase sem nada.",
+		"nota_baixa": "A Mostra ainda não representa bem as pessoas. Divida o espaço de forma mais equilibrada.",
+		"pontos_sobrando": "Ainda sobram pontos de espaço. Use todos antes de confirmar."
+	}
+}

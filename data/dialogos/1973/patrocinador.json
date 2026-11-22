@@ -1,0 +1,166 @@
+{
+	"inicio": "n1",
+	"dica": "O Dr. Valdemar só pensa em retorno. Mostre que uma Mostra com muitas vozes atrai mais público, sem ameaçar e sem prometer o espaço todo.",
+	"nos": [
+		{
+			"id": "n1",
+			"fala": "A empresa paga as placas e a tinta. Quero o salão de entrada com o nosso nome. É o justo.",
+			"opcoes": [
+				{
+					"texto": "O apoio de vocês é o que torna a Mostra possível. Isso vai ser lembrado.",
+					"tipo": "empatia",
+					"peso": 3,
+					"tensao": -5,
+					"destino": "n2",
+					"satisfacao": {
+						"patrocinador": 10
+					}
+				},
+				{
+					"texto": "O nome da empresa pode estar na entrada sem ocupar o salão inteiro.",
+					"tipo": "fato",
+					"peso": 2,
+					"tensao": 5,
+					"destino": "n3",
+					"satisfacao": {
+						"patrocinador": 5
+					}
+				},
+				{
+					"texto": "Dinheiro não compra a Mostra. Ou aceita o que tem, ou sai.",
+					"tipo": "autoridade",
+					"peso": 0,
+					"tensao": 20,
+					"destino": "n4",
+					"satisfacao": {
+						"patrocinador": -15
+					}
+				}
+			]
+		},
+		{
+			"id": "n2",
+			"fala": "Lembrado como? Eu preciso mostrar resultado para os diretores.",
+			"opcoes": [
+				{
+					"texto": "Uma Mostra cheia, com renda, cordel, teatro e pintura, traz mais gente do que um salão vazio.",
+					"tipo": "fato",
+					"peso": 3,
+					"tensao": -5,
+					"destino": "n5",
+					"satisfacao": {
+						"patrocinador": 5
+					}
+				},
+				{
+					"texto": "Veja o que já está pelo campus: cordel, renda, máscara e tela. Cada um traz um público diferente.",
+					"tipo": "provas",
+					"peso": 4,
+					"tensao": -10,
+					"destino": "n5",
+					"satisfacao": {
+						"patrocinador": 10
+					},
+					"exige_prova": "1973_cordel"
+				},
+				{
+					"texto": "Resultado não é problema nosso. A cultura vem primeiro.",
+					"tipo": "autoridade",
+					"peso": 0,
+					"tensao": 15,
+					"destino": "n4",
+					"satisfacao": {
+						"patrocinador": -10
+					}
+				}
+			]
+		},
+		{
+			"id": "n3",
+			"fala": "Sem o salão, qual é a vantagem para a empresa?",
+			"opcoes": [
+				{
+					"texto": "Seu nome ligado à primeira Mostra da universidade. Isso dura anos.",
+					"tipo": "empatia",
+					"peso": 2,
+					"tensao": -5,
+					"destino": "n5",
+					"satisfacao": {
+						"patrocinador": 5
+					}
+				},
+				{
+					"texto": "A vantagem é a gente aceitar o seu dinheiro.",
+					"tipo": "autoridade",
+					"peso": 0,
+					"tensao": 15,
+					"destino": "n4",
+					"satisfacao": {
+						"patrocinador": -10
+					}
+				}
+			]
+		},
+		{
+			"id": "n4",
+			"fala": "Então talvez a empresa procure outro lugar para investir.",
+			"opcoes": [
+				{
+					"texto": "Desculpe o tom. A Mostra precisa do senhor, e o senhor pode sair bem dela.",
+					"tipo": "empatia",
+					"peso": 1,
+					"tensao": -10,
+					"destino": "n5"
+				},
+				{
+					"texto": "Um espaço menor, bem localizado, ainda dá muita visibilidade.",
+					"tipo": "fato",
+					"peso": 1,
+					"tensao": 5,
+					"destino": "n5"
+				}
+			]
+		},
+		{
+			"id": "n5",
+			"fala": "Certo. Mas se eu abrir mão do salão, quero pelo menos um espaço próprio.",
+			"opcoes": [
+				{
+					"texto": "É justo. Vou levar à comissão um espaço para a empresa, do tamanho dos outros.",
+					"tipo": "empatia",
+					"peso": 3,
+					"tensao": -10,
+					"destino": "n6",
+					"satisfacao": {
+						"patrocinador": 10
+					}
+				},
+				{
+					"texto": "Um espaço igual ao dos outros grupos mostra que a empresa apoia todos.",
+					"tipo": "fato",
+					"peso": 2,
+					"tensao": 0,
+					"destino": "n6",
+					"satisfacao": {
+						"patrocinador": 5
+					}
+				},
+				{
+					"texto": "Vai ter o que sobrar, se sobrar.",
+					"tipo": "autoridade",
+					"peso": 0,
+					"tensao": 15,
+					"destino": "n6",
+					"satisfacao": {
+						"patrocinador": -10
+					}
+				}
+			]
+		},
+		{
+			"id": "n6",
+			"fala": "Fechado. Fale com a comissão para montar a planta da Mostra. Eles estão no pátio, perto do cartaz.",
+			"final": true
+		}
+	]
+}

@@ -1,0 +1,50 @@
+{
+	"inicio": "n1",
+	"dica": "",
+	"nos": [
+		{
+			"id": "n1",
+			"fala": "Que bom que você veio! Somos a comissão da primeira Mostra de Cultura da universidade.",
+			"opcoes": [
+				{
+					"texto": "Como posso ajudar?",
+					"tipo": "empatia",
+					"peso": 0,
+					"tensao": 0,
+					"destino": "n2"
+				}
+			]
+		},
+		{
+			"id": "n2",
+			"fala": "O problema é simples de dizer: há pouco espaço, pouco dinheiro e muita gente quer aparecer.",
+			"opcoes": [
+				{
+					"texto": "Quem quer participar?",
+					"tipo": "fato",
+					"peso": 0,
+					"tensao": 0,
+					"destino": "n3"
+				}
+			]
+		},
+		{
+			"id": "n3",
+			"fala": "Cinco pessoas defendem o seu lugar. Comece pela Dona Socorro, a rendeira, perto da cantina. Ela indica o próximo.",
+			"opcoes": [
+				{
+					"texto": "Vou ouvir cada um.",
+					"tipo": "empatia",
+					"peso": 0,
+					"tensao": 0,
+					"destino": "n4"
+				}
+			]
+		},
+		{
+			"id": "n4",
+			"fala": "Ouça todos e junte amostras pelo campus. No fim, a gente monta a planta da Mostra junto com você.",
+			"final": true
+		}
+	]
+}
