@@ -53,7 +53,7 @@ var espaco_grupos: Dictionary = {}
 var satisfacao_grupos: Dictionary = {}
 
 # Fase 1979: confiança de cada lado e tensão da fase
-var confianca_lado: Dictionary = {"comunidade": 50, "empreendimento": 50}
+var confianca_lado: Dictionary = {"comunidade": 0, "empreendimento": 0}
 var tensao_fase: int = 0
 
 # Fase 1982: relógio e itens
@@ -155,7 +155,7 @@ func reiniciar_fase(fase: int) -> void:
 		FASE_1973:
 			_zerar_1973()
 		FASE_1979:
-			confianca_lado = {"comunidade": 50, "empreendimento": 50}
+			confianca_lado = {"comunidade": 0, "empreendimento": 0}
 			tensao_fase = 0
 		FASE_1982:
 			tempo_restante = TEMPO_1982
