@@ -14,6 +14,8 @@
 [ext_resource type="Texture2D" path="res://assets/sprites/fase1973/predio_cantina.png" id="t_Cantina"]
 [ext_resource type="Texture2D" path="res://assets/sprites/fase1973/predio_auditorio.png" id="t_Auditorio"]
 [ext_resource type="Texture2D" path="res://assets/sprites/fase1973/andaime.png" id="t_andaime"]
+[ext_resource type="SpriteFrames" path="res://assets/sprites/fase1973/morador_professor_artes.tres" id="f_professor"]
+[ext_resource type="SpriteFrames" path="res://assets/sprites/fase1973/morador_estudante.tres" id="f_estudante"]
 
 [sub_resource type="RectangleShape2D" id="Shape_Biblioteca"]
 size = Vector2(160, 80)
@@ -264,6 +266,18 @@ position = Vector2(320, 340)
 
 [node name="Moradores" type="Node2D" parent="."]
 y_sort_enabled = true
+
+[node name="ComissaoProfessor" type="AnimatedSprite2D" parent="Moradores"]
+position = Vector2(280, 176)
+sprite_frames = ExtResource("f_professor")
+animation = &"idle_baixo"
+offset = Vector2(0, -16)
+
+[node name="ComissaoEstudante" type="AnimatedSprite2D" parent="Moradores"]
+position = Vector2(320, 180)
+sprite_frames = ExtResource("f_estudante")
+animation = &"idle_baixo"
+offset = Vector2(0, -16)
 
 [node name="Comissao" parent="Moradores" instance=ExtResource("4_morador")]
 position = Vector2(300, 176)

@@ -58,7 +58,7 @@ func _rodar() -> void:
 	await _esperar_cena(CENA_FASE)
 	await get_tree().create_timer(0.5).timeout
 	var fase := get_tree().current_scene
-	_checar(fase.get_node("Moradores").get_child_count() == 6, "comissão + 5 defensores na fase")
+	_checar(get_tree().get_nodes_in_group("moradores").size() == 6, "comissão + 5 defensores na fase")
 	_checar(fase.get_node("Amostras").get_child_count() == 4, "4 amostras pelo campus")
 
 	await _conversar_comissao(fase)

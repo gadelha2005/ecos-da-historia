@@ -188,6 +188,13 @@ PERSONAGENS = {
     "patrocinador": Pessoa73(pele="d9a47c", cabelo="3a2a20", roupa="6a4a30", calca="5a3e28",
                              sapato="1e1c22", bigode="3a2a20", gola="f2f0ea", item="maleta",
                              extras={"gravata", "lapela", "oculos"}),
+    # comissão (figurantes ao lado da coordenadora): professor de artes e estudante
+    "professor_artes": Pessoa73(pele="b07850", cabelo="2a1e18", roupa="8a9a6a", calca="4a4038",
+                                sapato="2a2224", barba="2a1e18", gola="ece6d6",
+                                extras={"oculos", "volumoso"}),
+    "estudante": Pessoa73(pele="e0b090", cabelo="6a4028", roupa="d85a3a", calca="4a6a9a",
+                          sapato="ece6d6", cabelo_estilo="longo", mangas_curtas=True,
+                          extras={"boca_de_sino"}, extra_item="cordel"),
 }
 
 TRES = """[gd_resource type="SpriteFrames" format=3]
