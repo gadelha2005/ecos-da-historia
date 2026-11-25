@@ -3,7 +3,8 @@ extends Area2D
 ## [D3 + K2] Portal das épocas. Três estados visuais:
 ##   TRANCADO  -> cinza e parado
 ##   ATIVO     -> gira e ondula com a cor da época (shader portal_distorcao)
-##   CONCLUIDO -> chave da época já pega: brilho fraco, girando devagar
+##   CONCLUIDO -> chave da época já pega: brilho fraco, girando devagar e bloqueado
+##                (a fase já passada não pode ser jogada de novo)
 ## No hub, o portal da próxima época só "acende" quando a chave anterior é encaixada
 ## na porta (o HubEventos do K8 chama acender()); a interação continua seguindo
 ## GameState.portal_liberado. Portais de volta (sempre_aberto) ficam sempre ativos.
@@ -69,9 +70,19 @@ func acender() -> void:
 	await _tween.finished
 
 
+## Fala do portal de uma época que já foi concluída (chave pega): não deixa entrar de novo.
+const FALA_CONCLUIDO: Array[String] = [
+	"Este eco já foi recuperado. A chave desta época está com você.",
+	"Siga para o próximo portal aceso.",
+]
+
+
 func interagir(jogador: Player) -> void:
 	jogador.pode_mover = false
-	if sempre_aberto or GameState.portal_liberado(fase):
+	if not sempre_aberto and GameState.tem_chave(fase):
+		await _mostrar(FALA_CONCLUIDO)
+		jogador.pode_mover = true
+	elif sempre_aberto or GameState.portal_liberado(fase):
 		if not _ir_para(cena_destino, spawn_destino):
 			jogador.pode_mover = true  # a cena ainda não existe: não deixa o jogador travado
 	else:
