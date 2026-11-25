@@ -1,0 +1,20 @@
+{
+	"max_propostas": 4,
+	"min_propostas": 2,
+	"confianca_minima": 65,
+	"propostas": [
+		{ "id": "lagoa", "texto": "Preservar a lagoa e parte da mata", "comunidade": 12, "empreendimento": -4, "tensao": 0 },
+		{ "id": "casas", "texto": "Regularizar as casas da comunidade", "comunidade": 10, "empreendimento": 2, "tensao": 0 },
+		{ "id": "compensar", "texto": "Compensar quem precisar sair", "comunidade": 6, "empreendimento": -3, "tensao": 0 },
+		{ "id": "desenho", "texto": "Novo desenho e novo prazo para a obra", "comunidade": 2, "empreendimento": 18, "tensao": 0 },
+		{ "id": "empregos", "texto": "Empregar gente da comunidade na obra", "comunidade": 4, "empreendimento": 12, "tensao": 0 },
+		{ "id": "derrubar", "texto": "Derrubar tudo e seguir a obra como está", "comunidade": -30, "empreendimento": 20, "tensao": 50 },
+		{ "id": "embargar", "texto": "Embargar a obra de vez", "comunidade": 20, "empreendimento": -30, "tensao": 50 }
+	],
+	"dicas": {
+		"poucas": "Escolha pelo menos duas propostas antes de levar à mesa.",
+		"tensao": "Propostas que tiram tudo de um lado esquentam a mesa. Cada lado precisa ceder um pouco, não tudo.",
+		"comunidade": "A comunidade saiu da mesa insatisfeita. Pense na lagoa, na mata e nas casas de quem mora ali.",
+		"empreendimento": "O lado do empreendimento saiu da mesa insatisfeito. Pense no prazo da obra e nos empregos."
+	}
+}

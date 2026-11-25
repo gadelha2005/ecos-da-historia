@@ -1,0 +1,694 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/fases/fase_1979.gd" id="1_fase"]
+[ext_resource type="PackedScene" path="res://scenes/player/player.tscn" id="2_player"]
+[ext_resource type="PackedScene" path="res://scenes/comum/portal.tscn" id="3_portal"]
+[ext_resource type="PackedScene" path="res://scenes/npcs/morador.tscn" id="4_morador"]
+[ext_resource type="Script" path="res://scripts/npcs/comissao.gd" id="5_comissao"]
+[ext_resource type="PackedScene" path="res://scenes/objetos/prova.tscn" id="6_prova"]
+[ext_resource type="Script" path="res://scripts/fases/fim_fase_1979.gd" id="7_fim"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud_dialogo.tscn" id="8_hud"]
+[ext_resource type="PackedScene" path="res://scenes/ui/lista_provas.tscn" id="9_lista"]
+[ext_resource type="Script" path="res://scripts/fases/maquinas_ligando.gd" id="10_maq"]
+[ext_resource type="Script" path="res://scripts/fases/agenda_eventos.gd" id="11_agenda"]
+[ext_resource type="Script" path="res://scripts/ui/hud_lados.gd" id="12_lados"]
+[ext_resource type="Texture2D" path="res://assets/sprites/fase1979/chao_1979.png" id="t_chao_1979"]
+[ext_resource type="Texture2D" path="res://assets/sprites/fase1979/casa_alvenaria.png" id="t_casa_alvenaria"]
+[ext_resource type="Texture2D" path="res://assets/sprites/fase1979/casa_taipa.png" id="t_casa_taipa"]
+[ext_resource type="Texture2D" path="res://assets/sprites/fase1979/casa_taipa_palha.png" id="t_casa_taipa_palha"]
+[ext_resource type="Texture2D" path="res://assets/sprites/fase1979/arvore_mata_1.png" id="t_arvore_mata_1"]
+[ext_resource type="Texture2D" path="res://assets/sprites/fase1979/arvore_mata_2.png" id="t_arvore_mata_2"]
+[ext_resource type="Texture2D" path="res://assets/sprites/fase1979/arvore_mata_baixa.png" id="t_arvore_mata_baixa"]
+[ext_resource type="Texture2D" path="res://assets/sprites/fase1979/mangueira_grande.png" id="t_mangueira_grande"]
+[ext_resource type="Texture2D" path="res://assets/sprites/fase1979/mesa_acordo.png" id="t_mesa_acordo"]
+[ext_resource type="Texture2D" path="res://assets/sprites/fase1979/pe_milho_1.png" id="t_pe_milho_1"]
+[ext_resource type="Texture2D" path="res://assets/sprites/fase1979/pe_milho_2.png" id="t_pe_milho_2"]
+[ext_resource type="Texture2D" path="res://assets/sprites/fase1979/cerca_arame.png" id="t_cerca_arame"]
+[ext_resource type="Texture2D" path="res://assets/sprites/fase1979/placa_loteamento.png" id="t_placa_loteamento"]
+[ext_resource type="Texture2D" path="res://assets/sprites/fase1979/trator.png" id="t_trator"]
+[ext_resource type="Texture2D" path="res://assets/sprites/fase1979/retroescavadeira.png" id="t_retroescavadeira"]
+[ext_resource type="Texture2D" path="res://assets/sprites/fase1979/barracao_obra.png" id="t_barracao_obra"]
+[ext_resource type="Texture2D" path="res://assets/sprites/fase1979/sacos_cimento.png" id="t_sacos_cimento"]
+
+[sub_resource type="RectangleShape2D" id="Shape_Borda"]
+size = Vector2(640, 16)
+
+[sub_resource type="RectangleShape2D" id="Shape_BordaV"]
+size = Vector2(16, 400)
+
+[sub_resource type="RectangleShape2D" id="Shape_CasaPalha"]
+size = Vector2(58, 14)
+
+[sub_resource type="RectangleShape2D" id="Shape_CasaAlvenaria"]
+size = Vector2(64, 14)
+
+[sub_resource type="RectangleShape2D" id="Shape_CasaTaipa"]
+size = Vector2(58, 14)
+
+[sub_resource type="RectangleShape2D" id="Shape_Arvore1"]
+size = Vector2(10, 6)
+
+[sub_resource type="RectangleShape2D" id="Shape_Arvore2"]
+size = Vector2(10, 6)
+
+[sub_resource type="RectangleShape2D" id="Shape_Arvore3"]
+size = Vector2(10, 6)
+
+[sub_resource type="RectangleShape2D" id="Shape_Arvore4"]
+size = Vector2(10, 6)
+
+[sub_resource type="RectangleShape2D" id="Shape_Arvore5"]
+size = Vector2(10, 6)
+
+[sub_resource type="RectangleShape2D" id="Shape_Arvore6"]
+size = Vector2(10, 6)
+
+[sub_resource type="RectangleShape2D" id="Shape_Arvore7"]
+size = Vector2(10, 6)
+
+[sub_resource type="RectangleShape2D" id="Shape_Arvore8"]
+size = Vector2(10, 6)
+
+[sub_resource type="RectangleShape2D" id="Shape_Arvore9"]
+size = Vector2(10, 6)
+
+[sub_resource type="RectangleShape2D" id="Shape_Arvore10"]
+size = Vector2(10, 6)
+
+[sub_resource type="RectangleShape2D" id="Shape_Arvore11"]
+size = Vector2(10, 6)
+
+[sub_resource type="RectangleShape2D" id="Shape_Mangueira"]
+size = Vector2(18, 8)
+
+[sub_resource type="RectangleShape2D" id="Shape_Mesa"]
+size = Vector2(40, 8)
+
+[sub_resource type="RectangleShape2D" id="Shape_CercaA"]
+size = Vector2(6, 128)
+
+[sub_resource type="RectangleShape2D" id="Shape_CercaB"]
+size = Vector2(6, 44)
+
+[sub_resource type="RectangleShape2D" id="Shape_Placa"]
+size = Vector2(46, 6)
+
+[sub_resource type="RectangleShape2D" id="Shape_Barracao"]
+size = Vector2(84, 14)
+
+[sub_resource type="RectangleShape2D" id="Shape_Sacos"]
+size = Vector2(26, 6)
+
+[sub_resource type="RectangleShape2D" id="Shape_Trator"]
+size = Vector2(52, 14)
+
+[sub_resource type="RectangleShape2D" id="Shape_Retro"]
+size = Vector2(64, 14)
+
+[node name="Fase1979" type="Node2D" node_paths=PackedStringArray("jogador", "hud", "professor", "fim", "maquinas")]
+y_sort_enabled = true
+script = ExtResource("1_fase")
+jogador = NodePath("Player")
+hud = NodePath("HudDialogo")
+professor = NodePath("Moradores/Professor")
+fim = NodePath("FimFase1979")
+maquinas = NodePath("Maquinas")
+
+[node name="Chao" type="Sprite2D" parent="."]
+z_index = -10
+texture = ExtResource("t_chao_1979")
+centered = false
+
+[node name="Lagoa" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Lagoa"]
+polygon = PackedVector2Array(176.0, 322.0, 170.2, 338.5, 153.7, 352.4, 129.1, 361.7, 100.0, 365.0, 70.9, 361.7, 46.3, 352.4, 29.8, 338.5, 24.0, 322.0, 29.8, 305.5, 46.3, 291.6, 70.9, 282.3, 100.0, 279.0, 129.1, 282.3, 153.7, 291.6, 170.2, 305.5)
+
+[node name="Cenario" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="CasaPalha" type="StaticBody2D" parent="Cenario"]
+position = Vector2(56, 120)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cenario/CasaPalha"]
+position = Vector2(0, -7)
+shape = SubResource("Shape_CasaPalha")
+
+[node name="Sprite2D" type="Sprite2D" parent="Cenario/CasaPalha"]
+texture = ExtResource("t_casa_taipa_palha")
+centered = false
+offset = Vector2(-32, -56)
+
+[node name="CasaAlvenaria" type="StaticBody2D" parent="Cenario"]
+position = Vector2(150, 100)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cenario/CasaAlvenaria"]
+position = Vector2(0, -7)
+shape = SubResource("Shape_CasaAlvenaria")
+
+[node name="Sprite2D" type="Sprite2D" parent="Cenario/CasaAlvenaria"]
+texture = ExtResource("t_casa_alvenaria")
+centered = false
+offset = Vector2(-36, -58)
+
+[node name="CasaTaipa" type="StaticBody2D" parent="Cenario"]
+position = Vector2(250, 140)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cenario/CasaTaipa"]
+position = Vector2(0, -7)
+shape = SubResource("Shape_CasaTaipa")
+
+[node name="Sprite2D" type="Sprite2D" parent="Cenario/CasaTaipa"]
+texture = ExtResource("t_casa_taipa")
+centered = false
+offset = Vector2(-32, -56)
+
+[node name="Milho1" type="Sprite2D" parent="Cenario"]
+position = Vector2(190, 182)
+texture = ExtResource("t_pe_milho_1")
+centered = false
+offset = Vector2(-6, -20)
+
+[node name="Milho2" type="Sprite2D" parent="Cenario"]
+position = Vector2(206, 182)
+texture = ExtResource("t_pe_milho_2")
+centered = false
+offset = Vector2(-6, -20)
+
+[node name="Milho3" type="Sprite2D" parent="Cenario"]
+position = Vector2(222, 182)
+texture = ExtResource("t_pe_milho_1")
+centered = false
+offset = Vector2(-6, -20)
+
+[node name="Milho4" type="Sprite2D" parent="Cenario"]
+position = Vector2(238, 182)
+texture = ExtResource("t_pe_milho_1")
+centered = false
+offset = Vector2(-6, -20)
+
+[node name="Milho5" type="Sprite2D" parent="Cenario"]
+position = Vector2(254, 182)
+texture = ExtResource("t_pe_milho_2")
+centered = false
+offset = Vector2(-6, -20)
+
+[node name="Milho6" type="Sprite2D" parent="Cenario"]
+position = Vector2(270, 182)
+texture = ExtResource("t_pe_milho_1")
+centered = false
+offset = Vector2(-6, -20)
+
+[node name="Milho7" type="Sprite2D" parent="Cenario"]
+position = Vector2(286, 182)
+texture = ExtResource("t_pe_milho_1")
+centered = false
+offset = Vector2(-6, -20)
+
+[node name="Milho8" type="Sprite2D" parent="Cenario"]
+position = Vector2(186, 196)
+texture = ExtResource("t_pe_milho_1")
+centered = false
+offset = Vector2(-6, -20)
+
+[node name="Milho9" type="Sprite2D" parent="Cenario"]
+position = Vector2(202, 196)
+texture = ExtResource("t_pe_milho_1")
+centered = false
+offset = Vector2(-6, -20)
+
+[node name="Milho10" type="Sprite2D" parent="Cenario"]
+position = Vector2(218, 196)
+texture = ExtResource("t_pe_milho_2")
+centered = false
+offset = Vector2(-6, -20)
+
+[node name="Milho11" type="Sprite2D" parent="Cenario"]
+position = Vector2(234, 196)
+texture = ExtResource("t_pe_milho_1")
+centered = false
+offset = Vector2(-6, -20)
+
+[node name="Milho12" type="Sprite2D" parent="Cenario"]
+position = Vector2(250, 196)
+texture = ExtResource("t_pe_milho_1")
+centered = false
+offset = Vector2(-6, -20)
+
+[node name="Milho13" type="Sprite2D" parent="Cenario"]
+position = Vector2(266, 196)
+texture = ExtResource("t_pe_milho_2")
+centered = false
+offset = Vector2(-6, -20)
+
+[node name="Milho14" type="Sprite2D" parent="Cenario"]
+position = Vector2(282, 196)
+texture = ExtResource("t_pe_milho_1")
+centered = false
+offset = Vector2(-6, -20)
+
+[node name="Milho15" type="Sprite2D" parent="Cenario"]
+position = Vector2(190, 210)
+texture = ExtResource("t_pe_milho_2")
+centered = false
+offset = Vector2(-6, -20)
+
+[node name="Milho16" type="Sprite2D" parent="Cenario"]
+position = Vector2(206, 210)
+texture = ExtResource("t_pe_milho_1")
+centered = false
+offset = Vector2(-6, -20)
+
+[node name="Milho17" type="Sprite2D" parent="Cenario"]
+position = Vector2(222, 210)
+texture = ExtResource("t_pe_milho_1")
+centered = false
+offset = Vector2(-6, -20)
+
+[node name="Milho18" type="Sprite2D" parent="Cenario"]
+position = Vector2(238, 210)
+texture = ExtResource("t_pe_milho_2")
+centered = false
+offset = Vector2(-6, -20)
+
+[node name="Milho19" type="Sprite2D" parent="Cenario"]
+position = Vector2(254, 210)
+texture = ExtResource("t_pe_milho_1")
+centered = false
+offset = Vector2(-6, -20)
+
+[node name="Milho20" type="Sprite2D" parent="Cenario"]
+position = Vector2(270, 210)
+texture = ExtResource("t_pe_milho_1")
+centered = false
+offset = Vector2(-6, -20)
+
+[node name="Milho21" type="Sprite2D" parent="Cenario"]
+position = Vector2(286, 210)
+texture = ExtResource("t_pe_milho_2")
+centered = false
+offset = Vector2(-6, -20)
+
+[node name="Milho22" type="Sprite2D" parent="Cenario"]
+position = Vector2(186, 224)
+texture = ExtResource("t_pe_milho_1")
+centered = false
+offset = Vector2(-6, -20)
+
+[node name="Milho23" type="Sprite2D" parent="Cenario"]
+position = Vector2(202, 224)
+texture = ExtResource("t_pe_milho_2")
+centered = false
+offset = Vector2(-6, -20)
+
+[node name="Milho24" type="Sprite2D" parent="Cenario"]
+position = Vector2(218, 224)
+texture = ExtResource("t_pe_milho_1")
+centered = false
+offset = Vector2(-6, -20)
+
+[node name="Milho25" type="Sprite2D" parent="Cenario"]
+position = Vector2(234, 224)
+texture = ExtResource("t_pe_milho_1")
+centered = false
+offset = Vector2(-6, -20)
+
+[node name="Milho26" type="Sprite2D" parent="Cenario"]
+position = Vector2(250, 224)
+texture = ExtResource("t_pe_milho_2")
+centered = false
+offset = Vector2(-6, -20)
+
+[node name="Milho27" type="Sprite2D" parent="Cenario"]
+position = Vector2(266, 224)
+texture = ExtResource("t_pe_milho_1")
+centered = false
+offset = Vector2(-6, -20)
+
+[node name="Milho28" type="Sprite2D" parent="Cenario"]
+position = Vector2(282, 224)
+texture = ExtResource("t_pe_milho_1")
+centered = false
+offset = Vector2(-6, -20)
+
+[node name="Arvore1" type="StaticBody2D" parent="Cenario"]
+position = Vector2(20, 52)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cenario/Arvore1"]
+position = Vector2(0, -3)
+shape = SubResource("Shape_Arvore1")
+
+[node name="Sprite2D" type="Sprite2D" parent="Cenario/Arvore1"]
+texture = ExtResource("t_arvore_mata_1")
+centered = false
+offset = Vector2(-20, -56)
+
+[node name="Arvore2" type="StaticBody2D" parent="Cenario"]
+position = Vector2(104, 44)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cenario/Arvore2"]
+position = Vector2(0, -3)
+shape = SubResource("Shape_Arvore2")
+
+[node name="Sprite2D" type="Sprite2D" parent="Cenario/Arvore2"]
+texture = ExtResource("t_arvore_mata_2")
+centered = false
+offset = Vector2(-20, -56)
+
+[node name="Arvore3" type="StaticBody2D" parent="Cenario"]
+position = Vector2(196, 52)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cenario/Arvore3"]
+position = Vector2(0, -3)
+shape = SubResource("Shape_Arvore3")
+
+[node name="Sprite2D" type="Sprite2D" parent="Cenario/Arvore3"]
+texture = ExtResource("t_arvore_mata_baixa")
+centered = false
+offset = Vector2(-20, -44)
+
+[node name="Arvore4" type="StaticBody2D" parent="Cenario"]
+position = Vector2(258, 58)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cenario/Arvore4"]
+position = Vector2(0, -3)
+shape = SubResource("Shape_Arvore4")
+
+[node name="Sprite2D" type="Sprite2D" parent="Cenario/Arvore4"]
+texture = ExtResource("t_arvore_mata_1")
+centered = false
+offset = Vector2(-20, -56)
+
+[node name="Arvore5" type="StaticBody2D" parent="Cenario"]
+position = Vector2(14, 196)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cenario/Arvore5"]
+position = Vector2(0, -3)
+shape = SubResource("Shape_Arvore5")
+
+[node name="Sprite2D" type="Sprite2D" parent="Cenario/Arvore5"]
+texture = ExtResource("t_arvore_mata_2")
+centered = false
+offset = Vector2(-20, -56)
+
+[node name="Arvore6" type="StaticBody2D" parent="Cenario"]
+position = Vector2(16, 262)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cenario/Arvore6"]
+position = Vector2(0, -3)
+shape = SubResource("Shape_Arvore6")
+
+[node name="Sprite2D" type="Sprite2D" parent="Cenario/Arvore6"]
+texture = ExtResource("t_arvore_mata_baixa")
+centered = false
+offset = Vector2(-20, -44)
+
+[node name="Arvore7" type="StaticBody2D" parent="Cenario"]
+position = Vector2(232, 396)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cenario/Arvore7"]
+position = Vector2(0, -3)
+shape = SubResource("Shape_Arvore7")
+
+[node name="Sprite2D" type="Sprite2D" parent="Cenario/Arvore7"]
+texture = ExtResource("t_arvore_mata_2")
+centered = false
+offset = Vector2(-20, -56)
+
+[node name="Arvore8" type="StaticBody2D" parent="Cenario"]
+position = Vector2(272, 398)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cenario/Arvore8"]
+position = Vector2(0, -3)
+shape = SubResource("Shape_Arvore8")
+
+[node name="Sprite2D" type="Sprite2D" parent="Cenario/Arvore8"]
+texture = ExtResource("t_arvore_mata_baixa")
+centered = false
+offset = Vector2(-20, -44)
+
+[node name="Arvore9" type="StaticBody2D" parent="Cenario"]
+position = Vector2(20, 398)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cenario/Arvore9"]
+position = Vector2(0, -3)
+shape = SubResource("Shape_Arvore9")
+
+[node name="Sprite2D" type="Sprite2D" parent="Cenario/Arvore9"]
+texture = ExtResource("t_arvore_mata_1")
+centered = false
+offset = Vector2(-20, -56)
+
+[node name="Arvore10" type="StaticBody2D" parent="Cenario"]
+position = Vector2(624, 58)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cenario/Arvore10"]
+position = Vector2(0, -3)
+shape = SubResource("Shape_Arvore10")
+
+[node name="Sprite2D" type="Sprite2D" parent="Cenario/Arvore10"]
+texture = ExtResource("t_arvore_mata_baixa")
+centered = false
+offset = Vector2(-20, -44)
+
+[node name="Arvore11" type="StaticBody2D" parent="Cenario"]
+position = Vector2(630, 160)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cenario/Arvore11"]
+position = Vector2(0, -3)
+shape = SubResource("Shape_Arvore11")
+
+[node name="Sprite2D" type="Sprite2D" parent="Cenario/Arvore11"]
+texture = ExtResource("t_arvore_mata_2")
+centered = false
+offset = Vector2(-20, -56)
+
+[node name="Mangueira" type="StaticBody2D" parent="Cenario"]
+position = Vector2(320, 96)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cenario/Mangueira"]
+position = Vector2(0, -4)
+shape = SubResource("Shape_Mangueira")
+
+[node name="Sprite2D" type="Sprite2D" parent="Cenario/Mangueira"]
+texture = ExtResource("t_mangueira_grande")
+centered = false
+offset = Vector2(-48, -80)
+
+[node name="Mesa" type="StaticBody2D" parent="Cenario"]
+position = Vector2(320, 128)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cenario/Mesa"]
+position = Vector2(0, -4)
+shape = SubResource("Shape_Mesa")
+
+[node name="Sprite2D" type="Sprite2D" parent="Cenario/Mesa"]
+texture = ExtResource("t_mesa_acordo")
+centered = false
+offset = Vector2(-28, -30)
+
+[node name="Cerca" type="StaticBody2D" parent="Cenario"]
+position = Vector2(331, 0)
+
+[node name="TrechoA" type="CollisionShape2D" parent="Cenario/Cerca"]
+position = Vector2(0, 204)
+shape = SubResource("Shape_CercaA")
+
+[node name="TrechoB" type="CollisionShape2D" parent="Cenario/Cerca"]
+position = Vector2(0, 322)
+shape = SubResource("Shape_CercaB")
+
+[node name="SpriteA" type="Sprite2D" parent="Cenario/Cerca"]
+z_index = -1
+texture = ExtResource("t_cerca_arame")
+centered = false
+offset = Vector2(-5, 140)
+
+[node name="SpriteB" type="Sprite2D" parent="Cenario/Cerca"]
+z_index = -1
+texture = ExtResource("t_cerca_arame")
+centered = false
+offset = Vector2(-5, 300)
+region_enabled = true
+region_rect = Rect2(0, 0, 10, 44)
+
+[node name="Placa" type="StaticBody2D" parent="Cenario"]
+position = Vector2(404, 70)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cenario/Placa"]
+position = Vector2(0, -3)
+shape = SubResource("Shape_Placa")
+
+[node name="Sprite2D" type="Sprite2D" parent="Cenario/Placa"]
+texture = ExtResource("t_placa_loteamento")
+centered = false
+offset = Vector2(-32, -44)
+
+[node name="Barracao" type="StaticBody2D" parent="Cenario"]
+position = Vector2(560, 100)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cenario/Barracao"]
+position = Vector2(0, -7)
+shape = SubResource("Shape_Barracao")
+
+[node name="Sprite2D" type="Sprite2D" parent="Cenario/Barracao"]
+texture = ExtResource("t_barracao_obra")
+centered = false
+offset = Vector2(-44, -60)
+
+[node name="Sacos" type="StaticBody2D" parent="Cenario"]
+position = Vector2(494, 110)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cenario/Sacos"]
+position = Vector2(0, -3)
+shape = SubResource("Shape_Sacos")
+
+[node name="Sprite2D" type="Sprite2D" parent="Cenario/Sacos"]
+texture = ExtResource("t_sacos_cimento")
+centered = false
+offset = Vector2(-14, -18)
+
+[node name="Trator" type="StaticBody2D" parent="Cenario"]
+position = Vector2(470, 232)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cenario/Trator"]
+position = Vector2(0, -7)
+shape = SubResource("Shape_Trator")
+
+[node name="Sprite2D" type="Sprite2D" parent="Cenario/Trator"]
+texture = ExtResource("t_trator")
+centered = false
+offset = Vector2(-28, -40)
+
+[node name="Retro" type="StaticBody2D" parent="Cenario"]
+position = Vector2(576, 316)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cenario/Retro"]
+position = Vector2(0, -7)
+shape = SubResource("Shape_Retro")
+
+[node name="Sprite2D" type="Sprite2D" parent="Cenario/Retro"]
+texture = ExtResource("t_retroescavadeira")
+centered = false
+offset = Vector2(-36, -48)
+
+[node name="Bordas" type="StaticBody2D" parent="."]
+
+[node name="Cima" type="CollisionShape2D" parent="Bordas"]
+position = Vector2(320, -8)
+shape = SubResource("Shape_Borda")
+
+[node name="Baixo" type="CollisionShape2D" parent="Bordas"]
+position = Vector2(320, 408)
+shape = SubResource("Shape_Borda")
+
+[node name="Esquerda" type="CollisionShape2D" parent="Bordas"]
+position = Vector2(-8, 200)
+shape = SubResource("Shape_BordaV")
+
+[node name="Direita" type="CollisionShape2D" parent="Bordas"]
+position = Vector2(648, 200)
+shape = SubResource("Shape_BordaV")
+
+[node name="Spawns" type="Node2D" parent="."]
+
+[node name="Spawn_Inicio" type="Marker2D" parent="Spawns" groups=["spawn"]]
+position = Vector2(318, 332)
+
+[node name="Moradores" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Professor" parent="Moradores" instance=ExtResource("4_morador")]
+position = Vector2(362, 142)
+script = ExtResource("5_comissao")
+fala_final = "Todos foram ouvidos, dos dois lados da cerca. Agora vamos sentar à mesa, embaixo da mangueira, e montar um acordo em que cada lado cede um pouco."
+fase = 2
+morador_id = "professor"
+dialogo = "res://data/dialogos/1979/professor.json"
+mostrar_nome = true
+
+[node name="Morador_dona_rita" parent="Moradores" instance=ExtResource("4_morador")]
+position = Vector2(232, 254)
+fase = 2
+morador_id = "dona_rita"
+dialogo = "res://data/dialogos/1979/dona_rita.json"
+mostrar_nome = true
+
+[node name="Morador_engenheiro" parent="Moradores" instance=ExtResource("4_morador")]
+position = Vector2(380, 186)
+fase = 2
+morador_id = "engenheiro"
+dialogo = "res://data/dialogos/1979/engenheiro.json"
+mostrar_nome = true
+
+[node name="Morador_seu_raimundo" parent="Moradores" instance=ExtResource("4_morador")]
+position = Vector2(198, 334)
+fase = 2
+morador_id = "seu_raimundo"
+dialogo = "res://data/dialogos/1979/seu_raimundo.json"
+mostrar_nome = true
+
+[node name="Morador_investidor" parent="Moradores" instance=ExtResource("4_morador")]
+position = Vector2(540, 132)
+fase = 2
+morador_id = "investidor"
+dialogo = "res://data/dialogos/1979/investidor.json"
+mostrar_nome = true
+
+[node name="Morador_jovem" parent="Moradores" instance=ExtResource("4_morador")]
+position = Vector2(104, 178)
+fase = 2
+morador_id = "jovem"
+dialogo = "res://data/dialogos/1979/jovem.json"
+mostrar_nome = true
+
+[node name="Morador_operario" parent="Moradores" instance=ExtResource("4_morador")]
+position = Vector2(470, 268)
+fase = 2
+morador_id = "operario"
+dialogo = "res://data/dialogos/1979/operario.json"
+mostrar_nome = true
+
+[node name="Provas" type="Node2D" parent="."]
+
+[node name="Prova_1979_mapa_antigo" parent="Provas" instance=ExtResource("6_prova")]
+position = Vector2(92, 132)
+prova_id = "1979_mapa_antigo"
+
+[node name="Prova_1979_documento_posse" parent="Provas" instance=ExtResource("6_prova")]
+position = Vector2(196, 112)
+prova_id = "1979_documento_posse"
+
+[node name="Prova_1979_laudo_lagoa" parent="Provas" instance=ExtResource("6_prova")]
+position = Vector2(36, 372)
+prova_id = "1979_laudo_lagoa"
+
+[node name="Prova_1979_planta_loteamento" parent="Provas" instance=ExtResource("6_prova")]
+position = Vector2(612, 112)
+prova_id = "1979_planta_loteamento"
+
+[node name="FimFase1979" type="Node" parent="."]
+script = ExtResource("7_fim")
+
+[node name="Maquinas" type="Node" parent="."]
+script = ExtResource("10_maq")
+
+[node name="AgendaEventos" type="Node" parent="Maquinas"]
+script = ExtResource("11_agenda")
+
+[node name="HudDialogo" parent="." instance=ExtResource("8_hud")]
+
+[node name="HudLados" type="CanvasLayer" parent="."]
+script = ExtResource("12_lados")
+
+[node name="ListaProvas" parent="." instance=ExtResource("9_lista")]
+fase = 2
+
+[node name="PortalVolta" parent="." instance=ExtResource("3_portal")]
+position = Vector2(318, 384)
+cena_destino = "res://scenes/hub/hub.tscn"
+spawn_destino = "Spawn_Portal1979"
+sempre_aberto = true
+
+[node name="Player" parent="." instance=ExtResource("2_player")]
+position = Vector2(318, 332)

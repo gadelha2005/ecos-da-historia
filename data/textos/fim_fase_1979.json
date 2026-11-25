@@ -1,0 +1,15 @@
+{
+	"fechamento": [
+		{ "falante": "Prof. Augusto, de Direito", "texto": "Os dois lados assinaram. A lagoa e parte da mata ficam preservadas, as casas serão regularizadas e a obra ganha um novo desenho." },
+		{ "falante": "Dona Rita", "texto": "Quarenta anos plantando aqui. Agora tenho papel, e a roça continua." },
+		{ "falante": "Dr. Heitor, engenheiro", "texto": "Vou refazer a planta. Dá mais trabalho, mas a obra sai, e sem briga." },
+		{ "falante": "Iberê, jovem da comunidade", "texto": "A cerca abriu. {nome}, isto é para você: a mata quer que você leve." },
+		{ "falante": "ECO", "texto": "Uma chave com cabeça de folha. {nome}, o eco de 1979 está seguro." }
+	],
+	"chave": "Você recebeu a Chave do Meio Ambiente!",
+	"saber": {
+		"titulo": "Você sabia?",
+		"subtitulo": "Constituinte, 1987",
+		"texto": "Em 1987, o Brasil escrevia uma nova Constituição. A de 1988 garantiu o direito ao meio ambiente ecologicamente equilibrado, a função social da propriedade e os direitos originários dos povos indígenas sobre suas terras, depois do discurso de Ailton Krenak na Constituinte. O episódio deste capítulo é fictício."
+	}
+}

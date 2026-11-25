@@ -1,0 +1,172 @@
+{
+	"inicio": "n1",
+	"dica": "O Zé Carlos só precisa do emprego. Mostre que o acordo pode manter a obra e os empregos, com a planta do loteamento.",
+	"nos": [
+		{
+			"id": "n1",
+			"fala": "Eu não tenho nada contra ninguém. Só preciso do emprego para sustentar meus filhos.",
+			"opcoes": [
+				{
+					"texto": "O seu trabalho é o sustento da sua família. Isso importa.",
+					"tipo": "empatia",
+					"peso": 3,
+					"tensao": -5,
+					"destino": "n2",
+					"confianca_lados": {
+						"empreendimento": 5
+					}
+				},
+				{
+					"texto": "Um acordo pode manter a obra e o seu emprego.",
+					"tipo": "fato",
+					"peso": 2,
+					"tensao": 5,
+					"destino": "n3",
+					"confianca_lados": {
+						"empreendimento": 3
+					}
+				},
+				{
+					"texto": "Seu emprego não é mais importante que a mata.",
+					"tipo": "autoridade",
+					"peso": 0,
+					"tensao": 50,
+					"destino": "n4",
+					"confianca_lados": {
+						"empreendimento": -10
+					}
+				}
+			]
+		},
+		{
+			"id": "n2",
+			"fala": "Se a obra parar, eu volto para casa sem nada.",
+			"opcoes": [
+				{
+					"texto": "Com um novo desenho, a obra continua e ainda pode contratar gente daqui.",
+					"tipo": "fato",
+					"peso": 3,
+					"tensao": -5,
+					"destino": "n5",
+					"confianca_lados": {
+						"empreendimento": 4
+					}
+				},
+				{
+					"texto": "Olhe a planta do loteamento: dá para refazer o traçado e a obra seguir.",
+					"tipo": "provas",
+					"peso": 4,
+					"tensao": -10,
+					"destino": "n5",
+					"confianca_lados": {
+						"empreendimento": 6
+					},
+					"exige_prova": "1979_planta_loteamento"
+				},
+				{
+					"texto": "Ninguém mandou trabalhar nessa obra.",
+					"tipo": "autoridade",
+					"peso": 0,
+					"tensao": 50,
+					"destino": "n4",
+					"confianca_lados": {
+						"empreendimento": -10
+					}
+				}
+			]
+		},
+		{
+			"id": "n3",
+			"fala": "Acordo? Até lá eu já fui demitido.",
+			"opcoes": [
+				{
+					"texto": "Entendo a pressa. Vou levar a sua preocupação para a mesa.",
+					"tipo": "empatia",
+					"peso": 2,
+					"tensao": -5,
+					"destino": "n5",
+					"confianca_lados": {
+						"empreendimento": 4
+					}
+				},
+				{
+					"texto": "Se for demitido, é problema seu.",
+					"tipo": "autoridade",
+					"peso": 0,
+					"tensao": 50,
+					"destino": "n4",
+					"confianca_lados": {
+						"empreendimento": -10
+					}
+				}
+			]
+		},
+		{
+			"id": "n4",
+			"fala": "Vocês só pensam na mata e esquecem quem trabalha.",
+			"opcoes": [
+				{
+					"texto": "Desculpe. Quem trabalha também precisa ser ouvido.",
+					"tipo": "empatia",
+					"peso": 1,
+					"tensao": -10,
+					"destino": "n5",
+					"confianca_lados": {
+						"empreendimento": 2
+					}
+				},
+				{
+					"texto": "Ninguém precisa sair perdendo nesse acordo.",
+					"tipo": "fato",
+					"peso": 1,
+					"tensao": 5,
+					"destino": "n5",
+					"confianca_lados": {
+						"empreendimento": 1
+					}
+				}
+			]
+		},
+		{
+			"id": "n5",
+			"fala": "Se a obra continuar e eu continuar empregado, eu apoio o acordo.",
+			"opcoes": [
+				{
+					"texto": "Vou pedir na mesa empregos para quem é do bairro.",
+					"tipo": "empatia",
+					"peso": 3,
+					"tensao": -10,
+					"destino": "n6",
+					"confianca_lados": {
+						"empreendimento": 5
+					}
+				},
+				{
+					"texto": "Empregos para a gente daqui podem entrar no acordo.",
+					"tipo": "fato",
+					"peso": 2,
+					"tensao": 0,
+					"destino": "n6",
+					"confianca_lados": {
+						"empreendimento": 3
+					}
+				},
+				{
+					"texto": "Apoie e pronto.",
+					"tipo": "autoridade",
+					"peso": 0,
+					"tensao": 50,
+					"destino": "n6",
+					"confianca_lados": {
+						"empreendimento": -10
+					}
+				}
+			]
+		},
+		{
+			"id": "n6",
+			"fala": "Fechado. Agora volte ao Prof. Augusto, debaixo da árvore grande. Todo mundo vai sentar na mesa.",
+			"final": true
+		}
+	]
+}

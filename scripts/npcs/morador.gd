@@ -22,6 +22,13 @@ const NOMES: Dictionary = {
 	"diretor_teatro": "Lúcia, diretora de teatro",
 	"pintor": "Professor Aurélio, pintor",
 	"patrocinador": "Dr. Valdemar, patrocinador",
+	"professor": "Prof. Augusto, de Direito",
+	"dona_rita": "Dona Rita",
+	"seu_raimundo": "Seu Raimundo, pescador",
+	"jovem": "Iberê, jovem da comunidade",
+	"engenheiro": "Dr. Heitor, engenheiro",
+	"investidor": "Sr. Otávio, investidor",
+	"operario": "Zé Carlos, operário",
 }
 
 ## Fala do morador quando a tensão estoura (chega a 100).

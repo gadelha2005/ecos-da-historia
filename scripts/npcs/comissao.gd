@@ -1,10 +1,13 @@
 class_name Comissao
 extends Morador
-## [M9] Comissão da Mostra (1973). Não entra na fila de conversas avaliadas:
+## [M9] Comissão da Mostra (1973). [L10] Também é o professor de Direito que media a mesa de 1979. Não entra na fila de conversas avaliadas:
 ## no começo apresenta o problema (comissao.json, N2.2) e, quando os 5 defensores
 ## estiverem de acordo, pede a planta final (N2.5) pelo sinal planta_pedida.
 
 signal planta_pedida
+
+## Fala de quando todos foram ouvidos e a decisão final começa.
+@export_multiline var fala_final: String = "Todos foram ouvidos. Agora vamos montar a planta da Mostra juntos."
 
 ## A comissão já se apresentou nesta visita à fase (volta a false a cada reinício).
 var apresentou: bool = false
@@ -25,7 +28,7 @@ func interagir(jogador: Player) -> void:
 	jogador.pode_mover = false
 
 	if GameState.todos_concluidos(fase):
-		await _mostrar(["Todos foram ouvidos. Agora vamos montar a planta da Mostra juntos."], nome_de(morador_id))
+		await _mostrar([fala_final], nome_de(morador_id))
 		_conversando = false
 		planta_pedida.emit()
 		return  # quem devolve o movimento é a fase, depois da planta

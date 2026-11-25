@@ -54,6 +54,9 @@ static func _criar_no(item: Dictionary) -> NoDialogo:
 		var sat: Variant = o.get("satisfacao", {})
 		if sat is Dictionary:
 			op.satisfacao = sat
+		var lados: Variant = o.get("confianca_lados", {})
+		if lados is Dictionary:
+			op.confianca_lados = lados
 		no.opcoes.append(op)
 	return no
 

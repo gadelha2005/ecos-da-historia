@@ -9,4 +9,5 @@ enum Tipo { EMPATIA, FATO, AUTORIDADE, PROVAS }
 @export var tensao_delta: int = 0    # quanto a tensão sobe (+) ou desce (-)
 @export var destino: String = ""     # id do próximo nó; vazio = termina
 @export var exige_prova: String = "" # id da prova necessária (vazio = nenhuma)
-@export var satisfacao: Dictionary = {} # [L0] 1973: quanto a opção muda cada grupo, ex.: {"renda": 20}
+@export var satisfacao: Dictionary = {}
+@export var confianca_lados: Dictionary = {} # [L2] 1979: quanto a opção muda cada lado, ex.: {"comunidade": 5} # [L0] 1973: quanto a opção muda cada grupo, ex.: {"renda": 20}

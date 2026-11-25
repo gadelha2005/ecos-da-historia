@@ -10,6 +10,14 @@ signal coletada(prova_id: String)
 const IDS: Array[String] = ["relato_curado", "noticia_jornal", "folheto_campanha", "depoimento_medico"]
 ## [M4] Amostras da fase 1973 (N2.3).
 const IDS_1973: Array[String] = ["1973_renda", "1973_cordel", "1973_mascara", "1973_tela"]
+## [L5] Provas da fase 1979 (N3.2) e o lado que cada uma ajuda.
+const IDS_1979: Array[String] = ["1979_mapa_antigo", "1979_documento_posse", "1979_laudo_lagoa", "1979_planta_loteamento"]
+const LADO: Dictionary = {
+	"1979_mapa_antigo": "comunidade",
+	"1979_documento_posse": "comunidade",
+	"1979_laudo_lagoa": "os dois lados",
+	"1979_planta_loteamento": "empreendimento",
+}
 const NOMES: Dictionary = {
 	"relato_curado": "Relato de alguém curado",
 	"noticia_jornal": "Notícia de jornal",
@@ -19,6 +27,10 @@ const NOMES: Dictionary = {
 	"1973_cordel": "Folheto de cordel",
 	"1973_mascara": "Máscara de teatro",
 	"1973_tela": "Tela a óleo",
+	"1979_mapa_antigo": "Mapa antigo da área",
+	"1979_documento_posse": "Documento de posse",
+	"1979_laudo_lagoa": "Laudo sobre a lagoa",
+	"1979_planta_loteamento": "Planta do loteamento",
 }
 ## Cor provisória de cada amostra de 1973 (até a arte do M7).
 const CORES: Dictionary = {
@@ -26,9 +38,13 @@ const CORES: Dictionary = {
 	"1973_cordel": Color(0.85, 0.75, 0.5),
 	"1973_mascara": Color(0.95, 0.3, 0.6),
 	"1973_tela": Color(0.3, 0.7, 0.9),
+	"1979_mapa_antigo": Color(0.85, 0.75, 0.55),
+	"1979_documento_posse": Color(0.95, 0.95, 0.88),
+	"1979_laudo_lagoa": Color(0.55, 0.8, 0.95),
+	"1979_planta_loteamento": Color(0.6, 0.75, 0.95),
 }
 
-@export_enum("relato_curado", "noticia_jornal", "folheto_campanha", "depoimento_medico", "1973_renda", "1973_cordel", "1973_mascara", "1973_tela") var prova_id: String = "relato_curado"
+@export_enum("relato_curado", "noticia_jornal", "folheto_campanha", "depoimento_medico", "1973_renda", "1973_cordel", "1973_mascara", "1973_tela", "1979_mapa_antigo", "1979_documento_posse", "1979_laudo_lagoa", "1979_planta_loteamento") var prova_id: String = "relato_curado"
 
 var _tempo: float = 0.0
 @onready var visual: Node2D = get_node_or_null("Visual")
@@ -40,7 +56,12 @@ static func nome_de(id: String) -> String:
 
 ## Ids das provas de uma fase (0 = 1904, 1 = 1973).
 static func ids_da_fase(fase: int) -> Array[String]:
-	return IDS_1973 if fase == GameState.FASE_1973 else IDS
+	match fase:
+		GameState.FASE_1973:
+			return IDS_1973
+		GameState.FASE_1979:
+			return IDS_1979
+	return IDS
 
 
 func _ready() -> void:

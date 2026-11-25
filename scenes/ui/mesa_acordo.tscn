@@ -1,0 +1,7 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/mesa_acordo.gd" id="1_mesa"]
+
+[node name="MesaAcordo" type="CanvasLayer"]
+layer = 80
+script = ExtResource("1_mesa")

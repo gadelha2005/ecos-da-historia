@@ -2,6 +2,8 @@ extends Node
 
 signal tensao_mudou(valor: int)
 signal confianca_mudou(valor: int)
+## [L2] 1979: a confiança de um lado (comunidade ou empreendimento) mudou.
+signal confianca_lado_mudou(lado: String, valor: int)
 signal _tecla_escolhida(indice: int)  # uso interno (substituto do menu)
 
 const LIMITE_TENSAO: int = 100
@@ -54,6 +56,8 @@ func iniciar(caminho: String) -> Dictionary:
 		pontos += op.peso
 		_definir_confianca(confianca + op.peso * 5)
 		_definir_tensao(tensao + op.tensao_delta)
+		for lado in op.confianca_lados:
+			mudar_confianca_lado(lado, int(op.confianca_lados[lado]))
 		for grupo in op.satisfacao:
 			satisfacao[grupo] = int(satisfacao.get(grupo, 0)) + int(op.satisfacao[grupo])
 		if tensao >= LIMITE_TENSAO:
@@ -84,6 +88,13 @@ func _montar_opcoes(no: NoDialogo) -> Array[Dictionary]:
 		for o in lista:
 			o["habilitada"] = true
 	return lista
+
+
+## [L2] Soma na confiança de um lado (GameState.confianca_lado, de 0 a 100) e avisa o HUD.
+func mudar_confianca_lado(lado: String, delta: int) -> void:
+	var novo := clampi(int(GameState.confianca_lado.get(lado, 0)) + delta, 0, 100)
+	GameState.confianca_lado[lado] = novo
+	confianca_lado_mudou.emit(lado, novo)
 
 
 func _definir_tensao(valor: int) -> void:
