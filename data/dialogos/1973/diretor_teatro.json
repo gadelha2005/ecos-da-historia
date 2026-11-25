@@ -30,7 +30,7 @@
 					"texto": "Barulho atrapalha. Se quiserem espaço, vão ter que ficar calados.",
 					"tipo": "autoridade",
 					"peso": 0,
-					"tensao": 20,
+					"tensao": 50,
 					"destino": "n4",
 					"satisfacao": {
 						"teatro": -15
@@ -67,7 +67,7 @@
 					"texto": "Amador é amador. Não dá para comparar com o resto.",
 					"tipo": "autoridade",
 					"peso": 0,
-					"tensao": 15,
+					"tensao": 50,
 					"destino": "n4",
 					"satisfacao": {
 						"teatro": -10
@@ -93,7 +93,7 @@
 					"texto": "Isso não é problema da comissão. Vocês que se ajeitem.",
 					"tipo": "autoridade",
 					"peso": 0,
-					"tensao": 15,
+					"tensao": 50,
 					"destino": "n4",
 					"satisfacao": {
 						"teatro": -10
@@ -149,7 +149,7 @@
 					"texto": "Se o pintor quer, o pintor leva. Ele é professor.",
 					"tipo": "autoridade",
 					"peso": 0,
-					"tensao": 15,
+					"tensao": 50,
 					"destino": "n6",
 					"satisfacao": {
 						"teatro": -10

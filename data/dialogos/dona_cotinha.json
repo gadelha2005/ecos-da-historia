@@ -24,7 +24,7 @@
 					"texto": "Chá não é remédio. A vacina é obrigatória.",
 					"tipo": "autoridade",
 					"peso": 0,
-					"tensao": 25,
+					"tensao": 50,
 					"destino": "c4"
 				}
 			]
@@ -52,7 +52,7 @@
 					"texto": "Porque o médico estudou, e a senhora não.",
 					"tipo": "autoridade",
 					"peso": 0,
-					"tensao": 25,
+					"tensao": 50,
 					"destino": "c4"
 				}
 			]
@@ -79,7 +79,7 @@
 					"texto": "Isso é crendice.",
 					"tipo": "autoridade",
 					"peso": 0,
-					"tensao": 25,
+					"tensao": 50,
 					"destino": "c4"
 				}
 			]
@@ -126,7 +126,7 @@
 					"texto": "Depois da vacina, ninguém vai precisar mais de chá.",
 					"tipo": "autoridade",
 					"peso": 0,
-					"tensao": 25,
+					"tensao": 50,
 					"destino": "c6"
 				}
 			]

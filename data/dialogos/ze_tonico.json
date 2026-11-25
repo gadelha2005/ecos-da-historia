@@ -24,7 +24,7 @@
 					"texto": "Pare de espalhar boato. Isso dá problema com a lei.",
 					"tipo": "autoridade",
 					"peso": 0,
-					"tensao": 25,
+					"tensao": 50,
 					"destino": "z4"
 				}
 			]
@@ -52,7 +52,7 @@
 					"texto": "Tropeiro não é médico. Quem sabe disso é o governo.",
 					"tipo": "autoridade",
 					"peso": 0,
-					"tensao": 15,
+					"tensao": 50,
 					"destino": "z4"
 				}
 			]
@@ -79,7 +79,7 @@
 					"texto": "O senhor não precisa entender, só precisa tomar.",
 					"tipo": "autoridade",
 					"peso": 0,
-					"tensao": 20,
+					"tensao": 50,
 					"destino": "z4"
 				}
 			]
@@ -126,7 +126,7 @@
 					"texto": "Diga que espalhar mentira dá cadeia.",
 					"tipo": "autoridade",
 					"peso": 0,
-					"tensao": 25,
+					"tensao": 50,
 					"destino": "z6"
 				}
 			]

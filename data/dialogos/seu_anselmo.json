@@ -24,7 +24,7 @@
 					"texto": "Isso é outro assunto. A vacina é lei.",
 					"tipo": "autoridade",
 					"peso": 0,
-					"tensao": 25,
+					"tensao": 50,
 					"destino": "a4"
 				}
 			]
@@ -52,7 +52,7 @@
 					"texto": "O que passou, passou. A ordem agora é vacinar.",
 					"tipo": "autoridade",
 					"peso": 0,
-					"tensao": 15,
+					"tensao": 50,
 					"destino": "a4"
 				}
 			]
@@ -79,7 +79,7 @@
 					"texto": "Se não vacinar, o senhor vai se ver com os fiscais da saúde.",
 					"tipo": "autoridade",
 					"peso": 0,
-					"tensao": 20,
+					"tensao": 50,
 					"destino": "a4"
 				}
 			]
@@ -126,7 +126,7 @@
 					"texto": "O governo não precisa dar garantia a ninguém.",
 					"tipo": "autoridade",
 					"peso": 0,
-					"tensao": 25,
+					"tensao": 50,
 					"destino": "a6"
 				}
 			]

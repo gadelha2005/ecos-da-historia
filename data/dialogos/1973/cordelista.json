@@ -30,7 +30,7 @@
 					"texto": "A universidade é que diz o que é literatura. O senhor só precisa aceitar.",
 					"tipo": "autoridade",
 					"peso": 0,
-					"tensao": 20,
+					"tensao": 50,
 					"destino": "n4",
 					"satisfacao": {
 						"cordel": -15
@@ -67,7 +67,7 @@
 					"texto": "O corredor é o que sobra. Reclamar não vai mudar isso.",
 					"tipo": "autoridade",
 					"peso": 0,
-					"tensao": 15,
+					"tensao": 50,
 					"destino": "n4",
 					"satisfacao": {
 						"cordel": -10
@@ -93,7 +93,7 @@
 					"texto": "Ninguém precisa declamar. Basta pendurar e pronto.",
 					"tipo": "autoridade",
 					"peso": 0,
-					"tensao": 15,
+					"tensao": 50,
 					"destino": "n4",
 					"satisfacao": {
 						"cordel": -10
@@ -149,7 +149,7 @@
 					"texto": "Isso a comissão resolve. O senhor não tem que se preocupar.",
 					"tipo": "autoridade",
 					"peso": 0,
-					"tensao": 15,
+					"tensao": 50,
 					"destino": "n6",
 					"satisfacao": {
 						"cordel": -10

@@ -30,7 +30,7 @@
 					"texto": "A comissão decide. Se mandarem a senhora expor, a senhora expõe.",
 					"tipo": "autoridade",
 					"peso": 0,
-					"tensao": 20,
+					"tensao": 50,
 					"destino": "n4",
 					"satisfacao": {
 						"renda": -15
@@ -67,7 +67,7 @@
 					"texto": "Não tem por que se sentir de fora. A regra vale para todo mundo.",
 					"tipo": "autoridade",
 					"peso": 0,
-					"tensao": 15,
+					"tensao": 50,
 					"destino": "n4",
 					"satisfacao": {
 						"renda": -10
@@ -93,7 +93,7 @@
 					"texto": "Isso não é problema meu. Cada grupo se vira.",
 					"tipo": "autoridade",
 					"peso": 0,
-					"tensao": 15,
+					"tensao": 50,
 					"destino": "n4",
 					"satisfacao": {
 						"renda": -10
@@ -149,7 +149,7 @@
 					"texto": "Canto pequeno é o que tem. É pegar ou largar.",
 					"tipo": "autoridade",
 					"peso": 0,
-					"tensao": 15,
+					"tensao": 50,
 					"destino": "n6",
 					"satisfacao": {
 						"renda": -10

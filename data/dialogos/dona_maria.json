@@ -24,7 +24,7 @@
 					"texto": "Isso é boato. A vacina é obrigatória.",
 					"tipo": "autoridade",
 					"peso": 0,
-					"tensao": 30,
+					"tensao": 50,
 					"destino": "m4"
 				}
 			]
@@ -79,7 +79,7 @@
 					"texto": "É ordem do governo.",
 					"tipo": "autoridade",
 					"peso": 0,
-					"tensao": 15,
+					"tensao": 50,
 					"destino": "m4"
 				}
 			]
@@ -126,7 +126,7 @@
 					"texto": "Diga que quem não vacinar será multado.",
 					"tipo": "autoridade",
 					"peso": 0,
-					"tensao": 30,
+					"tensao": 50,
 					"destino": "m6"
 				}
 			]

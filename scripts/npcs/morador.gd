@@ -24,6 +24,9 @@ const NOMES: Dictionary = {
 	"patrocinador": "Dr. Valdemar, patrocinador",
 }
 
+## Fala do morador quando a tensão estoura (chega a 100).
+const FALA_TENSAO: String = "Chega! Não quero mais conversa!"
+
 ## Pasta da arte de cada fase (assets/sprites/<pasta>/morador_<id>.tres).
 const PASTA_ARTE: Array[String] = ["fase1904", "fase1973", "fase1979", "fase1982"]
 
@@ -112,9 +115,17 @@ func _conversar() -> void:
 		print("Ainda não existe: ", dialogo)
 		return
 	var resultado: Dictionary = await DialogoManager.iniciar(dialogo)
+	if resultado.get("falhou", false) and DialogoManager.tensao >= DialogoManager.LIMITE_TENSAO:
+		await _tensao_estourou()
 	var aprovado := AvaliadorConversa.avaliar(morador_id, dialogo, resultado, fase)
 	get_tree().call_group("moradores", "atualizar_indicador")
 	conversa_terminou.emit(morador_id, aprovado)
+
+
+## A tensão chegou ao máximo: o morador encerra a conversa irritado e o ECO explica.
+func _tensao_estourou() -> void:
+	await _mostrar([FALA_TENSAO], nome_de(morador_id))
+	await _eco(["A tensão chegou ao limite e a conversa acabou. Respostas autoritárias irritam as pessoas."])
 
 
 func _proximo_da_fila() -> String:

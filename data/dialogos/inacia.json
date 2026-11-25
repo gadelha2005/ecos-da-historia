@@ -24,7 +24,7 @@
 					"texto": "É a lei, a vacina é obrigatória.",
 					"tipo": "autoridade",
 					"peso": 0,
-					"tensao": 20,
+					"tensao": 50,
 					"destino": "n4"
 				}
 			]
@@ -52,7 +52,7 @@
 					"texto": "A ordem é vacinar todo mundo.",
 					"tipo": "autoridade",
 					"peso": 0,
-					"tensao": 15,
+					"tensao": 50,
 					"destino": "n4"
 				}
 			]
@@ -72,7 +72,7 @@
 					"texto": "Quem manda aqui é o governo, e a vacina é obrigatória.",
 					"tipo": "autoridade",
 					"peso": 0,
-					"tensao": 15,
+					"tensao": 50,
 					"destino": "n4"
 				}
 			]
@@ -119,7 +119,7 @@
 					"texto": "Tenho outras casas para visitar.",
 					"tipo": "autoridade",
 					"peso": 0,
-					"tensao": 15,
+					"tensao": 50,
 					"destino": "n6"
 				}
 			]

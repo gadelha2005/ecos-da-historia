@@ -30,7 +30,7 @@
 					"texto": "A comissão não vai dar a sala inteira. É isso e acabou.",
 					"tipo": "autoridade",
 					"peso": 0,
-					"tensao": 20,
+					"tensao": 50,
 					"destino": "n4",
 					"satisfacao": {
 						"pintura": -15
@@ -67,7 +67,7 @@
 					"texto": "Vai ficar do lado, sim. O senhor não manda na Mostra.",
 					"tipo": "autoridade",
 					"peso": 0,
-					"tensao": 15,
+					"tensao": 50,
 					"destino": "n4",
 					"satisfacao": {
 						"pintura": -10
@@ -93,7 +93,7 @@
 					"texto": "Se ficar espremida, paciência. Todo mundo vai ceder.",
 					"tipo": "autoridade",
 					"peso": 0,
-					"tensao": 15,
+					"tensao": 50,
 					"destino": "n4",
 					"satisfacao": {
 						"pintura": -10
@@ -149,7 +149,7 @@
 					"texto": "O patrocinador paga. Se ele quiser a entrada, fica com ela.",
 					"tipo": "autoridade",
 					"peso": 0,
-					"tensao": 15,
+					"tensao": 50,
 					"destino": "n6",
 					"satisfacao": {
 						"pintura": -10

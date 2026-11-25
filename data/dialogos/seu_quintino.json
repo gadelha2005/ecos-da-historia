@@ -24,7 +24,7 @@
 					"texto": "A lei permite entrar nas casas para vacinar.",
 					"tipo": "autoridade",
 					"peso": 0,
-					"tensao": 35,
+					"tensao": 50,
 					"destino": "q4"
 				}
 			]
@@ -52,7 +52,7 @@
 					"texto": "Se o senhor resistir, pode acontecer.",
 					"tipo": "autoridade",
 					"peso": 0,
-					"tensao": 30,
+					"tensao": 50,
 					"destino": "q4"
 				}
 			]
@@ -79,7 +79,7 @@
 					"texto": "Não é questão de aceitar. É a lei e pronto.",
 					"tipo": "autoridade",
 					"peso": 0,
-					"tensao": 30,
+					"tensao": 50,
 					"destino": "q4"
 				}
 			]
@@ -126,7 +126,7 @@
 					"texto": "Quem não tomar vai ser multado, e aí sim vai abaixar a cabeça.",
 					"tipo": "autoridade",
 					"peso": 0,
-					"tensao": 30,
+					"tensao": 50,
 					"destino": "q6"
 				}
 			]
